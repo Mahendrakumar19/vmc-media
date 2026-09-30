@@ -1,0 +1,38 @@
+{
+  "name": "VMC Media - Digital Marketing & SEO",
+  "short_name": "VMC Media",
+  "description": "Full-service digital marketing and SEO partner for Indian businesses",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "192x192",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "512x512",
+      "type": "image/x-icon",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["business", "marketing"],
+  "screenshots": [
+    {
+      "src": "/banner.webp",
+      "sizes": "540x720",
+      "type": "image/webp"
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Premium Light Theme - Clean & Airy with Blue & Green */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 228 81% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 228 65% 36%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 163 65% 50%;
+    --accent-foreground: 228 81% 25%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 163 65% 50%;
+
+    --radius: 0.75rem;
+
+    --chart-1: 228 81% 25%;
+    --chart-2: 163 65% 50%;
+    --chart-3: 228 65% 36%;
+    --chart-4: 210 40% 96%;
+    --chart-5: 215 16% 47%;
+  }
+
+  .dark {
+    /* Premium Dark Theme - Elegant & Modern with Blue & Green */
+    --background: 228 81% 12%;
+    --foreground: 210 40% 98%;
+
+    --card: 228 81% 18%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 228 81% 18%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 163 65% 50%;
+    --primary-foreground: 228 81% 12%;
+
+    --secondary: 228 65% 36%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 228 50% 22%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 163 65% 50%;
+    --accent-foreground: 228 81% 12%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 228 40% 26%;
+    --input: 228 40% 26%;
+    --ring: 163 65% 50%;
+
+    --chart-1: 163 65% 50%;
+    --chart-2: 228 81% 25%;
+    --chart-3: 210 40% 98%;
+    --chart-4: 228 40% 26%;
+    --chart-5: 215 20% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  p {
+    @apply leading-7;
+  }
+}
+
+@layer utilities {
+  /* Responsive consistency utilities */
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Consistent touch targets */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+  }
+
+  /* Responsive text scaling */
+  .text-responsive-xs { @apply text-xs sm:text-sm; }
+  .text-responsive-sm { @apply text-sm sm:text-base; }
+  .text-responsive-base { @apply text-base sm:text-lg; }
+  .text-responsive-lg { @apply text-lg sm:text-xl; }
+  .text-responsive-xl { @apply text-xl sm:text-2xl; }
+  .text-responsive-2xl { @apply text-2xl sm:text-3xl; }
+  .text-responsive-3xl { @apply text-3xl sm:text-4xl lg:text-5xl; }
+
+  /* Premium Animations */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.5s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.6s ease-out forwards;
+  }
+
+  /* Premium Gradients */
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--secondary)) 100%);
+  }
+
+  .bg-gradient-subtle {
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+  }
+
+  .bg-gradient-card {
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted) / 0.3) 100%);
+  }
+
+  /* Premium Shadows */
+  .shadow-premium {
+    box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.08), 0 2px 8px -2px rgba(0, 0, 0, 0.04);
+  }
+
+  .shadow-premium-lg {
+    box-shadow: 0 12px 48px -8px rgba(0, 0, 0, 0.12), 0 4px 16px -4px rgba(0, 0, 0, 0.08);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 24px rgba(138, 92, 246, 0.15);
+  }
+
+  /* Glass Effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}

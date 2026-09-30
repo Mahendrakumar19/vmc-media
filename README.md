@@ -1,0 +1,321 @@
+# VMC Media - Digital Marketing Agency Website
+
+A modern, high-performance marketing agency website built with **Next.js 14**, **TypeScript**, and **Tailwind CSS**. Showcase your digital marketing services, portfolio, and success stories with style.
+
+## 🚀 Features
+
+✅ **Modern Design** - Responsive, beautiful UI with smooth animations  
+✅ **Fast Performance** - Optimized Next.js 14 with App Router  
+✅ **SEO Optimized** - Meta tags, structured data, and sitemap  
+✅ **Portfolio Section** - Showcase your case studies and success stories  
+✅ **Services Pages** - Detailed service descriptions for:
+  - SEO Optimization
+  - Lead Generation
+  - Social Media Marketing
+  - Web Development
+  - E-commerce Marketing
+  - Real Estate Marketing
+  - Hospital/Healthcare Marketing
+  - College/Admission Consultancy
+
+✅ **Contact Forms** - Integrated contact and consultation forms  
+✅ **Dark Mode** - Theme switching with next-themes  
+✅ **Accessibility** - WCAG compliant components  
+✅ **Mobile Responsive** - Perfect on all devices  
+
+## 🛠️ Tech Stack
+
+- **Frontend Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: Radix UI + shadcn/ui
+- **Animations**: Framer Motion
+- **State Management**: TanStack Query v5
+- **Forms**: React Hook Form + Zod validation
+- **Icons**: Lucide React
+- **Theme**: next-themes
+- **CMS Integration**: Strapi (optional)
+
+## 📋 Prerequisites
+
+- Node.js 18.17 or higher
+- npm, yarn, pnpm, or bun package manager
+- Git
+
+## 🔧 Installation
+
+Clone the repository and install dependencies:
+
+```bash
+# Clone the repo
+git clone https://github.com/vivek01kushwah/VMC-Media-Updated.git
+cd VMC-Media-Updated
+
+# Install dependencies
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+## 🚀 Running the Project
+
+### Development Mode
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser. The app auto-reloads on code changes.
+
+### Production Build
+
+```bash
+# Build the project
+npm run build
+
+# Start the production server
+npm start
+```
+
+### Linting
+
+```bash
+npm run lint
+```
+
+## 🌍 Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+# Strapi CMS (if using)
+NEXT_PUBLIC_STRAPI_URL=http://localhost:1337
+NEXT_PUBLIC_STRAPI_API_TOKEN=your_strapi_token
+
+# Site Configuration
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_SITE_NAME=VMC Media
+
+# Optional: Analytics, etc.
+# NEXT_PUBLIC_GA_ID=your_google_analytics_id
+```
+
+## 📁 Project Structure
+
+```
+frontend/
+├── app/                          # Next.js App Router (primary)
+│   ├── layout.tsx               # Root layout & metadata
+│   ├── page.tsx                 # Home page
+│   ├── providers.tsx            # Client-side providers
+│   ├── blog/                    # Blog routes
+│   │   ├── page.tsx             # Blog listing
+│   │   └── [slug]/page.tsx      # Blog detail
+│   ├── portfolio/               # Portfolio routes
+│   │   ├── success-stories/     # Case studies
+│   │   ├── projects/            # Project listing
+│   │   └── [slug]/page.tsx      # Project detail
+│   ├── services/                # Service routes
+│   │   ├── seo/                 # SEO service
+│   │   ├── smm/                 # Social Media
+│   │   ├── web-development/     # Web Dev
+│   │   └── ...
+│   └── contact/, consultation/  # Contact forms
+│
+├── src/
+│   ├── components/              # React components
+│   │   ├── Header.tsx           # Navigation header
+│   │   ├── Footer.tsx           # Footer
+│   │   ├── Hero.tsx             # Hero section
+│   │   ├── Portfolio.tsx        # Portfolio showcase
+│   │   ├── Services.tsx         # Services section
+│   │   ├── animations/          # Animation wrappers
+│   │   └── ui/                  # shadcn/ui components
+│   ├── lib/
+│   │   ├── strapi.ts            # Strapi API client
+│   │   └── utils.ts             # Utility functions
+│   ├── hooks/                   # Custom React hooks
+│   └── pages/                   # Legacy page components
+│
+├── public/                      # Static assets (images, fonts, etc.)
+├── package.json                 # Dependencies
+├── tsconfig.json               # TypeScript config
+├── tailwind.config.ts          # Tailwind CSS config
+├── next.config.js              # Next.js config
+└── README.md                   # This file
+```
+
+## 📄 Key Pages
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Home | `/` | Landing page with hero, services, portfolio |
+| Blog | `/blog` | Blog listing & individual post pages |
+| Portfolio | `/portfolio/success-stories` | Case studies & success stories |
+| Services | `/services/*` | Detailed service pages |
+| Contact | `/contact` | Contact form & information |
+| About | `/pages/about` | About the company |
+| FAQ | `/pages/faq` | Frequently asked questions |
+| Pricing | `/pages/pricing` | Service pricing plans |
+| Team | `/pages/team` | Team members |
+| Careers | `/pages/careers` | Job opportunities |
+
+## 🎨 Customization
+
+### Colors & Styling
+Tailwind CSS is configured in `tailwind.config.ts`. Customize colors, fonts, and spacing there.
+
+### Components
+UI components from shadcn/ui are in `src/components/ui/`. Add new components with:
+```bash
+npx shadcn-ui@latest add [component-name]
+```
+
+### Services & Portfolio
+Edit the data in relevant component files (e.g., `src/components/Portfolio.tsx`, `src/components/Services.tsx`)
+
+## 🔌 CMS Integration (Strapi)
+
+The project is ready for Strapi integration. See `src/lib/strapi.ts` for example API calls.
+
+### Setting Up Strapi
+
+1. Install Strapi backend separately
+2. Create content types in Strapi admin
+3. Add API token to `.env.local`
+4. Use the Strapi client in your pages
+
+Example:
+```tsx
+import { getServices } from '@/lib/strapi'
+
+export default async function ServicesPage() {
+  const services = await getServices()
+  return <div>{/* render services */}</div>
+}
+```
+
+## 📊 Performance Optimizations
+
+- ✅ Image optimization with Next.js Image component
+- ✅ Font optimization with next/font
+- ✅ Code splitting with dynamic imports
+- ✅ Query caching with TanStack Query
+- ✅ SWC minification enabled
+- ✅ Production source maps disabled for performance
+
+## ♿ Accessibility
+
+- ✅ Semantic HTML
+- ✅ ARIA labels on interactive elements
+- ✅ Keyboard navigation support
+- ✅ Radix UI components (accessible by default)
+- ✅ Focus management
+- ✅ Color contrast compliant
+
+## 🐛 Troubleshooting
+
+### Port 3000 already in use
+```bash
+npm run dev -- -p 3001
+```
+
+### Clear cache
+```bash
+rm -rf .next node_modules
+npm install
+npm run dev
+```
+
+### Image not loading
+Check `next.config.js` for image domains configuration. Add external domains if needed:
+```javascript
+images: {
+  domains: ['images.unsplash.com', 'your-domain.com'],
+}
+```
+
+## 📝 Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+```bash
+# Push to GitHub
+git push origin main
+
+# Connect to Vercel via dashboard
+# Auto-deploys on push
+```
+
+### Other Platforms
+
+Build and deploy the `.next` folder to your hosting:
+```bash
+npm run build
+# Deploy the .next folder
+```
+
+## 📄 License
+
+This project is private. All rights reserved.
+
+## 👤 Author
+
+**VMC Media**
+- Website: [vmc-media.com](https://vmc-media.com)
+- GitHub: [@vivek01kushwah](https://github.com/vivek01kushwah)
+
+## 🤝 Support
+
+For issues and questions, please create a GitHub issue or contact the development team.
+
+---
+
+**Made with ❤️ by VMC Media Team**
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push code to GitHub
+2. Import project in Vercel
+3. Set environment variables
+4. Deploy
+
+### Other Platforms
+
+Build the static site:
+
+```bash
+npm run build
+```
+
+Deploy the `.next` folder to your hosting provider.
+
+## Learn More
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [Strapi Documentation](https://docs.strapi.io)
+
+## License
+
+Private - VMC Media
+#   V M C - M e d i a - U p d a t e d 
+ 
+ 
