@@ -34,12 +34,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           
           {/* Company Info */}
-          <div className="space-y-3">
-            <Link href="/" className="inline-block bg-white/95 rounded-xl p-2 shadow-sm hover:opacity-95 transition-opacity">
+          <div className="space-y-4">
+            <Link href="/" className="inline-block bg-white px-3.5 py-2 rounded-xl shadow-md border border-white/20 hover:opacity-95 transition-all">
               <img 
                 src="/logo-vm.png" 
                 alt="VMC Media - Connect · Create · Grow" 
-                className="h-10 w-auto object-contain"
+                className="h-11 w-auto object-contain"
               />
             </Link>
             <p className="text-sm leading-relaxed">
@@ -122,7 +122,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex gap-3 text-sm">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                <span>VMC Media Pvt. Ltd. 701, 7th Floor, Logix City Centre, Sector-32, Noida-201301</span>
+                <span>Regus, Level-5, Tower C, Green Boulevard, Sector-62, Noida, UP, PIN-201301</span>
               </li>
               <li className="flex gap-3 text-sm">
                 <Phone className="w-5 h-5 flex-shrink-0" />

@@ -118,6 +118,14 @@ export default function RootLayout({
                 'https://youtube.com/@vmcmedia',
                 'https://twitter.com/vmcmedia',
               ],
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: 'Regus, Level-5, Tower C, Green Boulevard, Sector-62',
+                addressLocality: 'Noida',
+                addressRegion: 'UP',
+                postalCode: '201301',
+                addressCountry: 'IN',
+              },
               contactPoint: {
                 '@type': 'ContactPoint',
                 contactType: 'Customer Service',

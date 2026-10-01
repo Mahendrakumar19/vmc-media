@@ -64,12 +64,14 @@ const Header = () => {
       <div className="w-full px-4 lg:px-6 relative">
         <div className="max-w-7xl mx-auto flex items-center justify-between h-20">
           {/* Logo */}
-          <NavLink to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity py-1">
-            <img 
-              src="/logo-vm.png" 
-              alt="VMC Media - Connect · Create · Grow" 
-              className="h-14 w-auto object-contain max-h-16"
-            />
+          <NavLink to="/" className="flex items-center gap-2 hover:opacity-95 transition-all py-1 group">
+            <div className="bg-white/90 dark:bg-white/95 px-3 py-1.5 rounded-xl shadow-sm border border-black/5 dark:border-white/20 transition-all duration-300 group-hover:shadow-md group-hover:bg-white">
+              <img 
+                src="/logo-vm.png" 
+                alt="VMC Media - Connect · Create · Grow" 
+                className="h-10 sm:h-11 md:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]" 
+              />
+            </div>
           </NavLink>
 
           {/* Desktop Navigation */}

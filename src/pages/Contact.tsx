@@ -119,8 +119,8 @@ const Contact = () => {
               {
                 icon: MapPin,
                 title: "Visit Us",
-                content: "VMC Media Pvt. Ltd.",
-                subtext: "701,7th Floor, logix city centre, Sector-32, Noida-201301",
+                content: "VMC Media",
+                subtext: "Regus, Level-5, Tower C, Green Boulevard, Sector-62, Noida, UP, PIN-201301",
               },
             ].map((item, index) => (
               <Card
