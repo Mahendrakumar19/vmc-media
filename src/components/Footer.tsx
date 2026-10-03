@@ -30,8 +30,8 @@ const Footer = () => {
   return (
     <footer className="bg-primary dark:bg-gray-900 text-primary-foreground dark:text-gray-300">
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           
           {/* Company Info */}
           <div className="space-y-4">
@@ -62,6 +62,44 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* SaaS Products */}
+          <div className="space-y-2">
+            <h3 className="text-xl font-bold dark:text-white">Products &amp; SaaS</h3>
+            <ul className="space-y-2">
+              <li>
+                <a 
+                  href="https://aiwa.vmcmedia.in" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-sm font-semibold text-[#2cd1a1] hover:text-white transition-colors flex items-center gap-1.5"
+                >
+                  <span>AIWA WhatsApp CRM</span>
+                  <span className="text-[10px] bg-[#2cd1a1]/20 text-[#2cd1a1] px-1.5 py-0.5 rounded font-medium">SaaS</span>
+                </a>
+              </li>
+              <li>
+                <Link href="/products/aiwa" className="text-sm hover:text-white dark:hover:text-white transition-colors">
+                  AIWA Features &amp; Docs
+                </Link>
+              </li>
+              <li>
+                <Link href="/ai-solutions/ai-voicebot" className="text-sm hover:text-white dark:hover:text-white transition-colors">
+                  AI Voicebot (Calling)
+                </Link>
+              </li>
+              <li>
+                <Link href="/ai-solutions/ai-chatbot" className="text-sm hover:text-white dark:hover:text-white transition-colors">
+                  AI Chatbot Automation
+                </Link>
+              </li>
+              <li>
+                <Link href="/ai-solutions/sales-automation" className="text-sm hover:text-white dark:hover:text-white transition-colors">
+                  Pipeline Sales Engine
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           {/* Quick Links */}
           <div className="space-y-2">
             <h3 className="text-xl font-bold dark:text-white">Quick Links</h3>
@@ -72,7 +110,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/pages/about" className="text-sm hover:text-white dark:hover:text-white transition-colors">
+                <Link href="/about" className="text-sm hover:text-white dark:hover:text-white transition-colors">
                   About Us
                 </Link>
               </li>
@@ -105,7 +143,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="/services/google-ads" className="text-sm hover:text-white dark:hover:text-white transition-colors">
-                  Google Ads & PPC
+                  Google Ads &amp; PPC
                 </Link>
               </li>
               <li>
@@ -122,7 +160,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex gap-3 text-sm">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                <span>Regus, Level-5, Tower C, Green Boulevard, Sector-62, Noida, UP, PIN-201301</span>
+                <span>Level-5, Tower C, Green Boulevard, Block C, Sector-62, Noida, Uttar Pradesh, India 201301</span>
               </li>
               <li className="flex gap-3 text-sm">
                 <Phone className="w-5 h-5 flex-shrink-0" />

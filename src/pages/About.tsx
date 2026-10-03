@@ -50,7 +50,7 @@ const About = () => {
       <SEO
         title="About Us | VMC Media - Full-Service Digital Marketing Agency"
         description="Learn about VMC Media, a full-service digital marketing agency with 14+ years of experience delivering results-driven solutions for businesses worldwide."
-        canonical="/pages/about"
+        canonical="/about"
       />
 
       {/* Hero Section */}

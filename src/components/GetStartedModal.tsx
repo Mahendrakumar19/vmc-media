@@ -3,6 +3,7 @@
 import { X } from "lucide-react";
 import { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
+import { useModal } from "@/context/ModalContext";
 import {
   Select,
   SelectContent,
@@ -17,6 +18,7 @@ interface GetStartedModalProps {
 }
 
 const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
+  const { isCanClose } = useModal();
   const [formData, setFormData] = useState({
     fullName: "",
     company: "",
@@ -216,22 +218,25 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
         style={{ margin: 0 }}
       >
         {/* Backdrop click area */}
-        <div className="absolute inset-0" onClick={onClose} />
+        <div className="absolute inset-0" onClick={() => isCanClose && onClose()} />
 
         {/* Modal card */}
         <div
           onClick={(e) => e.stopPropagation()}
-          className="relative w-full max-w-[420px] bg-white rounded-2xl shadow-2xl border border-gray-100"
+          className="relative w-full max-w-[420px] bg-white rounded-2xl shadow-2xl border border-gray-100 max-h-[90vh] overflow-y-auto"
           style={{ willChange: "transform, opacity" }}
         >
-          {/* Close button */}
-          <button
-            onClick={onClose}
-            aria-label="Close modal"
-            className="absolute top-4 right-4 w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors z-10"
-          >
-            <X className="w-5 h-5 text-gray-500" />
-          </button>
+          {/* Close button - Only shown after 2 seconds */}
+          {isCanClose && (
+            <button
+              onClick={onClose}
+              aria-label="Close modal"
+              className="absolute top-4 right-4 w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors z-10"
+            >
+              <X className="w-5 h-5 text-gray-500" />
+            </button>
+          )}
+
 
           {/* Modal content */}
           <div className="p-5">

@@ -1,6 +1,5 @@
-import { AboutPageClient } from "./client"
+import { redirect } from "next/navigation";
 
-export default function AboutPage() {
-  return <AboutPageClient />
+export default function DeprecatedPagesAbout() {
+  redirect("/about");
 }
-

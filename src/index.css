@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Premium Light Theme - Clean & Airy with Blue & Green */
+    /* Premium Light Theme - Clean & Airy with Blue & Logo Teal Green #2cd1a1 */
     --background: 210 40% 98%;
     --foreground: 222 47% 11%;
 
@@ -47,7 +47,7 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Premium Dark Theme - Elegant & Modern with Blue & Green */
+    /* Premium Dark Theme - Elegant & Modern with Blue & Logo Teal Green #2cd1a1 */
     --background: 228 81% 12%;
     --foreground: 210 40% 98%;
 

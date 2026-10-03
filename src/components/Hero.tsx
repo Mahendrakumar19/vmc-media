@@ -35,30 +35,34 @@ const Hero = () => {
           {/* Left Content */}
           <StaggerContainer className="space-y-6 lg:space-y-7">
             <StaggerItem>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2cd1a1]/10 border border-[#2cd1a1]/20 text-[#2cd1a1] text-xs font-semibold uppercase tracking-wider mb-2">
+                <span className="w-2 h-2 rounded-full bg-[#2cd1a1] animate-pulse" />
+                <span>Next-Gen SaaS &amp; Growth AI Ecosystem</span>
+              </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-[1.1] tracking-tight">
-                Digital Growth.{" "}
-                <span className="text-accent block">
-                  Powered by AI.
+                AI WhatsApp CRM &amp;{" "}
+                <span className="bg-gradient-to-r from-[#2cd1a1] via-teal-400 to-primary bg-clip-text text-transparent block">
+                  Autonomous Growth OS.
                 </span>
               </h1>
             </StaggerItem>
 
             <StaggerItem>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                We combine digital marketing, AI chatbots, AI voicebots and lead automation to help businesses attract, engage, qualify and convert more customers.
+                We combine our flagship <strong className="text-foreground">AIWA WhatsApp CRM</strong>, autonomous voice agents, and precision performance marketing to capture, qualify, and convert customers 24/7.
               </p>
             </StaggerItem>
 
-            {/* Social Proof and CTA Button - Side by Side */}
+            {/* Social Proof and CTA Button */}
             <StaggerItem>
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                 {/* Social Proof on Left */}
                 <div className="flex items-center gap-4 p-4 bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 shadow-premium hover:scale-[1.02] transition-transform">
                   <div className="flex -space-x-3">
                     {[1, 2, 3, 4].map((i) => (
                       <div 
                         key={i}
-                        className="w-10 h-10 rounded-full bg-gradient-to-br from-accent/20 to-secondary/20 border-2 border-card flex items-center justify-center text-xs font-bold text-accent"
+                        className="w-10 h-10 rounded-full bg-gradient-to-br from-[#2cd1a1]/20 to-primary/20 border-2 border-card flex items-center justify-center text-xs font-bold text-[#2cd1a1]"
                       >
                         {i}
                       </div>
@@ -68,33 +72,34 @@ const Hero = () => {
                     <div className="flex items-center gap-2 mb-1">
                       <div className="flex gap-0.5">
                         {[1, 2, 3, 4, 5].map((star) => (
-                          <Star key={star} className="w-4 h-4 fill-accent text-accent" />
+                          <Star key={star} className="w-4 h-4 fill-amber-400 text-amber-400" />
                         ))}
                       </div>
-                      <span className="text-sm font-semibold text-foreground">Top Rated</span>
+                      <span className="text-sm font-semibold text-foreground">Top Rated SaaS</span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      <span className="font-semibold text-foreground">Proven Campaigns</span> delivered
+                      <span className="font-semibold text-foreground">100k+ Automated</span> Conversations
                     </p>
                   </div>
                 </div>
 
-                {/* Button on Right */}
-                <div className="flex gap-4 flex-1 sm:flex-none">
+                {/* Subdomain & Demo Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="https://aiwa.vmcmedia.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 bg-[#2cd1a1] hover:bg-[#27b98f] text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 h-12 px-6 text-sm font-semibold rounded-xl"
+                  >
+                    <span>Launch AIWA SaaS</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
                   <Button 
                     size="lg" 
                     onClick={() => setIsModalOpen(true)}
-                    className="flex-1 bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 group h-12 px-6 text-base font-semibold rounded-xl"
+                    className="bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 h-12 px-6 text-sm font-semibold rounded-xl"
                   >
-                    Book an AI Demo
-                  </Button>
-                  <Button 
-                    size="lg" 
-                    variant="outline"
-                    onClick={() => setIsModalOpen(true)}
-                    className="flex-1 bg-transparent border-2 border-primary text-primary hover:bg-primary/10 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 group h-12 px-6 text-base font-semibold rounded-xl"
-                  >
-                    Get a Free Growth Audit
+                    Book AI Demo
                   </Button>
                 </div>
               </div>
@@ -103,26 +108,26 @@ const Hero = () => {
             {/* Stats */}
             <StaggerItem>
               <div className="grid grid-cols-3 gap-4 sm:flex sm:flex-wrap sm:items-center sm:gap-6 lg:gap-8 pt-2">
-              <div>
-                <div className="text-xl sm:text-2xl font-bold text-foreground">Multi-Channel</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">Campaign Reach</div>
+                <div>
+                  <div className="text-xl sm:text-2xl font-bold text-foreground">Sub-100ms</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground">Webhook Latency</div>
+                </div>
+                <div className="hidden sm:block h-12 w-px bg-border" />
+                <div>
+                  <div className="text-xl sm:text-2xl font-bold text-foreground">Meta Cloud</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground">Official Cloud API</div>
+                </div>
+                <div className="hidden sm:block h-12 w-px bg-border" />
+                <div>
+                  <div className="text-xl sm:text-2xl font-bold text-foreground">Multi-LLM</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground">BYOK Architecture</div>
+                </div>
               </div>
-              <div className="hidden sm:block h-12 w-px bg-border" />
-              <div>
-                <div className="text-xl sm:text-2xl font-bold text-foreground">Full-Stack</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">AI + Marketing</div>
-              </div>
-              <div className="hidden sm:block h-12 w-px bg-border" />
-              <div>
-                <div className="text-xl sm:text-2xl font-bold text-foreground">Dedicated</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">Client Partnership</div>
-              </div>
-            </div>
             </StaggerItem>
           </StaggerContainer>
 
           {/* Right Visual */}
-          <ParallaxWrapper offset={30} className="relative lg:pl-8 mt-8 lg:mt-0">
+          <ParallaxWrapper offset={20} className="relative lg:pl-6 mt-12 lg:mt-0">
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -146,7 +151,7 @@ const Hero = () => {
                   <ArrowRight className="w-5 h-5 text-muted-foreground rotate-90 sm:rotate-0" />
                 </div>
                 
-                <div className="bg-primary text-white rounded-xl p-4 border border-primary-foreground/20 shadow-lg ml-0 sm:ml-8 flex flex-col">
+                <div className="bg-primary text-white rounded-xl p-4 border border-primary-foreground/20 shadow-lg ml-0 sm:ml-6 flex flex-col">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                     <span className="text-xs font-semibold">AI Bot Active</span>
@@ -155,7 +160,7 @@ const Hero = () => {
                   <div className="text-xs text-primary-foreground/70 mt-2 text-right">Instant Qualification</div>
                 </div>
 
-                <div className="bg-card rounded-xl p-4 flex items-center justify-between border border-border ml-0 sm:ml-16 shadow-md">
+                <div className="bg-card rounded-xl p-4 flex items-center justify-between border border-border ml-0 sm:ml-12 shadow-md">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
                       <Star className="w-5 h-5 text-secondary" />
@@ -168,28 +173,28 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Floating Stat Card 1 - Simplified animations */}
-              <div className="hidden sm:flex absolute -top-4 sm:-top-6 -left-4 sm:-left-6 bg-card/90 backdrop-blur-md p-3 sm:p-5 rounded-2xl shadow-premium-lg border border-border/50 hover:scale-105 hover:rotate-2 transition-all">
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-accent/20 flex items-center justify-center">
-                    <TrendingUp className="w-5 sm:w-6 h-5 sm:h-6 text-accent" />
+              {/* Floating Stat Card 1 - Positioned safely without clipping */}
+              <div className="hidden md:flex absolute -top-5 -left-5 bg-card/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-premium-lg border border-border/60 hover:scale-105 transition-all z-20">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-[#2cd1a1]/20 flex items-center justify-center">
+                    <TrendingUp className="w-5 h-5 text-[#2cd1a1]" />
                   </div>
                   <div>
-                    <div className="text-xl sm:text-2xl font-bold text-foreground">&lt;5s</div>
-                    <div className="text-[10px] sm:text-xs text-muted-foreground">Speed to Lead</div>
+                    <div className="text-lg font-bold text-foreground">&lt;5s</div>
+                    <div className="text-[11px] text-muted-foreground">Speed to Lead</div>
                   </div>
                 </div>
               </div>
 
-              {/* Floating Stat Card 2 - Simplified animations */}
-              <div className="hidden sm:block absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-card/90 backdrop-blur-md p-3 sm:p-5 rounded-2xl shadow-premium-lg border border-border/50 w-52 sm:w-64 hover:scale-105 hover:-rotate-2 transition-all">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm font-semibold text-foreground">Qualified Leads</span>
-                  <span className="text-xs text-muted-foreground">This Week</span>
+              {/* Floating Stat Card 2 - Positioned safely without clipping */}
+              <div className="hidden md:block absolute -bottom-5 -right-5 bg-card/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-premium-lg border border-border/60 w-52 sm:w-60 hover:scale-105 transition-all z-20">
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="text-xs font-semibold text-foreground">Qualified Leads</span>
+                  <span className="text-[10px] text-muted-foreground">This Week</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-foreground">342</span>
-                  <span className="text-xs font-semibold text-accent flex items-center gap-1">
+                  <span className="text-xl font-bold text-foreground">342</span>
+                  <span className="text-xs font-semibold text-[#2cd1a1] flex items-center gap-1">
                     <ArrowRight className="w-3 h-3 rotate-[-45deg]" />
                     +125%
                   </span>

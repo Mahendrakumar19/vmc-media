@@ -8,6 +8,10 @@ const Header = dynamic(() => import("@/components/Header"), {
   ssr: false,
   loading: () => <div className="h-20" /> 
 })
+const AIWAShowcaseSection = dynamic(() => import("@/components/AIWAShowcaseSection"), { 
+  ssr: false,
+  loading: () => <div className="h-96" /> 
+})
 const ConnectCreateGrow = dynamic(() => import("@/components/ConnectCreateGrow"), { 
   ssr: false,
   loading: () => <div className="h-96" /> 
@@ -51,6 +55,7 @@ export default function HomePage() {
       <Header />
       <Hero />
       <Stats />
+      <AIWAShowcaseSection />
       <ConnectCreateGrow />
       <AIChatbotSection />
       <AIVoicebotSection />
@@ -63,3 +68,4 @@ export default function HomePage() {
     </div>
   )
 }
+

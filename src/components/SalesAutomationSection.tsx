@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, Workflow, Database, CalendarCheck } from "lucide-react";
+import { ArrowRight, Workflow, Database, CalendarCheck, CheckCircle2 } from "lucide-react";
 import { useModal } from "@/context/ModalContext";
 
 const SalesAutomationSection = () => {
@@ -24,9 +24,9 @@ const SalesAutomationSection = () => {
 
         {/* Funnel Visualizer */}
         <div className="relative max-w-5xl mx-auto">
-          {/* Desktop Funnel */}
-          <div className="hidden md:flex justify-between items-center relative">
-            <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-secondary -translate-y-1/2 -z-10" />
+          {/* Desktop Funnel (lg screens and up) */}
+          <div className="hidden lg:flex justify-between items-center relative px-4">
+            <div className="absolute top-1/2 left-8 right-8 h-0.5 bg-gradient-to-r from-primary via-[#2cd1a1] to-secondary -translate-y-1/2 -z-10" />
             
             {[
               { title: "Traffic", subtitle: "SEO & Ads", icon: ArrowRight },
@@ -36,21 +36,21 @@ const SalesAutomationSection = () => {
               { title: "Appointment", subtitle: "Calendar Sync", icon: CalendarCheck },
               { title: "CRM", subtitle: "Data Logged", icon: Database },
               { title: "Sales", subtitle: "Closed Won", icon: CheckCircle2 }
-            ].map((step, index, arr) => (
-              <div key={index} className="flex flex-col items-center group">
-                <div className="w-14 h-14 rounded-full bg-card border-2 border-primary text-primary flex items-center justify-center mb-3 shadow-lg group-hover:scale-110 transition-transform">
-                  <step.icon className="w-6 h-6" />
+            ].map((step, index) => (
+              <div key={index} className="flex flex-col items-center group px-1">
+                <div className="w-12 h-12 rounded-full bg-card border-2 border-primary text-primary flex items-center justify-center mb-2 shadow-md group-hover:scale-110 transition-transform">
+                  <step.icon className="w-5 h-5" />
                 </div>
                 <div className="text-center">
-                  <h4 className="font-bold text-sm text-foreground">{step.title}</h4>
-                  <p className="text-xs text-muted-foreground">{step.subtitle}</p>
+                  <h4 className="font-bold text-xs sm:text-sm text-foreground whitespace-nowrap">{step.title}</h4>
+                  <p className="text-[11px] text-muted-foreground whitespace-nowrap">{step.subtitle}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Mobile Funnel */}
-          <div className="md:hidden space-y-6">
+          {/* Mobile & Tablet Funnel (< lg screens) */}
+          <div className="lg:hidden space-y-4 sm:space-y-6">
             {[
               { title: "Traffic", subtitle: "Targeted SEO & Ads" },
               { title: "Lead", subtitle: "Captured via Form or Chat" },
@@ -85,6 +85,5 @@ const SalesAutomationSection = () => {
   );
 };
 
-// Assuming CheckCircle2 was missed in import, let's fix it by adding it above or mock it:
-import { CheckCircle2 } from "lucide-react";
 export default SalesAutomationSection;
+
