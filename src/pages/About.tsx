@@ -1,27 +1,9 @@
 "use client";
 import SEO from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
-import { Briefcase, Users, TrendingUp, Target, Lightbulb, Award } from "lucide-react";
+import { Target, Lightbulb, Award, TrendingUp } from "lucide-react";
 
 const About = () => {
-  const stats = [
-    {
-      icon: Briefcase,
-      value: "150+",
-      label: "Projects Delivered",
-    },
-    {
-      icon: Users,
-      value: "14+",
-      label: "Years Industry Experience",
-    },
-    {
-      icon: TrendingUp,
-      value: "95%",
-      label: "Client Retention",
-    },
-  ];
-
   const approach = [
     {
       icon: Target,
@@ -71,30 +53,13 @@ const About = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6 lg:px-8 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            {/* Left Side - Images */}
-            <div className="grid grid-cols-2 gap-4 animate-fade-in">
-              <div className="col-span-1">
-                <div className="bg-gradient-to-br from-accent/20 to-secondary/20 rounded-2xl p-8 h-64 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-primary mb-2">14+</div>
-                    <div className="text-sm text-muted-foreground">Years Exp</div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-span-1">
-                <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8 h-64 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-accent text-5xl font-bold mb-2">📊</div>
-                    <div className="text-sm text-muted-foreground font-semibold">Performance Driven</div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-span-2">
-                <div className="bg-gradient-to-r from-accent to-secondary rounded-2xl p-8 text-white">
-                  <div className="text-lg font-bold mb-2">Digital Marketing Expertise</div>
-                  <p className="text-sm text-white/90">Proven strategies across all channels and industries</p>
-                </div>
-              </div>
+            {/* Left Side - Single Feature Image */}
+            <div className="relative animate-fade-in rounded-2xl overflow-hidden shadow-2xl border border-border">
+              <img
+                src="/about-vmc-agency.png"
+                alt="VMC Media Digital Marketing Agency Team & Analytics Workspace"
+                className="w-full h-[400px] object-cover rounded-2xl transform hover:scale-[1.02] transition-transform duration-500"
+              />
             </div>
 
             {/* Right Side - Content */}
@@ -123,27 +88,6 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-r from-accent to-secondary">
-        <div className="container mx-auto px-6 lg:px-8 max-w-7xl">
-          <div className="grid md:grid-cols-3 gap-8">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="text-center text-white animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-5xl font-bold mb-2">{stat.value}</div>
-                <div className="text-white/90">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

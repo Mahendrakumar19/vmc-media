@@ -8,78 +8,78 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Premium Light Theme - Clean & Airy with Blue & Logo Teal Green #2cd1a1 */
+    /* Light Mode - Midnight Navy (Main Dark Blue) & Cobalt Blue (Light Blue Accent) */
     --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    --foreground: 224 70% 12%;       /* Midnight Navy Foreground (#0a142e) */
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 224 70% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 224 70% 12%;
 
-    --primary: 228 81% 25%;
+    --primary: 224 70% 16%;          /* Midnight Navy Primary (#0d1a3a) */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 228 65% 36%;
+    --secondary: 217 91% 56%;        /* Cobalt Blue Light Blue Accent (#2563eb) */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 214 32% 95%;
+    --muted-foreground: 217 19% 45%;
 
-    --accent: 163 65% 50%;
-    --accent-foreground: 228 81% 25%;
+    --accent: 163 65% 50%;           /* Logo Teal Green (#2cd1a1) */
+    --accent-foreground: 224 70% 16%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 163 65% 50%;
+    --border: 214 32% 90%;
+    --input: 214 32% 90%;
+    --ring: 217 91% 56%;             /* Cobalt Blue Focus Ring */
 
     --radius: 0.75rem;
 
-    --chart-1: 228 81% 25%;
-    --chart-2: 163 65% 50%;
-    --chart-3: 228 65% 36%;
+    --chart-1: 224 70% 16%;          /* Midnight Navy */
+    --chart-2: 217 91% 56%;          /* Cobalt Blue */
+    --chart-3: 163 65% 50%;          /* Logo Teal Green */
     --chart-4: 210 40% 96%;
     --chart-5: 215 16% 47%;
   }
 
   .dark {
-    /* Premium Dark Theme - Elegant & Modern with Blue & Logo Teal Green #2cd1a1 */
-    --background: 228 81% 12%;
+    /* Dark Mode - Midnight Navy (Main Dark Blue Surface) & Cobalt Blue (Light Blue Accent) */
+    --background: 224 64% 8%;        /* Deep Midnight Navy (#080e21) */
     --foreground: 210 40% 98%;
 
-    --card: 228 81% 18%;
+    --card: 224 55% 12%;              /* Midnight Navy Card Surface (#0f1731) */
     --card-foreground: 210 40% 98%;
 
-    --popover: 228 81% 18%;
+    --popover: 224 55% 12%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 163 65% 50%;
-    --primary-foreground: 228 81% 12%;
+    --primary: 217 91% 60%;            /* Cobalt Light Blue (#3b82f6) */
+    --primary-foreground: 224 64% 8%;
 
-    --secondary: 228 65% 36%;
+    --secondary: 217 80% 45%;          /* Deep Cobalt Blue (#1d4ed8) */
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 228 50% 22%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 224 45% 16%;              /* Muted Midnight Navy (#141f3e) */
+    --muted-foreground: 215 20% 72%;
 
-    --accent: 163 65% 50%;
-    --accent-foreground: 228 81% 12%;
+    --accent: 163 65% 50%;             /* Logo Teal Green (#2cd1a1) */
+    --accent-foreground: 224 64% 8%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 228 40% 26%;
-    --input: 228 40% 26%;
-    --ring: 163 65% 50%;
+    --border: 224 40% 22%;             /* Midnight Navy Border */
+    --input: 224 40% 22%;
+    --ring: 217 91% 60%;               /* Cobalt Light Blue Focus Ring */
 
-    --chart-1: 163 65% 50%;
-    --chart-2: 228 81% 25%;
-    --chart-3: 210 40% 98%;
-    --chart-4: 228 40% 26%;
+    --chart-1: 217 91% 60%;            /* Cobalt Light Blue */
+    --chart-2: 163 65% 50%;            /* Logo Teal Green */
+    --chart-3: 224 64% 15%;            /* Midnight Navy */
+    --chart-4: 224 40% 26%;
     --chart-5: 215 20% 65%;
   }
 }

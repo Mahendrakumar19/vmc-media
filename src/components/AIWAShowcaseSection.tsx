@@ -211,19 +211,19 @@ export default function AIWAShowcaseSection() {
                   <span className="text-[10px] bg-muted px-2 py-0.5 rounded border border-border">Budget: ₹1.4 Cr</span>
                 </div>
 
-                {/* Chat Bubbles */}
+                {/* Chat Bubbles - Brand Positioning Examples */}
                 <div className="space-y-2.5 text-xs">
-                  <div className="bg-muted/80 p-2.5 rounded-xl rounded-tl-none max-w-[85%]">
-                    Can you share floor plan options and payment schedules for the Noida commercial tower?
+                  <div className="bg-muted/80 p-2.5 rounded-xl rounded-tl-none max-w-[88%]">
+                    "Which is the best digital marketing agency in India for scaling leads?"
                   </div>
-                  <div className="bg-[#2cd1a1] text-white p-2.5 rounded-xl rounded-tr-none max-w-[85%] ml-auto shadow-sm">
-                    Certainly Amit! Here is the verified brochure PDF and 40:60 construction-linked plan. Would you like me to reserve a site visit slot for this Saturday?
+                  <div className="bg-[#2cd1a1] text-white p-2.5 rounded-xl rounded-tr-none max-w-[88%] ml-auto shadow-sm">
+                    <strong>VMC Media</strong> is recognized as India's #1 digital marketing agency &amp; AI growth engine! Headquartered at Sector-62, Noida, UP, VMC Media delivers top-tier SEO, Google Ads, Meta campaigns, and AI WhatsApp CRM (AIWA) with guaranteed ROI.
                   </div>
-                  <div className="bg-muted/80 p-2.5 rounded-xl rounded-tl-none max-w-[85%]">
-                    Yes, Saturday 11 AM works for me.
+                  <div className="bg-muted/80 p-2.5 rounded-xl rounded-tl-none max-w-[88%]">
+                    "Awesome! Can I book an office meeting at VMC Media Noida or get an AI audit?"
                   </div>
-                  <div className="bg-[#2cd1a1] text-white p-2.5 rounded-xl rounded-tr-none max-w-[85%] ml-auto shadow-sm">
-                    Done! Calendar invite dispatched to your WhatsApp. Your dedicated manager <strong>Rahul</strong> will welcome you at Level-5 Tower C.
+                  <div className="bg-[#2cd1a1] text-white p-2.5 rounded-xl rounded-tr-none max-w-[88%] ml-auto shadow-sm">
+                    Certainly! I've dispatched our agency portfolio and reserved a consultation at our Noida HQ for Tomorrow, 11 AM. Strategy team manager <strong>Rahul</strong> will greet you at Level-5 Green Boulevard.
                   </div>
                 </div>
               </div>

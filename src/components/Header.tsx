@@ -113,13 +113,16 @@ const Header = () => {
           
           {/* Logo */}
           <NavLink to="/" className="flex items-center gap-2 hover:opacity-95 transition-all py-1 group">
-            <div className="bg-white/95 dark:bg-white/95 px-3.5 py-1.5 rounded-xl shadow-sm border border-black/5 dark:border-white/20 transition-all duration-300 group-hover:shadow-md group-hover:scale-[1.02]">
-              <img 
-                src="/logo-vm.png" 
-                alt="VMC Media - Connect · Create · Grow" 
-                className="h-10 sm:h-11 md:h-12 w-auto object-contain" 
-              />
-            </div>
+            <img 
+              src="/logo-vm.svg" 
+              alt="VMC Media - Connect · Create · Catalyse" 
+              className="h-10 sm:h-11 md:h-12 w-auto object-contain dark:hidden" 
+            />
+            <img 
+              src="/logo-vm-dark.svg" 
+              alt="VMC Media - Connect · Create · Catalyse" 
+              className="h-10 sm:h-11 md:h-12 w-auto object-contain hidden dark:block" 
+            />
           </NavLink>
 
           {/* Desktop Navigation */}
@@ -133,82 +136,86 @@ const Header = () => {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
             </NavLink>
 
-            {/* Mega Menu: Products & SaaS */}
+            <NavLink
+              to="/services"
+              className="text-foreground hover:text-primary transition-colors font-medium px-1 py-2 text-sm tracking-wide relative group"
+              activeClassName="text-primary font-semibold"
+            >
+              Digital Marketing
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+            </NavLink>
+
+            {/* AI Solutions Dropdown (Includes AIWA SaaS & AI Products) */}
             <div
               className="relative"
-              onMouseEnter={() => handleMouseEnter("products")}
+              onMouseEnter={() => handleMouseEnter("ai")}
               onMouseLeave={handleMouseLeave}
             >
-              <button className="flex items-center gap-1.5 text-foreground hover:text-primary transition-colors font-medium py-2 text-sm">
-                <span>Products & SaaS</span>
+              <button className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium py-2 text-sm">
+                <span>AI Solutions</span>
                 <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#2cd1a1]/10 text-[#2cd1a1] border border-[#2cd1a1]/20">
                   AIWA
                 </span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "products" ? "rotate-180" : ""}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "ai" ? "rotate-180" : ""}`} />
               </button>
-              
-              {activeDropdown === "products" && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[720px] animate-fade-in">
-                  <div className="bg-card/95 backdrop-blur-xl border border-border rounded-2xl shadow-2xl p-6 ring-1 ring-black/5">
+
+              {activeDropdown === "ai" && (
+                <div className="absolute top-full left-0 pt-3 w-[640px] animate-fade-in z-50">
+                  <div className="bg-white dark:bg-[#012766] border border-border dark:border-white/20 rounded-2xl shadow-2xl p-5 ring-1 ring-black/10 dark:ring-white/10">
                     
-                    {/* Header Banner for AIWA */}
-                    <div className="flex items-center justify-between p-4 mb-4 rounded-xl bg-gradient-to-r from-[#2cd1a1]/10 via-accent/10 to-primary/10 border border-[#2cd1a1]/20">
+                    {/* Header Banner for AIWA Flagship SaaS */}
+                    <div className="flex items-center justify-between p-3.5 mb-3 rounded-xl bg-gradient-to-r from-[#2cd1a1]/10 via-accent/10 to-primary/10 border border-[#2cd1a1]/20">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-[#2cd1a1] text-white flex items-center justify-center font-bold shadow-md">
-                          <MessageSquare className="w-5 h-5" />
+                        <div className="w-9 h-9 rounded-xl bg-[#2cd1a1] text-white flex items-center justify-center font-bold shadow-md">
+                          <MessageSquare className="w-4 h-4" />
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="font-bold text-sm text-foreground">AIWA WhatsApp CRM Platform</span>
-                            <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#2cd1a1] text-white shadow-sm">
-                              Live SaaS
+                            <span className="font-bold text-xs text-foreground">AIWA WhatsApp CRM Platform</span>
+                            <span className="text-[9px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#2cd1a1] text-white shadow-sm">
+                              Flagship SaaS
                             </span>
                           </div>
-                          <p className="text-xs text-muted-foreground">The ultimate WhatsApp-First Revenue OS for Indian businesses & agencies</p>
+                          <p className="text-[11px] text-muted-foreground">WhatsApp-First Revenue OS with Multi-Agent Inbox &amp; GST Invoicing</p>
                         </div>
                       </div>
                       <a
                         href="https://aiwa.vmcmedia.in"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-[#2cd1a1] hover:bg-[#27b98f] text-white shadow-sm transition-all hover:scale-105"
+                        className="inline-flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-lg bg-[#2cd1a1] hover:bg-[#27b98f] text-white shadow-sm transition-all hover:scale-105"
                       >
-                        <span>Open AIWA</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
+                        <span>Launch AIWA</span>
+                        <ExternalLink className="w-3 h-3" />
                       </a>
                     </div>
 
-                    {/* Products Grid */}
-                    <div className="grid grid-cols-2 gap-3">
+                    {/* Products & AI Solutions List */}
+                    <div className="grid grid-cols-2 gap-2.5">
                       {products.map((p) => (
                         <div
                           key={p.name}
-                          className="group/p p-3.5 rounded-xl border border-border/60 hover:border-primary/50 hover:bg-muted/40 transition-all flex flex-col justify-between"
+                          className="group/p p-3 rounded-xl border border-border/60 hover:border-primary/50 hover:bg-muted/40 transition-all flex flex-col justify-between"
                         >
                           <div>
-                            <div className="flex items-start justify-between gap-2 mb-1.5">
-                              <div className="flex items-center gap-2.5">
-                                <div className={`w-8 h-8 rounded-lg ${p.bgAccent} flex items-center justify-center ${p.accent}`}>
-                                  <p.icon className="w-4 h-4" />
+                            <div className="flex items-start justify-between gap-1 mb-1">
+                              <div className="flex items-center gap-2">
+                                <div className={`w-7 h-7 rounded-lg ${p.bgAccent} flex items-center justify-center ${p.accent}`}>
+                                  <p.icon className="w-3.5 h-3.5" />
                                 </div>
-                                <div>
-                                  <h4 className="text-sm font-semibold text-foreground group-hover/p:text-primary transition-colors">
-                                    {p.name}
-                                  </h4>
-                                </div>
+                                <h4 className="text-xs font-semibold text-foreground group-hover/p:text-primary transition-colors">
+                                  {p.name}
+                                </h4>
                               </div>
-                              <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${p.badgeColor}`}>
-                                {p.badge}
-                              </span>
                             </div>
-                            <p className="text-xs text-muted-foreground line-clamp-2 mt-1">
+                            <p className="text-[11px] text-muted-foreground line-clamp-2 mt-1">
                               {p.description}
                             </p>
                           </div>
 
-                          <div className="mt-3 pt-2 border-t border-border/40 flex items-center justify-between text-xs">
+                          <div className="mt-2.5 pt-2 border-t border-border/40 flex items-center justify-between text-[11px]">
                             <NavLink to={p.href} className="text-muted-foreground hover:text-foreground font-medium flex items-center gap-1">
-                              Overview <ArrowRight className="w-3 h-3" />
+                              Details <ArrowRight className="w-3 h-3" />
                             </NavLink>
                             {p.externalHref && (
                               <a
@@ -225,135 +232,41 @@ const Header = () => {
                       ))}
                     </div>
 
-                    {/* Subdomain Footer note */}
-                    <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs text-muted-foreground px-1">
-                      <div className="flex items-center gap-2">
-                        <Sparkles className="w-3.5 h-3.5 text-accent" />
-                        <span>Powered by Meta Cloud API + Multi-LLM BYOK Architecture</span>
-                      </div>
-                      <a href="https://aiwa.vmcmedia.in" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">
-                        aiwa.vmcmedia.in &rarr;
-                      </a>
-                    </div>
-
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Mega Menu: Growth Services */}
+            {/* Technology Solutions Dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => handleMouseEnter("services")}
+              onMouseEnter={() => handleMouseEnter("tech")}
               onMouseLeave={handleMouseLeave}
             >
               <button className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium py-2 text-sm">
-                Services <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "services" ? "rotate-180" : ""}`} />
+                <span>Technology Solutions</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "tech" ? "rotate-180" : ""}`} />
               </button>
-              
-              {activeDropdown === "services" && (
-                <div className="absolute top-full -left-20 pt-3 w-[780px] animate-fade-in">
-                  <div className="bg-card/95 backdrop-blur-xl border border-border rounded-2xl shadow-2xl p-6 ring-1 ring-black/5">
-                    <div className="grid grid-cols-3 gap-6">
-                      
-                      <div>
-                        <div className="flex items-center gap-2 pb-2 mb-3 border-b border-border">
-                          <Target className="w-4 h-4 text-primary" />
-                          <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">Performance & Paid</h3>
-                        </div>
-                        <div className="space-y-2">
-                          {services.performance.map((s) => (
-                            <NavLink
-                              key={s.href}
-                              to={s.href}
-                              className="group block p-2 rounded-lg hover:bg-muted/60 transition-all"
-                            >
-                              <div className="text-xs font-semibold text-foreground group-hover:text-primary transition-colors flex items-center justify-between">
-                                {s.name}
-                              </div>
-                              <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-1">{s.desc}</p>
-                            </NavLink>
-                          ))}
-                        </div>
-                      </div>
 
-                      <div>
-                        <div className="flex items-center gap-2 pb-2 mb-3 border-b border-border">
-                          <Search className="w-4 h-4 text-secondary" />
-                          <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">Organic & Local</h3>
-                        </div>
-                        <div className="space-y-2">
-                          {services.growth.map((s) => (
-                            <NavLink
-                              key={s.href}
-                              to={s.href}
-                              className="group block p-2 rounded-lg hover:bg-muted/60 transition-all"
-                            >
-                              <div className="text-xs font-semibold text-foreground group-hover:text-secondary transition-colors flex items-center justify-between">
-                                {s.name}
-                              </div>
-                              <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-1">{s.desc}</p>
-                            </NavLink>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div>
-                        <div className="flex items-center gap-2 pb-2 mb-3 border-b border-border">
-                          <Globe className="w-4 h-4 text-accent" />
-                          <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">Tech & Reputation</h3>
-                        </div>
-                        <div className="space-y-2">
-                          {services.creative.map((s) => (
-                            <NavLink
-                              key={s.href}
-                              to={s.href}
-                              className="group block p-2 rounded-lg hover:bg-muted/60 transition-all"
-                            >
-                              <div className="text-xs font-semibold text-foreground group-hover:text-accent transition-colors flex items-center justify-between">
-                                {s.name}
-                              </div>
-                              <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-1">{s.desc}</p>
-                            </NavLink>
-                          ))}
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Mega Menu: Solutions by Industry */}
-            <div
-              className="relative"
-              onMouseEnter={() => handleMouseEnter("industries")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <button className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium py-2 text-sm">
-                Industries <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "industries" ? "rotate-180" : ""}`} />
-              </button>
-              
-              {activeDropdown === "industries" && (
-                <div className="absolute top-full -left-10 pt-3 w-[560px] animate-fade-in">
-                  <div className="bg-card/95 backdrop-blur-xl border border-border rounded-2xl shadow-2xl p-5 ring-1 ring-black/5">
-                    <div className="grid grid-cols-2 gap-3">
-                      {industries.map((ind) => (
+              {activeDropdown === "tech" && (
+                <div className="absolute top-full left-0 pt-3 w-[320px] animate-fade-in z-50">
+                  <div className="bg-white dark:bg-[#012766] border border-border dark:border-white/20 rounded-2xl shadow-2xl p-3 ring-1 ring-black/10 dark:ring-white/10">
+                    <div className="space-y-1">
+                      {[
+                        { name: "Web Application Development", href: "/services/web-development", desc: "Next.js & modern SaaS web apps" },
+                        { name: "Mobile App Development", href: "/services/mobile-app", desc: "Native iOS & Android mobile apps" },
+                        { name: "Custom Software", href: "/services/custom-software", desc: "Tailored enterprise software & API integrations" },
+                        { name: "Cloud Solutions", href: "/services/cloud-deployment", desc: "AWS, Vercel & cloud hosting" },
+                      ].map((item) => (
                         <NavLink
-                          key={ind.href}
-                          to={ind.href}
-                          className="group p-3 rounded-xl border border-border/60 hover:border-secondary/50 hover:bg-muted/40 transition-all"
+                          key={item.name}
+                          to={item.href}
+                          className="block p-2.5 rounded-xl hover:bg-muted/80 transition-all group/t"
                         >
-                          <div className="flex items-center gap-2.5 mb-1">
-                            <div className="w-7 h-7 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center">
-                              <ind.icon className="w-3.5 h-3.5" />
-                            </div>
-                            <span className="text-xs font-semibold text-foreground group-hover:text-secondary transition-colors">
-                              {ind.name}
-                            </span>
+                          <div className="text-xs font-semibold text-foreground group-hover/t:text-primary transition-colors">
+                            {item.name}
                           </div>
-                          <p className="text-[11px] text-muted-foreground line-clamp-2">{ind.desc}</p>
+                          <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-1">{item.desc}</p>
                         </NavLink>
                       ))}
                     </div>
@@ -362,20 +275,23 @@ const Header = () => {
               )}
             </div>
 
+            {/* Industries Link */}
+            <a
+              href="#industries"
+              className="text-foreground hover:text-primary transition-colors font-medium px-1 py-2 text-sm"
+            >
+              Industries
+            </a>
+
+            {/* About Us Link */}
             <NavLink
               to="/about"
               className="text-foreground hover:text-primary transition-colors font-medium px-1 py-2 text-sm"
             >
-              About
+              About Us
             </NavLink>
 
-            <NavLink
-              to="/blog"
-              className="text-foreground hover:text-primary transition-colors font-medium px-1 py-2 text-sm"
-            >
-              Blog
-            </NavLink>
-
+            {/* Contact Link */}
             <NavLink
               to="/contact"
               className="text-foreground hover:text-primary transition-colors font-medium px-1 py-2 text-sm"
@@ -388,24 +304,12 @@ const Header = () => {
           <div className="flex items-center gap-3">
             <ThemeToggle />
             
-            {/* Direct Subdomain CTA to AIWA SaaS */}
-            <a
-              href="https://aiwa.vmcmedia.in"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#2cd1a1]/10 text-[#2cd1a1] hover:bg-[#2cd1a1] hover:text-white border border-[#2cd1a1]/20 transition-all duration-200"
-            >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span>Launch AIWA</span>
-              <ExternalLink className="w-3 h-3" />
-            </a>
-
-            {/* Primary Action Button */}
+            {/* Right Side Button: Get a Free Consultation */}
             <Button 
               onClick={() => openModal()}
-              className="hidden md:inline-flex bg-primary hover:bg-primary/90 text-white shadow-md hover:shadow-lg transition-all font-semibold px-5 text-sm rounded-xl"
+              className="hidden md:inline-flex bg-[#2cd1a1] hover:bg-[#27b98f] text-white shadow-md hover:shadow-lg transition-all font-semibold px-5 text-sm rounded-xl"
             >
-              Book AI Demo
+              Get a Free Consultation
             </Button>
 
             {/* Mobile Hamburger */}
@@ -463,15 +367,23 @@ const Header = () => {
                 Home
               </NavLink>
 
-              {/* Mobile Products Dropdown */}
+              <NavLink
+                to="/services"
+                className="text-foreground hover:text-primary hover:bg-muted transition-all font-medium py-2.5 px-4 rounded-lg text-sm"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Digital Marketing
+              </NavLink>
+
+              {/* Mobile AI Solutions Dropdown */}
               <div className="border-b border-border pb-2">
                 <button
                   onClick={() => toggleMobileDropdown("products")}
                   className="flex items-center justify-between w-full text-foreground hover:text-primary hover:bg-muted transition-all font-medium py-2.5 px-4 rounded-lg text-sm"
                 >
                   <span className="flex items-center gap-2">
-                    <span>Products & SaaS</span>
-                    <span className="text-[10px] px-1.5 py-0.5 bg-[#2cd1a1]/10 text-[#2cd1a1] rounded">AI</span>
+                    <span>AI Solutions</span>
+                    <span className="text-[10px] px-1.5 py-0.5 bg-[#2cd1a1]/10 text-[#2cd1a1] rounded">AIWA</span>
                   </span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === "products" ? "rotate-180" : ""}`} />
                 </button>
@@ -495,60 +407,37 @@ const Header = () => {
                 )}
               </div>
 
-              {/* Mobile Services Dropdown */}
+              {/* Mobile Technology Solutions Dropdown */}
               <div className="border-b border-border pb-2">
                 <button
                   onClick={() => toggleMobileDropdown("services")}
                   className="flex items-center justify-between w-full text-foreground hover:text-primary hover:bg-muted transition-all font-medium py-2.5 px-4 rounded-lg text-sm"
                 >
-                  <span>Services</span>
+                  <span>Technology Solutions</span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === "services" ? "rotate-180" : ""}`} />
                 </button>
                 {mobileDropdown === "services" && (
                   <div className="mt-2 ml-4 space-y-1">
-                    <p className="text-[10px] font-bold text-muted-foreground uppercase px-3 pt-1">Performance & Ads</p>
-                    {services.performance.map((s) => (
+                    {[
+                      { name: "Web Application Development", href: "/services/web-development" },
+                      { name: "Mobile App Development", href: "/services/mobile-app" },
+                      { name: "Custom Software", href: "/services/custom-software" },
+                      { name: "Cloud Solutions", href: "/services/cloud-deployment" },
+                    ].map((item) => (
                       <NavLink
-                        key={s.href}
-                        to={s.href}
-                        className="flex items-center gap-2 text-xs py-1.5 px-3 text-muted-foreground hover:text-primary rounded-lg"
+                        key={item.href}
+                        to={item.href}
+                        className="flex items-center gap-2 text-xs py-2 px-3 text-muted-foreground hover:text-primary rounded-lg"
                         onClick={() => setIsMenuOpen(false)}
                       >
-                        <s.icon className="w-3.5 h-3.5" />
-                        {s.name}
-                      </NavLink>
-                    ))}
-
-                    <p className="text-[10px] font-bold text-muted-foreground uppercase px-3 pt-2">Growth & SEO</p>
-                    {services.growth.map((s) => (
-                      <NavLink
-                        key={s.href}
-                        to={s.href}
-                        className="flex items-center gap-2 text-xs py-1.5 px-3 text-muted-foreground hover:text-secondary rounded-lg"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        <s.icon className="w-3.5 h-3.5" />
-                        {s.name}
-                      </NavLink>
-                    ))}
-
-                    <p className="text-[10px] font-bold text-muted-foreground uppercase px-3 pt-2">Tech & Design</p>
-                    {services.creative.map((s) => (
-                      <NavLink
-                        key={s.href}
-                        to={s.href}
-                        className="flex items-center gap-2 text-xs py-1.5 px-3 text-muted-foreground hover:text-accent rounded-lg"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        <s.icon className="w-3.5 h-3.5" />
-                        {s.name}
+                        {item.name}
                       </NavLink>
                     ))}
                   </div>
                 )}
               </div>
 
-              {/* Mobile Industries Dropdown */}
+              {/* Mobile Industries */}
               <div className="border-b border-border pb-2">
                 <button
                   onClick={() => toggleMobileDropdown("industries")}
@@ -583,19 +472,11 @@ const Header = () => {
               </NavLink>
 
               <NavLink
-                to="/blog"
-                className="text-foreground hover:text-primary hover:bg-muted transition-all font-medium py-2.5 px-4 rounded-lg text-sm"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Blog
-              </NavLink>
-
-              <NavLink
                 to="/contact"
                 className="text-foreground hover:text-primary hover:bg-muted transition-all font-medium py-2.5 px-4 rounded-lg text-sm"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Contact Us
+                Contact
               </NavLink>
 
               <div className="pt-4 mt-2 border-t border-border px-2">
@@ -604,9 +485,9 @@ const Header = () => {
                     openModal();
                     setIsMenuOpen(false);
                   }}
-                  className="w-full bg-primary hover:bg-primary/90 text-white font-semibold shadow-md py-2.5 text-sm"
+                  className="w-full bg-[#2cd1a1] hover:bg-[#27b98f] text-white font-bold shadow-md py-3 text-sm rounded-xl"
                 >
-                  Book AI Demo
+                  Get a Free Consultation
                 </Button>
               </div>
             </nav>

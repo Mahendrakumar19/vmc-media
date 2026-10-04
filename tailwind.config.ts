@@ -41,7 +41,12 @@ export default {
         },
         brand: {
           green: "#2cd1a1",
-          navy: "#0c2175",
+          primaryNavy: "#073D7B",
+          darkNavy: "#012766",
+          lightBg: "#F5F7F9",
+          navy: "#073D7B",
+          cobalt: "#3b82f6",
+          cobaltDark: "#2563eb",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",

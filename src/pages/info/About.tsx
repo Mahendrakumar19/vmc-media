@@ -1,27 +1,9 @@
 import SEO from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import { Briefcase, Users, TrendingUp, Target, Lightbulb, Award } from "lucide-react";
+import { Users, TrendingUp, Target, Lightbulb, Award } from "lucide-react";
 
 const About = () => {
-  const stats = [
-    {
-      icon: Briefcase,
-      value: "150+",
-      label: "Projects Delivered",
-    },
-    {
-      icon: Users,
-      value: "14+",
-      label: "Years Industry Experience",
-    },
-    {
-      icon: TrendingUp,
-      value: "95%",
-      label: "Client Retention",
-    },
-  ];
-
   const approach = [
     {
       icon: Target,
@@ -71,54 +53,16 @@ const About = () => {
       <section className="py-8 bg-background">
         <div className="container mx-auto px-6 lg:px-8 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-6 items-center mb-8">
-            {/* Left Side - Images */}
-            <div className="relative animate-fade-in max-w-xl mx-auto lg:mx-0">
-              <div className="grid grid-cols-2 gap-3">
-                {/* Main Large Image */}
-                <div className="col-span-2 relative z-10 rounded-2xl overflow-hidden">
-                  <Image
-                    src="/about-top.webp"
-                    alt="Team collaboration"
-                    width={600}
-                    height={240}
-                    priority
-                    className="w-full h-[240px] object-cover rounded-2xl"
-                  />
-                  {/* Stats Badge */}
-                  <div className="absolute bottom-4 left-4 bg-card p-3 rounded-xl shadow-xl border border-border">
-                    <div className="text-center">
-                      <p className="text-2xl font-bold text-primary mb-1">14+</p>
-                      <p className="text-xs text-muted-foreground">Years Exp</p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Two Smaller Images Below */}
-                <div className="relative rounded-xl overflow-hidden">
-                  <Image
-                    src="/about-vmc-down.webp"
-                    alt="Team meeting"
-                    width={280}
-                    height={140}
-                    priority
-                    className="w-full h-[140px] object-cover rounded-xl"
-                  />
-                </div>
-                <div className="relative rounded-xl overflow-hidden">
-                  <Image
-                    src="/brand.webp"
-                    alt="Performance Driven"
-                    width={280}
-                    height={140}
-                    priority
-                    className="w-full h-[140px] object-cover rounded-xl"
-                  />
-                </div>
-              </div>
-              
-              {/* Decorative Elements */}
-              <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-accent/20 rounded-3xl -z-10" />
-              <div className="absolute -top-6 -left-6 w-32 h-32 bg-secondary/20 rounded-3xl -z-10" />
+            {/* Left Side - Single Feature Image */}
+            <div className="relative animate-fade-in rounded-2xl overflow-hidden shadow-2xl border border-border">
+              <Image
+                src="/about-vmc-agency.png"
+                alt="VMC Media Digital Marketing Workspace & Analytics"
+                width={600}
+                height={400}
+                priority
+                className="w-full h-[400px] object-cover rounded-2xl transform hover:scale-[1.02] transition-transform duration-500"
+              />
             </div>
 
             {/* Right Side - Content */}
@@ -147,27 +91,6 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-8 bg-gradient-to-r from-accent to-secondary">
-        <div className="container mx-auto px-6 lg:px-8 max-w-7xl">
-          <div className="grid md:grid-cols-3 gap-8">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="text-center text-white animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-5xl font-bold mb-2">{stat.value}</div>
-                <div className="text-white/90">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

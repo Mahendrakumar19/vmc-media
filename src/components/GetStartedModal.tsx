@@ -242,7 +242,7 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
           <div className="p-5">
             {/* Header */}
             <div className="text-center mb-4">
-              <h2 className="text-xl font-bold text-gray-900 mb-1">Request a Free Audit</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-1">Get a Free Consultation</h2>
               <p className="text-[11px] text-gray-500">
                 Fill out the form and we will reach out via email or WhatsApp within 24 hours.
               </p>
