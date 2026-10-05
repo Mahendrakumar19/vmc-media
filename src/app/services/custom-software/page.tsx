@@ -36,7 +36,7 @@ export default function CustomSoftwarePage() {
             href="#contact"
             className="inline-flex items-center gap-2 bg-[#2cd1a1] hover:bg-[#27b98f] text-white font-bold px-8 py-4 rounded-xl text-base shadow-lg transition-all"
           >
-            <span>Request Technical Audit</span>
+            <span>Get Free Growth Assessment</span>
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>

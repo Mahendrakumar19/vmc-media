@@ -234,7 +234,7 @@ const Contact = () => {
                     disabled={isSubmitting}
                     className="w-full h-10 rounded-lg bg-accent hover:bg-accent/90 text-accent-foreground text-sm font-semibold shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {isSubmitting ? "Sending..." : "Request Audit"}
+                    {isSubmitting ? "Sending..." : "Get Free Growth Assessment"}
                   </Button>
                   <p className="text-[10px] text-center text-gray-500 pt-1">
                     By submitting, you agree to our privacy policy

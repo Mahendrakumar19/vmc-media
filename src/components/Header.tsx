@@ -309,7 +309,7 @@ const Header = () => {
               onClick={() => openModal()}
               className="hidden md:inline-flex bg-[#2cd1a1] hover:bg-[#27b98f] text-white shadow-md hover:shadow-lg transition-all font-semibold px-5 text-sm rounded-xl"
             >
-              Get a Free Consultation
+              Get Free Consultation
             </Button>
 
             {/* Mobile Hamburger */}
@@ -487,7 +487,7 @@ const Header = () => {
                   }}
                   className="w-full bg-[#2cd1a1] hover:bg-[#27b98f] text-white font-bold shadow-md py-3 text-sm rounded-xl"
                 >
-                  Get a Free Consultation
+                  Get Free Consultation
                 </Button>
               </div>
             </nav>
