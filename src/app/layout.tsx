@@ -130,9 +130,9 @@ export default function RootLayout({
               ],
               address: {
                 '@type': 'PostalAddress',
-                streetAddress: 'Regus, Level-5, Tower C, Green Boulevard, Sector-62',
+                streetAddress: '5th Floor, Tower C, Block C, Green Boulevard, B-9/A, Sector 62',
                 addressLocality: 'Noida',
-                addressRegion: 'UP',
+                addressRegion: 'Uttar Pradesh',
                 postalCode: '201301',
                 addressCountry: 'IN',
               },

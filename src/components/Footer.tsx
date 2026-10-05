@@ -24,7 +24,7 @@ const Footer = () => {
             <div className="pt-1 text-xs text-white/70 space-y-2">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#2cd1a1] shrink-0 mt-0.5" />
-                <span>Level-5, Tower C, Green Boulevard, Block C, Sector-62, Noida, UP 201301</span>
+                <span>5th Floor, Tower C, Block C, Green Boulevard, B-9/A, Sector 62, Noida, Uttar Pradesh – 201301</span>
               </div>
             </div>
           </div>

@@ -16,37 +16,47 @@ const AIChatbotFeatureSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#012766] text-white relative overflow-hidden" id="ai-chatbot">
+    <section
+      className="py-24 bg-[#012766] text-white relative overflow-hidden"
+      id="ai-chatbot"
+    >
       {/* Background Glow Accents */}
       <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#2cd1a1]/15 blur-3xl rounded-full pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#073D7B]/30 blur-3xl rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-6 lg:px-8 max-w-7xl relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
           {/* Left Text & Capabilities */}
           <div className="lg:col-span-7 space-y-6">
-            
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2cd1a1]/10 border border-[#2cd1a1]/30 text-[#2cd1a1] text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5 text-[#2cd1a1]" />
               <span>Meet Your AI Chatbot</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
-              Your Business Can Talk to Customers <span className="text-[#2cd1a1]">24×7</span>
+              Your Business, Talking to Customers{" "}
+              <span className="text-[#2cd1a1]">24×7</span>
             </h2>
 
             <p className="text-base sm:text-lg text-white/80 leading-relaxed">
-              Your customers don't always visit during business hours. An AI chatbot can answer questions, understand customer requirements, qualify leads and guide visitors toward the next step — even when your team is offline.
+              Your customers don't always visit during business hours. An AI
+              chatbot can answer questions, understand customer requirements,
+              qualify leads and guide visitors toward the next step — even when
+              your team is offline.
             </p>
 
             {/* What it can do list */}
             <div className="space-y-3.5 pt-3">
               {capabilities.map((cap, i) => (
-                <div key={i} className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/10">
+                <div
+                  key={i}
+                  className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/10"
+                >
                   <CheckCircle2 className="w-5 h-5 text-[#2cd1a1] flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-white text-sm block font-bold">{cap.title}</strong>
+                    <strong className="text-white text-sm block font-bold">
+                      {cap.title}
+                    </strong>
                     <span className="text-xs text-white/70">{cap.desc}</span>
                   </div>
                 </div>
@@ -70,13 +80,11 @@ const AIChatbotFeatureSection = () => {
                 <span>Talk to Our Team</span>
               </Link>
             </div>
-
           </div>
 
           {/* Right Realistic Conversation Visual */}
           <div className="lg:col-span-5">
             <div className="bg-[#073D7B]/90 backdrop-blur-xl border border-white/15 rounded-3xl p-6 shadow-2xl space-y-4">
-              
               {/* Header */}
               <div className="flex items-center justify-between pb-4 border-b border-white/10">
                 <div className="flex items-center gap-3">
@@ -84,7 +92,9 @@ const AIChatbotFeatureSection = () => {
                     <Bot className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-sm text-white">VMC Assistant</h3>
+                    <h3 className="font-bold text-sm text-white">
+                      VMC Media Assistant
+                    </h3>
                     <p className="text-[11px] text-[#2cd1a1] flex items-center gap-1">
                       <span className="w-2 h-2 rounded-full bg-[#2cd1a1] animate-pulse" />
                       Active 24×7 Lead Qualification
@@ -108,7 +118,8 @@ const AIChatbotFeatureSection = () => {
                 {/* AI Msg 1 */}
                 <div className="flex gap-2.5 items-start justify-end">
                   <div className="bg-[#2cd1a1] text-black p-3 rounded-2xl rounded-tr-none max-w-[85%] font-medium shadow-md">
-                    "Certainly. May I know which solution you are interested in?"
+                    "Certainly. May I know which solution you are interested
+                    in?"
                   </div>
                 </div>
 
@@ -125,20 +136,21 @@ const AIChatbotFeatureSection = () => {
                 {/* AI Msg 2 */}
                 <div className="flex gap-2.5 items-start justify-end">
                   <div className="bg-[#2cd1a1] text-black p-3 rounded-2xl rounded-tr-none max-w-[85%] font-medium shadow-md">
-                    "Great. I can help you schedule a consultation. What is the best time to contact you?"
+                    "Great. I can help you schedule a consultation. What is the
+                    best time to contact you?"
                   </div>
                 </div>
               </div>
 
               {/* Input Simulation */}
               <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-white/60">
-                <span>AI handles questions &amp; qualifies leads automatically</span>
+                <span>
+                  AI handles questions &amp; qualifies leads automatically
+                </span>
                 <span className="text-[#2cd1a1] font-bold">● Live</span>
               </div>
-
             </div>
           </div>
-
         </div>
       </div>
     </section>

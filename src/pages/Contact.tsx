@@ -120,7 +120,7 @@ const Contact = () => {
                 icon: MapPin,
                 title: "Visit Us",
                 content: "VMC Media",
-                subtext: "Regus, Level-5, Tower C, Green Boulevard, Sector-62, Noida, UP, PIN-201301",
+                subtext: "5th Floor, Tower C, Block C, Green Boulevard, B-9/A, Sector 62, Noida, Uttar Pradesh – 201301",
               },
             ].map((item, index) => (
               <Card
@@ -288,7 +288,7 @@ const Contact = () => {
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Our Office Location</h2>
               <p className="text-muted-foreground text-sm md:text-base">
-                Find us at Regus, Level-5, Tower C, Green Boulevard, Sector-62, Noida, UP
+                Find us at 5th Floor, Tower C, Block C, Green Boulevard, B-9/A, Sector 62, Noida, Uttar Pradesh – 201301
               </p>
             </div>
             <div className="relative w-full h-[380px] md:h-[450px] rounded-2xl overflow-hidden border border-border shadow-xl">

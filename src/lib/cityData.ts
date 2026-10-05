@@ -20,12 +20,12 @@ export const CITIES_DATA: Record<string, CitySEOData> = {
     heroHeading: "Best Digital Marketing Agency in Noida",
     subHeading: "Scale your revenue in Noida & NCR with high-ROI performance marketing, Google Ads, local SEO domination, and 24/7 AI lead automation.",
     highlights: [
-      "Headquartered at Level-5 Green Boulevard, Sector-62, Noida",
+      "Headquartered at 5th Floor, Green Boulevard, Sector 62, Noida",
       "#1 Ranked Local SEO & GMB Map Pack Domination",
       "High-converting Google Ads & Meta Performance Campaigns",
       "AIWA WhatsApp CRM & Autonomous Voice Agents"
     ],
-    localAddress: "Regus Level-5, Tower C, Green Boulevard, Block C, Sector-62, Noida, UP 201301"
+    localAddress: "5th Floor, Tower C, Block C, Green Boulevard, B-9/A, Sector 62, Noida, Uttar Pradesh – 201301"
   },
   delhi: {
     slug: "delhi",
