@@ -45,12 +45,12 @@ const GoogleAdsService = () => {
             
             <div className="relative w-full h-auto">
               <Image
-                src="/googleADS.webp"
-                alt="Google Ads Dashboard"
-                width={480}
-                height={320}
+                src="/ppc-dashboard.jpg"
+                alt="Google Ads and PPC Advertising Performance Dashboard"
+                width={600}
+                height={338}
                 priority
-                loading="eager"                sizes="(max-width: 768px) 100vw, 50vw"                className="rounded-2xl shadow-2xl w-full h-auto"
+                loading="eager"                sizes="(max-width: 768px) 100vw, 50vw"                className="rounded-2xl shadow-2xl w-full h-auto border border-border"
               />
             </div>
           </div>

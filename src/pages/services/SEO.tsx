@@ -43,14 +43,14 @@ const SEOService = () => {
             
             <div className="relative w-full h-auto">
               <Image
-                src="/SeoService.webp"
-                alt="SEO Analytics"
-                width={480}
-                height={320}
+                src="/seo-dashboard.jpg"
+                alt="Google Search Ranking #1 and Technical SEO Analytics Dashboard"
+                width={600}
+                height={338}
                 priority
                 loading="eager"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="rounded-2xl shadow-2xl w-full h-auto"
+                className="rounded-2xl shadow-2xl w-full h-auto border border-border"
               />
             </div>
           </div>

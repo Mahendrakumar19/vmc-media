@@ -46,20 +46,30 @@ const AIVoicebotSection = () => {
           </p>
         </div>
 
-        {/* 6 Use Cases Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {useCases.map((uc, i) => (
-            <div 
-              key={i} 
-              className="bg-card border border-border/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all hover:border-[#2cd1a1]/50"
-            >
-              <div className="flex items-center gap-3 mb-2">
-                <CheckCircle2 className="w-5 h-5 text-[#2cd1a1] flex-shrink-0" />
-                <h3 className="font-bold text-base text-foreground">{uc.title}</h3>
+        {/* 6 Use Cases & Visual Graphic Split */}
+        <div className="grid lg:grid-cols-12 gap-8 items-center mb-16">
+          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+            {useCases.map((uc, i) => (
+              <div 
+                key={i} 
+                className="bg-card border border-border/80 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all hover:border-[#2cd1a1]/50"
+              >
+                <div className="flex items-center gap-3 mb-1.5">
+                  <CheckCircle2 className="w-5 h-5 text-[#2cd1a1] flex-shrink-0" />
+                  <h3 className="font-bold text-sm text-foreground">{uc.title}</h3>
+                </div>
+                <p className="text-xs text-muted-foreground pl-8">{uc.desc}</p>
               </div>
-              <p className="text-xs text-muted-foreground pl-8">{uc.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <div className="lg:col-span-5 relative w-full aspect-[16/10] rounded-3xl overflow-hidden border border-border shadow-2xl bg-slate-950">
+            <img
+              src="/ai-voicebot-hero.jpg"
+              alt="AI Voicebot & Customer Service Illustration with Neural Headset & Transcripts"
+              className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-500"
+            />
+          </div>
         </div>
 
         {/* Visual Flow Blueprint */}
