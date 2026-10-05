@@ -185,7 +185,7 @@ const ContactSection = () => {
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Tell us more about your business goals and timeline..."
+                  placeholder="Tell us about your business goals"
                   className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-[#2cd1a1] focus:ring-1 focus:ring-[#2cd1a1] text-sm text-foreground outline-none transition-all"
                 />
               </div>
