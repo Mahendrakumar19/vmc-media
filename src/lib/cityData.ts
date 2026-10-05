@@ -25,7 +25,7 @@ export const CITIES_DATA: Record<string, CitySEOData> = {
       "High-converting Google Ads & Meta Performance Campaigns",
       "AIWA WhatsApp CRM & Autonomous Voice Agents"
     ],
-    localAddress: "Regus Level-5, Tower C, Green Boulevard, Sector-62, Noida, UP 201301"
+    localAddress: "Regus Level-5, Tower C, Green Boulevard, Block C, Sector-62, Noida, UP 201301"
   },
   delhi: {
     slug: "delhi",

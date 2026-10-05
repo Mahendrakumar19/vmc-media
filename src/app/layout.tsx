@@ -34,12 +34,21 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: 'https://www.vmcmedia.in',
     siteName: 'VMC Media',
+    images: [
+      {
+        url: 'https://www.vmcmedia.in/about-vmc-agency.png',
+        width: 1200,
+        height: 630,
+        alt: 'VMC Media - Digital Marketing & AI Automation Agency',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'VMC Media | Digital Marketing & AI Automation',
     description: 'VMC Media combines digital marketing, AI chatbots, AI voicebots and lead automation to help businesses generate, engage and convert more customers.',
     creator: '@vmcmedia',
+    images: ['https://www.vmcmedia.in/about-vmc-agency.png'],
   },
   robots: {
     index: true,

@@ -75,7 +75,7 @@ export default function PrivacyPolicyPage() {
               <a href="mailto:Info@vmcmedia.in" className="text-[#073D7B] dark:text-[#2cd1a1] font-bold underline">
                 Info@vmcmedia.in
               </a>{" "}
-              or write to Level-5, Tower C, Green Boulevard, Sector-62, Noida, UP 201301.
+              or write to Level-5, Tower C, Green Boulevard, Block C, Sector-62, Noida, UP 201301.
             </p>
           </div>
         </div>

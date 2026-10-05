@@ -14,7 +14,14 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+interface Props {
+  params: Promise<{
+    slug: string
+  }>
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params
   const posts: Record<string, { title: string; excerpt: string }> = {
     "ai-powered-seo": {
       title: "AI-Powered SEO: What Actually Works",
@@ -30,7 +37,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     },
   }
 
-  const post = posts[params.slug]
+  const post = posts[slug]
   if (!post) {
     return {}
   }
@@ -39,16 +46,24 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     title: `${post.title} | VMC Media Blog`,
     description: post.excerpt,
     alternates: {
-      canonical: `https://vmcmedia.com/blog/${params.slug}`,
+      canonical: `https://www.vmcmedia.in/blog/${slug}`,
+    },
+    openGraph: {
+      title: `${post.title} | VMC Media`,
+      description: post.excerpt,
+      url: `https://www.vmcmedia.in/blog/${slug}`,
+      siteName: 'VMC Media',
+      type: 'article',
     },
   }
 }
 
-export default function BlogDetailPage({ params }: { params: { slug: string } }) {
+export default async function BlogDetailPage({ params }: Props) {
+  const { slug } = await params
   const validSlugs = blogSlugs
-  if (!validSlugs.includes(params.slug)) {
+  if (!validSlugs.includes(slug)) {
     notFound()
   }
 
-  return <BlogDetailClient slug={params.slug} />
+  return <BlogDetailClient slug={slug} />
 }

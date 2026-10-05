@@ -7,7 +7,7 @@ export const metadata = {
   title: '404 - Page Not Found | VMC Media Digital Marketing',
   description: 'Page not found. Return to VMC Media homepage or contact our digital marketing experts for assistance with your project.',
   alternates: {
-    canonical: 'https://vmcmedia.com/404',
+    canonical: 'https://www.vmcmedia.in/404',
   },
 }
 

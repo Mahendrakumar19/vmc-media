@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-block hover:opacity-95 transition-opacity">
               <img 
-                src="/logo-vm-dark.svg" 
+                src="/logo-footer.svg" 
                 alt="VMC Media Logo" 
                 className="h-16 sm:h-20 w-auto object-contain" 
               />
@@ -24,7 +24,7 @@ const Footer = () => {
             <div className="pt-1 text-xs text-white/70 space-y-2">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#2cd1a1] shrink-0 mt-0.5" />
-                <span>Level-5, Tower C, Green Boulevard, Sector-62, Noida, UP 201301</span>
+                <span>Level-5, Tower C, Green Boulevard, Block C, Sector-62, Noida, UP 201301</span>
               </div>
             </div>
           </div>

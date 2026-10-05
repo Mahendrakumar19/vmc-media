@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import { Target, MessageCircle, Filter, CheckCircle } from "lucide-react";
 
 const TrustStrip = () => {
@@ -8,33 +9,33 @@ const TrustStrip = () => {
       title: "Attract",
       desc: "Reach the right audience.",
       icon: Target,
+      image: "/journey-attract.jpg",
       color: "text-blue-500",
-      bg: "bg-blue-500/10",
-      border: "border-blue-500/20"
+      bg: "bg-blue-500/10"
     },
     {
       title: "Engage",
       desc: "Connect with customers across digital channels.",
       icon: MessageCircle,
+      image: "/journey-engage.jpg",
       color: "text-[#2cd1a1]",
-      bg: "bg-[#2cd1a1]/10",
-      border: "border-[#2cd1a1]/20"
+      bg: "bg-[#2cd1a1]/10"
     },
     {
       title: "Qualify",
       desc: "Use AI to identify genuine opportunities.",
       icon: Filter,
+      image: "/journey-qualify.jpg",
       color: "text-purple-500",
-      bg: "bg-purple-500/10",
-      border: "border-purple-500/20"
+      bg: "bg-purple-500/10"
     },
     {
       title: "Convert",
       desc: "Help your sales team turn opportunities into business.",
       icon: CheckCircle,
+      image: "/journey-convert.jpg",
       color: "text-emerald-500",
-      bg: "bg-emerald-500/10",
-      border: "border-emerald-500/20"
+      bg: "bg-emerald-500/10"
     }
   ];
 
@@ -60,19 +61,38 @@ const TrustStrip = () => {
           </div>
         </div>
 
-        {/* 4 Cards Grid */}
+        {/* 4 Clean Visual Cards Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {cards.map((card, i) => (
             <div 
               key={i} 
-              className="bg-card border border-border/80 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between hover:border-[#2cd1a1]/50"
+              className="bg-card border border-border/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between hover:border-[#2cd1a1]/50 group"
             >
-              <div>
-                <div className={`w-10 h-10 rounded-xl ${card.bg} ${card.color} flex items-center justify-center mb-3`}>
-                  <card.icon className="w-5 h-5" />
+              {/* Visual Thumbnail */}
+              <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  width={500}
+                  height={312}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent pointer-events-none" />
+                
+                {/* Floating Icon */}
+                <div className="absolute bottom-2.5 left-3 w-8 h-8 rounded-lg bg-card/90 backdrop-blur-md border border-border shadow flex items-center justify-center">
+                  <card.icon className={`w-4 h-4 ${card.color}`} />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-1">{card.title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
+              </div>
+
+              {/* Exact Original Clean Content */}
+              <div className="p-4 pt-3">
+                <h3 className="text-base font-bold text-foreground mb-1 group-hover:text-[#2cd1a1] transition-colors">
+                  {card.title}
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {card.desc}
+                </p>
               </div>
             </div>
           ))}

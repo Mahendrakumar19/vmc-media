@@ -38,7 +38,7 @@ const MobileOptimizedApp = () => {
           margin: 0, 
           opacity: 0.9 
         }}>
-          Full-Service Digital Marketing & SEO Partner
+          Your Digital Growth Partner — Marketing, SEO & AI Chat / Voice bot
         </p>
       </header>
 

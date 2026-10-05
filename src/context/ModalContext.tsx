@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useState, useEffect } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 
 interface ModalContextType {
   isModalOpen: boolean
@@ -32,19 +32,6 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
     if (!isCanClose) return
     setIsModalOpen(false)
   }
-
-  // Auto popup for new visitors
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    const hasVisited = localStorage.getItem('vmc_visited_user')
-    if (!hasVisited) {
-      const popupTimer = setTimeout(() => {
-        openModal(true)
-        localStorage.setItem('vmc_visited_user', 'true')
-      }, 1000)
-      return () => clearTimeout(popupTimer)
-    }
-  }, [])
 
   return (
     <ModalContext.Provider value={{ isModalOpen, isCanClose, openModal, closeModal }}>
