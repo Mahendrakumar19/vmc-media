@@ -105,48 +105,48 @@ const Hero = () => {
         })}
 
         {/* Centered Content Container */}
-        <div className="container mx-auto px-6 lg:px-8 max-w-5xl relative z-10 text-center flex flex-col items-center">
+        <div className="container mx-auto px-6 lg:px-8 max-w-4xl relative z-10 text-center flex flex-col items-center">
           
           {/* Tagline Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 dark:bg-black/30 backdrop-blur-md border border-white/20 text-[#2cd1a1] text-xs sm:text-sm font-bold uppercase tracking-wider mb-6 shadow-lg animate-fade-in">
-            <Sparkles className="w-4 h-4 text-[#2cd1a1]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 dark:bg-black/30 backdrop-blur-md border border-white/20 text-[#2cd1a1] text-xs sm:text-xs font-bold uppercase tracking-wider mb-4 shadow-lg animate-fade-in">
+            <Sparkles className="w-3.5 h-3.5 text-[#2cd1a1]" />
             <span>{slides[currentSlide].badge}</span>
           </div>
 
-          {/* Centered Hero Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight max-w-4xl mb-6 drop-shadow-md">
+          {/* Centered Hero Headline - Compact & Balanced */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black text-white leading-tight tracking-tight max-w-3xl mb-4 drop-shadow-md">
             <span>{slides[currentSlide].headlineMain} </span>
             <span className="bg-gradient-to-r from-[#2cd1a1] via-teal-300 to-cyan-400 bg-clip-text text-transparent block sm:inline">
               {slides[currentSlide].headlineHighlight}
             </span>
           </h1>
 
-          {/* Centered Subtext */}
-          <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl leading-relaxed mb-9 drop-shadow-sm font-normal">
+          {/* Centered Subtext - Reduced Gap & Tightened Leading */}
+          <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-2xl leading-relaxed mb-6 drop-shadow-sm font-normal">
             {slides[currentSlide].description}
           </p>
 
           {/* Centered Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
             <Button
               size="lg"
               onClick={() => setIsModalOpen(true)}
-              className="bg-[#2cd1a1] hover:bg-[#27b98f] text-black hover:text-black font-extrabold shadow-2xl hover:shadow-[#2cd1a1]/40 hover:scale-105 active:scale-95 transition-all duration-300 h-13 px-8 text-base rounded-xl w-full sm:w-auto"
+              className="bg-[#2cd1a1] hover:bg-[#27b98f] text-black hover:text-black font-extrabold shadow-xl hover:shadow-[#2cd1a1]/40 hover:scale-105 active:scale-95 transition-all duration-300 h-11 px-7 text-sm rounded-xl w-full sm:w-auto cursor-pointer"
             >
               Get Free Growth Assessment
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <ArrowRight className="w-4 h-4 ml-1.5" />
             </Button>
 
             <Link
               href="/ai-solutions"
-              className="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 text-white backdrop-blur-md border border-white/30 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 h-13 px-8 text-base font-bold rounded-xl w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 text-white backdrop-blur-md border border-white/30 shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 h-11 px-7 text-sm font-bold rounded-xl w-full sm:w-auto"
             >
               Explore AI Solutions
             </Link>
           </div>
 
           {/* Feature Highlights Pills under buttons */}
-          <div className="pt-8 mt-6 border-t border-white/15 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm font-semibold text-white/80">
+          <div className="pt-5 mt-5 border-t border-white/15 flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs font-semibold text-white/80">
             <span className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#2cd1a1]" /> Digital Marketing
             </span>

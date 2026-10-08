@@ -103,29 +103,29 @@ const Header = () => {
       <div className="w-full px-4 lg:px-8 relative">
         <div className="max-w-7xl mx-auto flex items-center justify-between h-20">
           {/* Logo */}
-          <NavLink to="/" className="flex items-center gap-2 hover:opacity-95 transition-all py-1 group" onClick={closeAll}>
+          <NavLink to="/" className="flex items-center gap-2 hover:opacity-95 transition-all py-1 group shrink-0" onClick={closeAll}>
             <img
               src="/logo-vm.svg"
               alt="VMC Media - Connect · Create · Catalyse"
-              className="h-12 sm:h-14 md:h-16 w-auto object-contain dark:hidden"
+              className="h-11 sm:h-12 md:h-14 w-auto max-w-[170px] sm:max-w-[190px] md:max-w-[210px] object-contain dark:hidden"
             />
             <img
               src="/logo-vm-dark.svg"
               alt="VMC Media - Connect · Create · Catalyse"
-              className="h-12 sm:h-14 md:h-16 w-auto object-contain hidden dark:block"
+              className="h-11 sm:h-12 md:h-14 w-auto max-w-[170px] sm:max-w-[190px] md:max-w-[210px] object-contain hidden dark:block"
             />
           </NavLink>
 
           {/* Desktop Navigation (Shared Data Model) */}
           <nav className="hidden xl:flex items-center gap-6">
-            {/* <NavLink
+            <NavLink
               to="/"
               className="text-foreground hover:text-primary transition-colors font-medium px-1 py-2 text-sm tracking-wide relative group"
               activeClassName="text-primary font-semibold"
             >
               Home
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
-            </NavLink> */}
+            </NavLink>
 
             <NavLink
               to="/services"
@@ -271,22 +271,15 @@ const Header = () => {
           <div className="flex items-center gap-3">
             <ThemeToggle />
 
-            {/* Desktop Action Buttons */}
+            {/* Desktop Action Buttons (Get Free Demo removed, Login kept) */}
             <div className="hidden md:flex items-center gap-2.5">
               <Button
                 onClick={() => {
                   window.location.href = "https://aiwa.vmcmedia.in";
                 }}
-                variant="outline"
-                className="border-border hover:bg-muted text-foreground font-semibold px-4 text-sm rounded-xl transition-all cursor-pointer"
+                className="bg-[#2cd1a1] hover:bg-[#27b98f] text-slate-950 font-bold px-5 text-sm rounded-xl transition-all cursor-pointer shadow-sm hover:shadow-md"
               >
                 Login
-              </Button>
-              <Button
-                onClick={() => openModal()}
-                className="bg-[#2cd1a1] hover:bg-[#27b98f] text-slate-950 shadow-md hover:shadow-lg transition-all font-bold px-5 text-sm rounded-xl cursor-pointer"
-              >
-                Get Free Demo
               </Button>
             </div>
 

@@ -52,7 +52,7 @@ const detailedIndustries = [
     id: "education",
     title: "Higher Education & EdTech Consultancies",
     icon: GraduationCap,
-    image: "/industry-education-grad-caps.jpg",
+    image: "/college.webp",
     portfolioLink: "/portfolio/college-consultancy",
     headline: "Student Admission Funnels & Multi-Counselor Lead Routing",
     desc: "Admissions cycles are time-sensitive. We engineer full-funnel digital campaigns that capture prospective students and parents, automated counseling scheduling, and direct application submission pipelines.",

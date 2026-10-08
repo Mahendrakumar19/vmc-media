@@ -13,7 +13,7 @@ const IndustriesSection = () => {
       title: "Education",
       desc: "Student enquiries, counselling leads, course admissions, and automated parent communication.",
       icon: GraduationCap,
-      image: "/industry-education-grad-caps.jpg"
+      image: "/college.webp"
     },
     {
       title: "Healthcare",
