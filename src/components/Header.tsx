@@ -219,10 +219,14 @@ const Header = () => {
               onMouseEnter={() => setActiveDropdown("tech")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium py-2 text-sm cursor-pointer">
+              <NavLink 
+                to="/services/technology-solutions" 
+                className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium py-2 text-sm cursor-pointer"
+                activeClassName="text-primary font-semibold"
+              >
                 <span>Technology Solutions</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "tech" ? "rotate-180" : ""}`} />
-              </button>
+              </NavLink>
 
               {activeDropdown === "tech" && (
                 <div className="absolute top-full left-0 pt-3 w-[320px] animate-in fade-in zoom-in-95 duration-200 z-50">
@@ -240,6 +244,15 @@ const Header = () => {
                           <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-1">{item.desc}</p>
                         </NavLink>
                       ))}
+                    </div>
+                    <div className="mt-2 pt-2 border-t border-border/50">
+                      <NavLink
+                        to="/services/technology-solutions"
+                        className="flex items-center justify-between p-2 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary text-xs font-semibold transition-colors"
+                      >
+                        <span>All Technology Solutions</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </NavLink>
                     </div>
                   </div>
                 </div>
@@ -395,6 +408,13 @@ const Header = () => {
                 </button>
                 {mobileExpanded === "tech" && (
                   <div className="px-2 pb-2 space-y-1 bg-muted/20">
+                    <NavLink
+                      to="/services/technology-solutions"
+                      className="block text-xs py-2 px-2.5 font-semibold text-primary hover:bg-muted rounded-md transition-all border-b border-border/40 mb-1"
+                      onClick={closeAll}
+                    >
+                      Overview: All Technology Solutions →
+                    </NavLink>
                     {TECH_SOLUTIONS.map((item) => (
                       <NavLink
                         key={item.name}

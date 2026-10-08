@@ -40,6 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // AI Solutions
     {
+      url: `${baseUrl}/ai-solutions`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
       url: `${baseUrl}/ai-solutions/ai-chatbot`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
@@ -129,6 +135,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services/technology-solutions`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/products/aiwa`,

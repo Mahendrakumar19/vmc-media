@@ -73,19 +73,19 @@ const BrandingService = () => {
                 icon: PenTool,
                 title: "Logo Design",
                 description: "Unique, professional logos that capture your brand essence and make a lasting impression.",
-                link: "/services/branding/logo-design"
+                link: "#contact"
               },
               {
                 icon: Palette,
                 title: "Brand Identity",
                 description: "Complete brand guidelines including colors, typography, and visual style standards.",
-                link: "/services/branding/brand-identity"
+                link: "#contact"
               },
               {
                 icon: Target,
                 title: "Corporate Design",
                 description: "Business cards, letterheads, presentations, and all corporate collateral.",
-                link: "/services/branding/corporate-design"
+                link: "#contact"
               },
               {
                 icon: TrendingUp,
