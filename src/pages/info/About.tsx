@@ -119,19 +119,21 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             {approach.map((item, index) => (
               <Card
                 key={index}
                 className="border-border hover:shadow-xl transition-all duration-300 animate-fade-in group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-8">
-                  <div className={`w-12 h-12 ${item.bg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <FontAwesomeIcon icon={item.icon} className={`w-6 h-6 ${item.accent}`} />
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className={`w-11 h-11 ${item.bg} rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                      <FontAwesomeIcon icon={item.icon} className={`w-5 h-5 ${item.accent}`} />
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-foreground">{item.title}</h3>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.description}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed pl-0 sm:pl-[60px]">{item.description}</p>
                 </CardContent>
               </Card>
             ))}

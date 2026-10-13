@@ -256,13 +256,16 @@ const About = () => {
                 className="bg-card border border-border/80 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xs hover:shadow-xl hover:border-[#2cd1a1]/50 hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
               >
                 <div>
-                  <div className={`w-12 h-12 ${item.bg} rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
-                    <FontAwesomeIcon icon={item.icon} className={`w-5 h-5 ${item.accent}`} />
+                  {/* Clean Icon + Title Inline Alignment */}
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className={`w-11 h-11 rounded-xl ${item.bg} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                      <FontAwesomeIcon icon={item.icon} className={`w-5 h-5 ${item.accent}`} />
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      {item.title}
+                    </h3>
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed pl-0 sm:pl-[60px]">{item.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -305,12 +308,14 @@ const About = () => {
                   0{index + 1}
                 </div>
                 <div>
-                  <div className={`w-11 h-11 ${item.bg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <FontAwesomeIcon icon={item.icon} className={`w-5 h-5 ${item.accent}`} />
+                  <div className="flex items-center gap-3.5 mb-3">
+                    <div className={`w-10 h-10 ${item.bg} rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                      <FontAwesomeIcon icon={item.icon} className={`w-4 h-4 ${item.accent}`} />
+                    </div>
+                    <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors">
+                      {item.title}
+                    </h3>
                   </div>
-                  <h3 className="text-base font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                    {item.title}
-                  </h3>
                   <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                 </div>
               </motion.div>

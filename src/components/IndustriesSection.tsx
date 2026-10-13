@@ -1,127 +1,171 @@
-import Image from "next/image";
+'use client';
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding, faGraduationCap, faHospital, faLandmark, faBagShopping, faIndustry, faCar, faBriefcase } from "@fortawesome/free-solid-svg-icons";
+import { 
+  faBuilding, 
+  faGraduationCap, 
+  faHospital, 
+  faLandmark, 
+  faBagShopping, 
+  faIndustry, 
+  faCar, 
+  faBriefcase,
+  faArrowRight
+} from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 const IndustriesSection = () => {
   const industries = [
     {
-      title: "Real Estate",
-      desc: "High-intent buyer leads, premium property enquiries, qualification and automated site-visit follow-ups.",
+      title: "Real Estate & Builders",
+      desc: "Speed-to-lead under 60 seconds, automated site-visit calendar sync, and broker WhatsApp routing.",
       icon: faBuilding,
       color: "text-blue-500",
-      image: "/real-estate.webp"
+      bg: "bg-blue-500/10",
+      link: "/portfolio/real-estate",
+      tags: ["Site Visit Booking", "Broker CRM", "Meta Lead Ads"]
     },
     {
-      title: "Education",
-      desc: "Student enquiries, counselling leads, course admissions, and automated parent communication.",
+      title: "Higher Education & EdTech",
+      desc: "Omnichannel student acquisition, counselling round-robin allocation, and admission fee reconciliation.",
       icon: faGraduationCap,
       color: "text-amber-500",
-      image: "/college.webp"
+      bg: "bg-amber-500/10",
+      link: "/portfolio/college-consultancy",
+      tags: ["Admission Funnels", "Counselor Routing", "WhatsApp Nudge"]
     },
     {
-      title: "Healthcare",
-      desc: "Patient appointment bookings, OPD enquiries, instant reminder sequences, and care support.",
+      title: "Healthcare & Hospitals",
+      desc: "OPD triage, doctor appointment scheduling, lab test follow-ups, and automated reminder broadcasts.",
       icon: faHospital,
       color: "text-red-500",
-      image: "/hospital.webp"
+      bg: "bg-red-500/10",
+      link: "/portfolio/hospital",
+      tags: ["OPD Booking", "Voice Triage", "Patient WhatsApp"]
     },
     {
-      title: "BFSI",
-      desc: "High-net-worth lead qualification, loan enquiries, investment advisories, and instant compliance follow-ups.",
+      title: "BFSI & Wealth Management",
+      desc: "High-net-worth lead qualification, instant loan pre-eligibility checks, and compliant document collection.",
       icon: faLandmark,
       color: "text-emerald-500",
-      image: "/industry-bfsi.jpg"
+      bg: "bg-emerald-500/10",
+      link: "/contact",
+      tags: ["HNW Scoring", "Instant KYC", "Loan Funnel"]
     },
     {
-      title: "Retail & E-commerce",
-      desc: "DTC customer acquisition, product catalog enquiries, abandoned cart recovery, and festive campaigns.",
+      title: "DTC & Retail Brands",
+      desc: "Instant abandoned cart recovery on WhatsApp, seasonal flash sale campaigns, and automated delivery alerts.",
       icon: faBagShopping,
       color: "text-pink-500",
-      image: "/Ecommerce.webp"
+      bg: "bg-pink-500/10",
+      link: "/portfolio/ecommerce",
+      tags: ["Cart Recovery", "Meta Catalog", "Payment Links"]
     },
     {
-      title: "Manufacturing",
-      desc: "B2B industrial procurement leads, bulk RFQ enquiry pipelines, dealer networks, and sales engagement.",
+      title: "Manufacturing & B2B",
+      desc: "Industrial procurement pipelines, dealer network routing, and automated bulk RFQ follow-ups.",
       icon: faIndustry,
       color: "text-slate-500",
-      image: "/industry-manufacturing.jpg"
+      bg: "bg-slate-500/10",
+      link: "/contact",
+      tags: ["B2B RFQs", "Dealer CRM", "Lead Routing"]
     },
     {
-      title: "Automotive",
-      desc: "Showroom visit bookings, EV & luxury test-drive leads, and automated post-visit sales nurturing.",
+      title: "Automotive Showrooms",
+      desc: "Test-drive bookings, digital showroom leads, and automated post-visit finance follow-up sequencing.",
       icon: faCar,
       color: "text-indigo-500",
-      image: "/industry-automotive.jpg"
+      bg: "bg-indigo-500/10",
+      link: "/contact",
+      tags: ["Test-Drive Sync", "Finance Nudge", "EV Leads"]
     },
     {
       title: "Professional Services",
-      desc: "High-ticket consulting consultations, legal & corporate advisory enquiries, and meeting scheduling.",
+      desc: "High-ticket corporate consulting enquiries, legal advisory intake, and seamless calendar bookings.",
       icon: faBriefcase,
       color: "text-[#2cd1a1]",
-      image: "/industry-services.jpg"
+      bg: "bg-[#2cd1a1]/10",
+      link: "/contact",
+      tags: ["Executive Calendar", "Intent Scoring", "Invoicing"]
     }
   ];
 
   return (
-    <section className="py-20 lg:py-24 bg-background border-t border-border relative overflow-hidden" id="industries">
+    <section className="py-20 lg:py-24 bg-background border-t border-border/80 relative overflow-hidden" id="industries">
       {/* Background ambient accents */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#073D7B]/5 dark:bg-[#2cd1a1]/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#2cd1a1]/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="container mx-auto px-6 lg:px-8 max-w-7xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
         
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#073D7B]/10 dark:bg-[#2cd1a1]/10 text-[#073D7B] dark:text-[#2cd1a1] text-xs font-bold tracking-wider uppercase mb-3">
-            Industry Tailored Growth
+        {/* Section Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#073D7B]/10 dark:bg-[#2cd1a1]/10 text-[#073D7B] dark:text-[#2cd1a1] text-xs font-bold tracking-wider uppercase mb-3">
+            <span>Specialised Vertical Solutions</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight mb-4">
-            Solutions Across Growing Industries
+            Engineered for High-Growth Sectors
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Every industry has unique customer personas, buying journeys, and conversion pipelines. We engineer bespoke digital marketing funnels and AI workflows tailored directly to your sector.
+          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+            Every vertical has unique buyer friction and compliance requirements. We deploy pre-configured AI conversational models and targeted ad architectures purpose-built for your industry.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Crisp Enterprise Cards Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {industries.map((ind, i) => (
-            <div 
-              key={i} 
-              className="bg-card border border-border/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:border-[#2cd1a1]/50 group flex flex-col"
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-card border border-border/80 rounded-2xl sm:rounded-3xl p-6 shadow-xs hover:shadow-xl hover:border-[#2cd1a1]/50 hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
             >
-              {/* Visual Thumbnail */}
-              <div className="relative w-full aspect-[16/10] overflow-hidden bg-muted">
-                <Image
-                  src={ind.image}
-                  alt={ind.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-108"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                
-                {/* Floating Icon Badge on top of image */}
-                <div className="absolute bottom-3 left-3 flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-lg bg-background/90 dark:bg-card/90 backdrop-blur-md flex items-center justify-center shadow-md">
-                    <FontAwesomeIcon icon={ind.icon} className={`w-4 h-4 ${ind.color}`} />
+              <div>
+                {/* Header: Icon & Category */}
+                <div className="flex items-center justify-between mb-5">
+                  <div className={`w-12 h-12 rounded-2xl ${ind.bg} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <FontAwesomeIcon icon={ind.icon} className={`w-5 h-5 ${ind.color}`} />
                   </div>
-                  <span className="text-xs font-semibold text-white tracking-wide drop-shadow-sm">
-                    {ind.title}
-                  </span>
+                </div>
+
+                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  {ind.title}
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+                  {ind.desc}
+                </p>
+
+                {/* Micro Feature Tags */}
+                <div className="flex flex-wrap gap-1.5 pt-1 mb-6">
+                  {ind.tags.map((tag, tIdx) => (
+                    <span 
+                      key={tIdx}
+                      className="px-2 py-0.5 rounded-md bg-muted text-[10px] font-medium text-muted-foreground border border-border/50"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              {/* Card Body */}
-              <div className="p-5 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-base font-bold text-foreground mb-2 group-hover:text-[#073D7B] dark:group-hover:text-[#2cd1a1] transition-colors">
-                    {ind.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {ind.desc}
-                  </p>
-                </div>
-              </div>
-            </div>
+              {/* Action Link */}
+              <Link
+                href={ind.link}
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-foreground group-hover:text-[#2cd1a1] transition-colors pt-2 border-t border-border/50"
+              >
+                <span>Explore Workflow</span>
+                <FontAwesomeIcon icon={faArrowRight} className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
           ))}
         </div>
 
