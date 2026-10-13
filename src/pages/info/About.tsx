@@ -67,9 +67,6 @@ const About = () => {
 
             {/* Right Side - Content */}
             <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <div className="inline-block bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                ABOUT VMC MEDIA
-              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
                 Award-Winning Full-Service Digital Marketing Agency
               </h2>

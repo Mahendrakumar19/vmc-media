@@ -120,7 +120,7 @@ const Header = () => {
           <nav className="hidden xl:flex items-center gap-6">
             <NavLink
               to="/"
-              className="text-foreground hover:text-primary transition-colors font-medium px-1 py-2 text-sm tracking-wide relative group"
+              className="text-foreground hover:text-primary transition-colors font-bold px-1 py-2 text-sm tracking-wide relative group"
               activeClassName="text-primary font-semibold"
             >
               Home
@@ -129,7 +129,7 @@ const Header = () => {
 
             <NavLink
               to="/services"
-              className="text-foreground hover:text-primary transition-colors font-medium px-1 py-2 text-sm tracking-wide relative group"
+              className="text-foreground hover:text-primary transition-colors font-bold px-1 py-2 text-sm tracking-wide relative group"
               activeClassName="text-primary font-semibold"
             >
               Digital Marketing
@@ -142,8 +142,8 @@ const Header = () => {
               onMouseEnter={() => setActiveDropdown("ai")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center gap-1.5 text-foreground hover:text-primary transition-colors font-medium py-2 text-sm cursor-pointer">
-                <span>AI Solutions</span>
+              <button className="flex items-center gap-1.5 text-foreground hover:text-primary transition-colors font-bold py-2 text-sm cursor-pointer">
+                <span><NavLink to="/ai-solutions">AI Solutions</NavLink></span>
                 <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#2cd1a1]/10 text-[#2cd1a1] border border-[#2cd1a1]/20">
                   AIWA
                 </span>
@@ -221,7 +221,7 @@ const Header = () => {
             >
               <NavLink 
                 to="/services/technology-solutions" 
-                className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium py-2 text-sm cursor-pointer"
+                className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-bold py-2 text-sm cursor-pointer"
                 activeClassName="text-primary font-semibold"
               >
                 <span>Technology Solutions</span>
@@ -262,7 +262,7 @@ const Header = () => {
             {/* Industries Link */}
             <NavLink
               to="/industries"
-              className="text-foreground hover:text-primary transition-colors font-medium px-1 py-2 text-sm tracking-wide relative group"
+              className="text-foreground hover:text-primary transition-colors font-bold px-1 py-2 text-sm tracking-wide relative group"
               activeClassName="text-primary font-semibold"
             >
               Industries
@@ -270,12 +270,12 @@ const Header = () => {
             </NavLink>
 
             {/* About Us Link */}
-            <NavLink to="/about" className="text-foreground hover:text-primary transition-colors font-medium px-1 py-2 text-sm">
+            <NavLink to="/about" className="text-foreground hover:text-primary transition-colors font-bold px-1 py-2 text-sm">
               About Us
             </NavLink>
 
             {/* Contact Link */}
-            <NavLink to="/contact" className="text-foreground hover:text-primary transition-colors font-medium px-1 py-2 text-sm">
+            <NavLink to="/contact" className="text-foreground hover:text-primary transition-colors font-bold px-1 py-2 text-sm">
               Contact
             </NavLink>
           </nav>
@@ -349,7 +349,7 @@ const Header = () => {
               {/* Standard Links */}
               <NavLink
                 to="/"
-                className="text-foreground hover:text-primary hover:bg-muted font-medium py-2.5 px-3 rounded-lg text-sm transition-all"
+                className="text-foreground hover:text-primary hover:bg-muted font-bold py-2.5 px-3 rounded-lg text-sm transition-all"
                 onClick={closeAll}
               >
                 Home
@@ -357,7 +357,7 @@ const Header = () => {
 
               <NavLink
                 to="/services"
-                className="text-foreground hover:text-primary hover:bg-muted font-medium py-2.5 px-3 rounded-lg text-sm transition-all"
+                className="text-foreground hover:text-primary hover:bg-muted font-bold py-2.5 px-3 rounded-lg text-sm transition-all"
                 onClick={closeAll}
               >
                 Digital Marketing
@@ -367,7 +367,7 @@ const Header = () => {
               <div className="rounded-lg border border-border/50 overflow-hidden">
                 <button
                   onClick={() => toggleMobileExpanded("ai")}
-                  className="flex items-center justify-between w-full text-foreground hover:bg-muted font-medium py-2.5 px-3 text-sm cursor-pointer"
+                  className="flex items-center justify-between w-full text-foreground hover:bg-muted font-bold py-2.5 px-3 text-sm cursor-pointer"
                 >
                   <span className="flex items-center gap-2">
                     <span>AI Solutions</span>
@@ -401,7 +401,7 @@ const Header = () => {
               <div className="rounded-lg border border-border/50 overflow-hidden">
                 <button
                   onClick={() => toggleMobileExpanded("tech")}
-                  className="flex items-center justify-between w-full text-foreground hover:bg-muted font-medium py-2.5 px-3 text-sm cursor-pointer"
+                  className="flex items-center justify-between w-full text-foreground hover:bg-muted font-bold py-2.5 px-3 text-sm cursor-pointer"
                 >
                   <span>Technology Solutions</span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileExpanded === "tech" ? "rotate-180" : ""}`} />
@@ -434,7 +434,7 @@ const Header = () => {
               <div className="rounded-lg border border-border/50 overflow-hidden">
                 <button
                   onClick={() => toggleMobileExpanded("ind")}
-                  className="flex items-center justify-between w-full text-foreground hover:bg-muted font-medium py-2.5 px-3 text-sm cursor-pointer"
+                  className="flex items-center justify-between w-full text-foreground hover:bg-muted font-bold py-2.5 px-3 text-sm cursor-pointer"
                 >
                   <span>Industries</span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileExpanded === "ind" ? "rotate-180" : ""}`} />
@@ -466,7 +466,7 @@ const Header = () => {
 
               <NavLink
                 to="/about"
-                className="text-foreground hover:text-primary hover:bg-muted font-medium py-2.5 px-3 rounded-lg text-sm transition-all"
+                className="text-foreground hover:text-primary hover:bg-muted font-bold py-2.5 px-3 rounded-lg text-sm transition-all"
                 onClick={closeAll}
               >
                 About Us
@@ -474,7 +474,7 @@ const Header = () => {
 
               <NavLink
                 to="/contact"
-                className="text-foreground hover:text-primary hover:bg-muted font-medium py-2.5 px-3 rounded-lg text-sm transition-all"
+                className="text-foreground hover:text-primary hover:bg-muted font-bold py-2.5 px-3 rounded-lg text-sm transition-all"
                 onClick={closeAll}
               >
                 Contact

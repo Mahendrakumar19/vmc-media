@@ -24,7 +24,7 @@ const Footer = () => {
             <div className="pt-1 text-xs text-white/70 space-y-2">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#2cd1a1] shrink-0 mt-0.5" />
-                <span>5th Floor, Tower C, Block C, Green Boulevard, B-9/A, Sector 62, Noida, Uttar Pradesh – 201301</span>
+                <span>501, 5th Floor, Tower C, Block C, Green Boulevard, B-9/A, Sector 62, Noida, Uttar Pradesh – 201301</span>
               </div>
             </div>
           </div>
@@ -33,12 +33,12 @@ const Footer = () => {
           <div>
             <h4 className="text-xs font-bold text-white mb-3.5 uppercase tracking-wider">Quick Links</h4>
             <ul className="space-y-2 text-xs text-white/80">
-              <li><Link href="/" className="hover:text-[#2cd1a1] transition-colors">Home</Link></li>
-              <li><Link href="/services" className="hover:text-[#2cd1a1] transition-colors">Digital Marketing</Link></li>
-              <li><Link href="/ai-solutions/ai-chatbot" className="hover:text-[#2cd1a1] transition-colors">AI Solutions</Link></li>
-              <li><a href="#industries" className="hover:text-[#2cd1a1] transition-colors">Industries</a></li>
-              <li><Link href="/about" className="hover:text-[#2cd1a1] transition-colors">About Us</Link></li>
-              <li><Link href="/contact" className="hover:text-[#2cd1a1] transition-colors">Contact</Link></li>
+              <li><Link href="/" className="hover:text-[#2cd1a1] transition-colors font-semibold">Home</Link></li>
+              <li><Link href="/services" className="hover:text-[#2cd1a1] transition-colors font-semibold">Digital Marketing</Link></li>
+              <li><Link href="/ai-solutions/ai-chatbot" className="hover:text-[#2cd1a1] transition-colors font-semibold">AI Solutions</Link></li>
+              <li><a href="#industries" className="hover:text-[#2cd1a1] transition-colors font-semibold">Industries</a></li>
+              <li><Link href="/about" className="hover:text-[#2cd1a1] transition-colors font-semibold">About Us</Link></li>
+              <li><Link href="/contact" className="hover:text-[#2cd1a1] transition-colors font-semibold">Contact</Link></li>
             </ul>
           </div>
 
@@ -46,11 +46,11 @@ const Footer = () => {
           <div>
             <h4 className="text-xs font-bold text-white mb-3.5 uppercase tracking-wider">AI Solutions</h4>
             <ul className="space-y-2 text-xs text-white/80">
-              <li><Link href="/ai-solutions/ai-chatbot" className="hover:text-[#2cd1a1] transition-colors">AI Chatbot</Link></li>
-              <li><Link href="/ai-solutions/ai-voicebot" className="hover:text-[#2cd1a1] transition-colors">AI Voicebot</Link></li>
-              <li><Link href="/ai-solutions/sales-automation" className="hover:text-[#2cd1a1] transition-colors">Lead Qualification</Link></li>
-              <li><a href="https://aiwa.vmcmedia.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#2cd1a1] transition-colors font-semibold text-[#2cd1a1]">AIWA WhatsApp</a></li>
-              <li><Link href="/ai-solutions/sales-automation" className="hover:text-[#2cd1a1] transition-colors">CRM Pipeline</Link></li>
+              <li><Link href="/ai-solutions/ai-chatbot" className="hover:text-[#2cd1a1] transition-colors font-semibold">AI Chatbot</Link></li>
+              <li><Link href="/ai-solutions/ai-voicebot" className="hover:text-[#2cd1a1] transition-colors font-semibold">AI Voicebot</Link></li>
+              <li><Link href="/ai-solutions/sales-automation" className="hover:text-[#2cd1a1] transition-colors font-semibold">Lead Qualification</Link></li>
+              <li><a href="https://aiwa.vmcmedia.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#2cd1a1] transition-colors font-bold text-[#2cd1a1]">AIWA WhatsApp</a></li>
+              <li><Link href="/ai-solutions/sales-automation" className="hover:text-[#2cd1a1] transition-colors font-semibold">CRM Pipeline</Link></li>
             </ul>
           </div>
 
@@ -58,11 +58,11 @@ const Footer = () => {
           <div>
             <h4 className="text-xs font-bold text-white mb-3.5 uppercase tracking-wider">Digital Services</h4>
             <ul className="space-y-2 text-xs text-white/80">
-              <li><Link href="/services/seo" className="hover:text-[#2cd1a1] transition-colors">SEO &amp; Ranking</Link></li>
-              <li><Link href="/services/local-seo" className="hover:text-[#2cd1a1] transition-colors">Local SEO (GMB)</Link></li>
-              <li><Link href="/services/google-ads" className="hover:text-[#2cd1a1] transition-colors">Google Ads &amp; PPC</Link></li>
-              <li><Link href="/services/smm" className="hover:text-[#2cd1a1] transition-colors">Social Meta Ads</Link></li>
-              <li><Link href="/services/cro" className="hover:text-[#2cd1a1] transition-colors">Performance CRO</Link></li>
+              <li><Link href="/services/seo" className="hover:text-[#2cd1a1] transition-colors font-semibold">SEO &amp; Ranking</Link></li>
+              <li><Link href="/services/local-seo" className="hover:text-[#2cd1a1] transition-colors font-semibold">Local SEO (GMB)</Link></li>
+              <li><Link href="/services/google-ads" className="hover:text-[#2cd1a1] transition-colors font-semibold">Google Ads &amp; PPC</Link></li>
+              <li><Link href="/services/smm" className="hover:text-[#2cd1a1] transition-colors font-semibold">Social Meta Ads</Link></li>
+              <li><Link href="/services/cro" className="hover:text-[#2cd1a1] transition-colors font-semibold">Performance CRO</Link></li>
             </ul>
           </div>
 
@@ -72,15 +72,15 @@ const Footer = () => {
             <div className="space-y-3 text-xs text-white/80">
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#2cd1a1] shrink-0" />
-                <a href="mailto:Info@vmcmedia.in" className="hover:text-[#2cd1a1] transition-colors break-all">Info@vmcmedia.in</a>
+                <a href="mailto:Info@vmcmedia.in" className="hover:text-[#2cd1a1] transition-colors break-all font-semibold">Info@vmcmedia.in</a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-[#2cd1a1] shrink-0" />
-                <a href="tel:+919250592505" className="hover:text-[#2cd1a1] transition-colors">+91 92505 92505</a>
+                <a href="tel:+919250592505" className="hover:text-[#2cd1a1] transition-colors font-semibold">+91 92505 92505</a>
               </div>
               <div className="flex items-center gap-2">
                 <Globe className="w-3.5 h-3.5 text-[#2cd1a1] shrink-0" />
-                <a href="https://www.vmcmedia.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#2cd1a1] transition-colors">vmcmedia.in</a>
+                <a href="https://www.vmcmedia.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#2cd1a1] transition-colors font-semibold">vmcmedia.in</a>
               </div>
             </div>
           </div>
@@ -91,9 +91,9 @@ const Footer = () => {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
           <p>© 2026 VMC Media Pvt. Ltd. All Rights Reserved.</p>
           <div className="flex items-center gap-4">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors font-semibold">Privacy Policy</Link>
             <span>|</span>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms &amp; Conditions</Link>
+            <Link href="/terms" className="hover:text-white transition-colors font-semibold">Terms &amp; Conditions</Link>
           </div>
         </div>
 

@@ -23,8 +23,29 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  experimental: {
+    optimizePackageImports: [
+      '@fortawesome/free-solid-svg-icons',
+      '@fortawesome/free-brands-svg-icons',
+      '@fortawesome/react-fontawesome',
+      'lucide-react',
+      'framer-motion',
+      'date-fns',
+    ],
+  },
   async redirects() {
     return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.vmcmedia.in',
+          },
+        ],
+        destination: 'https://vmcmedia.in/:path*',
+        permanent: true,
+      },
       {
         source: '/privacy',
         destination: '/pages/privacy',
@@ -42,6 +63,6 @@ const nextConfig = {
       },
     ];
   },
-}
+};
 
 module.exports = nextConfig

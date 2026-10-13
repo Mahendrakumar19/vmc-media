@@ -2,7 +2,30 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "framework": "nextjs",
-  "redirects": [],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.vmcmedia.in"
+        }
+      ],
+      "destination": "https://vmcmedia.in/:path*",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*).(js|css|woff2|png|jpg|jpeg|webp|svg|ico)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
   "rewrites": [],
   "env": {
     "NEXT_TELEMETRY_DISABLED": "1"

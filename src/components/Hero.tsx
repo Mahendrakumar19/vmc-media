@@ -23,6 +23,14 @@ interface SlideData {
 
 const slides: SlideData[] = [
   {
+    badge: "24/7 AI Chatbots & Voicebots • Automated CRM Handover",
+    headlineMain: "Customer Engagement.",
+    headlineHighlight: "On Autopilot.",
+    description: "Empower your business with sub-10-second lead qualification, intelligent conversational chatbots, and human-like AI voicebots that convert prospects while you sleep.",
+    image: "/hero-slide-3.jpg",
+    alt: "Human-AI Collaboration and Conversational Automation"
+  },
+  {
     badge: "Digital Marketing • AI Automation • Business Growth",
     headlineMain: "Digital Growth.",
     headlineHighlight: "Powered by AI.",
@@ -37,14 +45,6 @@ const slides: SlideData[] = [
     description: "From laser-targeted Google Ads to organic multi-channel ranking, we build high-converting acquisition funnels backed by real-time analytics and transparent ROI attribution.",
     image: "/hero-slide-2.jpg",
     alt: "Performance Marketing and Real-Time Growth Analytics"
-  },
-  {
-    badge: "24/7 AI Chatbots & Voicebots • Automated CRM Handover",
-    headlineMain: "Customer Engagement.",
-    headlineHighlight: "On Autopilot.",
-    description: "Empower your business with sub-10-second lead qualification, intelligent conversational chatbots, and human-like AI voicebots that convert prospects while you sleep.",
-    image: "/hero-slide-3.jpg",
-    alt: "Human-AI Collaboration and Conversational Automation"
   }
 ];
 

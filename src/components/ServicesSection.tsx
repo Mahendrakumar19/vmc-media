@@ -1,13 +1,14 @@
 'use client';
 
-import { ArrowRight, CheckCircle2, Megaphone, Target, MessageSquare, Mic } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBullhorn, faRobot, faMicrophone, faMicrochip, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
 const ServicesSection = () => {
   const cards = [
     {
       title: "DIGITAL MARKETING",
-      icon: Megaphone,
+      icon: faBullhorn,
       accent: "text-blue-500",
       bgAccent: "bg-blue-500/10",
       desc: "Build your digital presence and reach the right audience with targeted, measurable marketing campaigns.",
@@ -26,7 +27,7 @@ const ServicesSection = () => {
     },
     {
       title: "AI CHATBOT",
-      icon: MessageSquare,
+      icon: faRobot,
       accent: "text-[#2cd1a1]",
       bgAccent: "bg-[#2cd1a1]/10",
       desc: "Give your customers instant answers and turn website conversations into qualified opportunities — 24×7.",
@@ -45,7 +46,7 @@ const ServicesSection = () => {
     },
     {
       title: "AI VOICEBOT",
-      icon: Mic,
+      icon: faMicrophone,
       accent: "text-purple-500",
       bgAccent: "bg-purple-500/10",
       desc: "Automate customer conversations with AI-powered voice interactions for enquiries, qualification, follow-ups and appointments.",
@@ -64,7 +65,7 @@ const ServicesSection = () => {
     },
     {
       title: "TECHNOLOGY SOLUTIONS",
-      icon: Target,
+      icon: faMicrochip,
       accent: "text-amber-500",
       bgAccent: "bg-amber-500/10",
       desc: "Leverage technology to automate processes, improve efficiency, and deliver better customer experiences.",
@@ -101,23 +102,19 @@ const ServicesSection = () => {
               className="bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:border-[#2cd1a1]/50 group"
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className={`w-12 h-12 rounded-2xl ${card.bgAccent} ${card.accent} flex items-center justify-center`}>
-                    <card.icon className="w-6 h-6" />
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={`w-11 h-11 rounded-2xl ${card.bgAccent} flex items-center justify-center flex-shrink-0`}>
+                    <FontAwesomeIcon icon={card.icon} className={`w-5 h-5 ${card.accent}`} />
                   </div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground bg-muted px-3 py-1 rounded-full border border-border">
-                    {card.title}
-                  </span>
+                  <h3 className="text-xl font-bold text-foreground leading-tight">{card.title}</h3>
                 </div>
-
-                <h3 className="text-2xl font-bold text-foreground mb-3">{card.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6">{card.desc}</p>
 
                 {/* Items List */}
                 <div className="grid grid-cols-2 gap-2.5 mb-8">
                   {card.items.map((item, i) => (
                     <div key={i} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#2cd1a1] flex-shrink-0" />
+                      <FontAwesomeIcon icon={faCircleCheck} className="w-4 h-4 text-[#2cd1a1] flex-shrink-0" />
                       <span className="text-xs font-medium text-foreground">{item}</span>
                     </div>
                   ))}
@@ -134,6 +131,7 @@ const ServicesSection = () => {
                 </Link>
               </div>
             </div>
+
           ))}
         </div>
 

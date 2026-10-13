@@ -12,9 +12,6 @@ const About = () => {
         id="about"
       >
         <div className="container mx-auto px-6 lg:px-8 max-w-5xl text-center">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2cd1a1] mb-3 block">
-            ABOUT VMC MEDIA
-          </span>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
             Connecting Businesses With Customers.{" "}

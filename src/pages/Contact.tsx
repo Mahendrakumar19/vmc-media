@@ -85,13 +85,13 @@ const Contact = () => {
         canonical="/contact"
       />      
       {/* Hero Section */}
-      <section className="pt-32 pb-8 bg-hero-gradient">
-        <div className="container mx-auto px-6 lg:px-8 max-w-7xl">
+      <section className="pt-24 sm:pt-28 md:pt-32 pb-6 md:pb-8 bg-hero-gradient">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="max-w-3xl mx-auto text-center animate-fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4 md:mb-6">
               Let's Grow Your Business Together
             </h1>
-            <p className="text-base md:text-lg text-muted-foreground">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
               Have a project in mind? We're here to help you unlock your brand's full potential.
             </p>
           </div>
@@ -99,28 +99,33 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-8 bg-background">
-        <div className="container mx-auto px-6 lg:px-8 max-w-7xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">Get In Touch With Us</h2>
-          <div className="grid lg:grid-cols-3 gap-8 mb-8">
+      <section className="py-6 sm:py-8 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-6 sm:mb-8 text-center sm:text-left">
+            Get In Touch With Us
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8">
             {[
               {
                 icon: Phone,
                 title: "Call Us",
                 content: "+91 9250592505",
+                href: "tel:+919250592505",
                 subtext: "Mon-Sat 10am-6pm IST",
               },
               {
                 icon: Mail,
                 title: "Email Us",
                 content: "Info@vmcmedia.in",
+                href: "mailto:Info@vmcmedia.in",
                 subtext: "We reply within 24 hours",
               },
               {
                 icon: MapPin,
                 title: "Visit Us",
                 content: "VMC Media",
-                subtext: "5th Floor, Tower C, Block C, Green Boulevard, B-9/A, Sector 62, Noida, Uttar Pradesh – 201301",
+                href: "https://maps.google.com/?q=Green+Boulevard+Sector+62+Noida",
+                subtext: "501, 5th Floor, Tower C, Block C, Green Boulevard, B-9/A, Sector 62, Noida, Uttar Pradesh – 201301",
               },
             ].map((item, index) => (
               <Card
@@ -128,22 +133,27 @@ const Contact = () => {
                 className="text-center border-border hover:shadow-xl transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <item.icon className="w-8 h-8 text-white" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-lg font-semibold text-primary mb-1">{item.content}</p>
-                  <p className="text-sm text-muted-foreground">{item.subtext}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1 sm:mb-2">{item.title}</h3>
+                  <a
+                    href={item.href}
+                    className="text-base sm:text-lg font-semibold text-primary hover:underline block break-words mb-1"
+                  >
+                    {item.content}
+                  </a>
+                  <p className="text-xs sm:text-sm text-muted-foreground line-clamp-3">{item.subtext}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Form */}
             <Card className="border-border animate-fade-in" style={{ animationDelay: "0.3s" }}>
-              <CardContent className="p-8">
+              <CardContent className="p-5 sm:p-6 lg:p-8">
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-2.5">
                   {/* Full Name */}
@@ -244,19 +254,19 @@ const Contact = () => {
             </Card>
 
             {/* Office Hours */}
-            <div className="space-y-8 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+            <div className="space-y-6 sm:space-y-8 animate-fade-in" style={{ animationDelay: "0.4s" }}>
               <Card className="border-border">
-                <CardContent className="p-8">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-6 h-6 text-white" />
+                <CardContent className="p-5 sm:p-6 lg:p-8">
+                  <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-foreground mb-2">Office Hours</h3>
-                      <p className="text-muted-foreground">We're available during these times</p>
+                      <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1">Office Hours</h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground">We're available during these times</p>
                     </div>
                   </div>
-                  <div className="space-y-3">
+                  <div className="space-y-2.5 sm:space-y-3 text-sm sm:text-base">
                     <div className="flex justify-between py-2 border-b border-border">
                       <span className="text-foreground font-medium">Monday - Saturday</span>
                       <span className="text-muted-foreground">10:00 AM - 6:00 PM</span>
@@ -270,12 +280,12 @@ const Contact = () => {
               </Card>
 
               <Card className="border-border bg-gradient-to-br from-accent to-secondary">
-                <CardContent className="p-8 text-white">
-                  <h3 className="text-2xl font-bold mb-3">Ready to Get Started?</h3>
-                  <p className="mb-6 text-white/90">
+                <CardContent className="p-5 sm:p-6 lg:p-8 text-white">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">Ready to Get Started?</h3>
+                  <p className="mb-5 sm:mb-6 text-sm sm:text-base text-white/90">
                     Schedule a free consultation with our team to discuss your marketing goals.
                   </p>
-                  <Button size="lg" className="w-full bg-white text-secondary hover:bg-white/90">
+                  <Button size="lg" className="w-full bg-white text-secondary hover:bg-white/90 font-semibold text-sm sm:text-base">
                     Schedule Free Consultation
                   </Button>
                 </CardContent>
@@ -284,14 +294,14 @@ const Contact = () => {
           </div>
 
           {/* Interactive Google Map / Geolocation Section */}
-          <div className="mt-16 animate-fade-in" style={{ animationDelay: "0.5s" }}>
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Our Office Location</h2>
-              <p className="text-muted-foreground text-sm md:text-base">
-                Find us at 5th Floor, Tower C, Block C, Green Boulevard, B-9/A, Sector 62, Noida, Uttar Pradesh – 201301
+          <div className="mt-12 sm:mt-16 animate-fade-in" style={{ animationDelay: "0.5s" }}>
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">Our Office Location</h2>
+              <p className="text-muted-foreground text-xs sm:text-sm md:text-base max-w-2xl mx-auto">
+                501, 5th Floor, Tower C, Block C, Green Boulevard, B-9/A, Sector 62, Noida, Uttar Pradesh – 201301
               </p>
             </div>
-            <div className="relative w-full h-[380px] md:h-[450px] rounded-2xl overflow-hidden border border-border shadow-xl">
+            <div className="relative w-full h-[280px] sm:h-[350px] md:h-[450px] rounded-xl sm:rounded-2xl overflow-hidden border border-border shadow-xl">
               <iframe
                 title="VMC Media Location - Green Boulevard Sector-62 Noida"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.4849313200735!2d77.36214307629559!3d28.615219984216853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce566270929f9%3A0x6d1be25f0535c829!2sGreen%20Boulevard!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"

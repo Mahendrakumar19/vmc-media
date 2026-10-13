@@ -1,13 +1,14 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Plus_Jakarta_Sans } from 'next/font/google'
 import Script from 'next/script'
 import '../index.css'
 import { Providers } from './providers'
 
-const inter = Inter({ 
+const plusJakartaSans = Plus_Jakarta_Sans({ 
   subsets: ['latin'],
   display: 'swap',
   preload: true,
+  weight: ['300', '400', '500', '600', '700', '800'],
   fallback: ['system-ui', 'arial']
 })
 
@@ -133,7 +134,7 @@ export default function RootLayout({
               ],
               address: {
                 '@type': 'PostalAddress',
-                streetAddress: '5th Floor, Tower C, Block C, Green Boulevard, B-9/A, Sector 62',
+                streetAddress: '501, 5th Floor, Tower C, Block C, Green Boulevard, B-9/A, Sector 62',
                 addressLocality: 'Noida',
                 addressRegion: 'Uttar Pradesh',
                 postalCode: '201301',
@@ -172,7 +173,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={plusJakartaSans.className}>
         <Providers>{children}</Providers>
       </body>
     </html>

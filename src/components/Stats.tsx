@@ -1,23 +1,27 @@
-import { TrendingUp, Users, Award, Briefcase } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRocket, faAward, faHandshake } from "@fortawesome/free-solid-svg-icons";
 
 const stats = [
   {
-    icon: Briefcase,
+    icon: faRocket,
     value: "Proven",
     label: "Enterprise Delivery",
-    color: "text-accent",
+    color: "text-[#2cd1a1]",
+    bg: "bg-[#2cd1a1]/10",
   },
   {
-    icon: Award,
+    icon: faAward,
     value: "Established",
     label: "Industry Expertise",
-    color: "text-primary",
+    color: "text-[#073D7B] dark:text-blue-400",
+    bg: "bg-blue-500/10",
   },
   {
-    icon: TrendingUp,
+    icon: faHandshake,
     value: "Long-Term",
     label: "Client Partnerships",
-    color: "text-accent",
+    color: "text-[#2cd1a1]",
+    bg: "bg-[#2cd1a1]/10",
   },
 ];
 
@@ -36,8 +40,8 @@ const Stats = () => {
               key={index}
               className="text-center group"
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 bg-card border border-border shadow-md rounded-2xl mb-3 lg:mb-4 group-hover:border-primary/50 group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
-                <stat.icon className={`w-7 h-7 lg:w-8 lg:h-8 ${stat.color}`} />
+              <div className={`inline-flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 ${stat.bg} border border-border shadow-md rounded-2xl mb-3 lg:mb-4 group-hover:border-primary/50 group-hover:shadow-lg group-hover:scale-105 transition-all duration-300`}>
+                <FontAwesomeIcon icon={stat.icon} className={`w-7 h-7 lg:w-8 lg:h-8 ${stat.color}`} />
               </div>
               <h3 className="text-3xl lg:text-4xl font-bold mb-2 text-foreground">{stat.value}</h3>
               <p className="text-base lg:text-lg text-muted-foreground font-medium">{stat.label}</p>

@@ -1,6 +1,7 @@
 'use client';
 
-import { Target, Cpu, BarChart3, Users } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCrosshairs, faBrain, faChartBar, faPeopleGroup } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
 const WhyVMC = () => {
@@ -8,26 +9,30 @@ const WhyVMC = () => {
     {
       title: "Business-Focused",
       desc: "We focus on your business objectives, not just marketing activity.",
-      icon: Target,
-      color: "text-[#073D7B] dark:text-blue-400"
+      icon: faCrosshairs,
+      color: "text-[#073D7B] dark:text-blue-400",
+      bg: "bg-blue-500/10"
     },
     {
       title: "Digital + AI",
       desc: "Combine digital marketing with AI-powered customer engagement.",
-      icon: Cpu,
-      color: "text-[#2cd1a1]"
+      icon: faBrain,
+      color: "text-[#2cd1a1]",
+      bg: "bg-[#2cd1a1]/10"
     },
     {
       title: "Data-Driven",
       desc: "Use campaign and customer data to continuously improve performance.",
-      icon: BarChart3,
-      color: "text-purple-500"
+      icon: faChartBar,
+      color: "text-purple-500",
+      bg: "bg-purple-500/10"
     },
     {
       title: "Human + AI",
       desc: "Automation handles repetitive interactions while your team focuses on important customer relationships.",
-      icon: Users,
-      color: "text-amber-500"
+      icon: faPeopleGroup,
+      color: "text-amber-500",
+      bg: "bg-amber-500/10"
     }
   ];
 
@@ -51,8 +56,8 @@ const WhyVMC = () => {
               key={i} 
               className="bg-card border border-border rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-[#2cd1a1]/50 group"
             >
-              <div className={`w-12 h-12 rounded-xl bg-muted flex items-center justify-center mb-4 ${card.color} group-hover:scale-110 transition-transform`}>
-                <card.icon className="w-6 h-6" />
+              <div className={`w-12 h-12 rounded-xl ${card.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                <FontAwesomeIcon icon={card.icon} className={`w-6 h-6 ${card.color}`} />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-[#2cd1a1] transition-colors">{card.title}</h3>
               <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{card.desc}</p>

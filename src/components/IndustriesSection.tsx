@@ -1,54 +1,63 @@
 import Image from "next/image";
-import { Building2, GraduationCap, Stethoscope, Landmark, ShoppingCart, Factory, Car, Briefcase } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBuilding, faGraduationCap, faHospital, faLandmark, faBagShopping, faIndustry, faCar, faBriefcase } from "@fortawesome/free-solid-svg-icons";
 
 const IndustriesSection = () => {
   const industries = [
     {
       title: "Real Estate",
       desc: "High-intent buyer leads, premium property enquiries, qualification and automated site-visit follow-ups.",
-      icon: Building2,
+      icon: faBuilding,
+      color: "text-blue-500",
       image: "/real-estate.webp"
     },
     {
       title: "Education",
       desc: "Student enquiries, counselling leads, course admissions, and automated parent communication.",
-      icon: GraduationCap,
+      icon: faGraduationCap,
+      color: "text-amber-500",
       image: "/college.webp"
     },
     {
       title: "Healthcare",
       desc: "Patient appointment bookings, OPD enquiries, instant reminder sequences, and care support.",
-      icon: Stethoscope,
+      icon: faHospital,
+      color: "text-red-500",
       image: "/hospital.webp"
     },
     {
       title: "BFSI",
       desc: "High-net-worth lead qualification, loan enquiries, investment advisories, and instant compliance follow-ups.",
-      icon: Landmark,
+      icon: faLandmark,
+      color: "text-emerald-500",
       image: "/industry-bfsi.jpg"
     },
     {
       title: "Retail & E-commerce",
       desc: "DTC customer acquisition, product catalog enquiries, abandoned cart recovery, and festive campaigns.",
-      icon: ShoppingCart,
+      icon: faBagShopping,
+      color: "text-pink-500",
       image: "/Ecommerce.webp"
     },
     {
       title: "Manufacturing",
       desc: "B2B industrial procurement leads, bulk RFQ enquiry pipelines, dealer networks, and sales engagement.",
-      icon: Factory,
+      icon: faIndustry,
+      color: "text-slate-500",
       image: "/industry-manufacturing.jpg"
     },
     {
       title: "Automotive",
       desc: "Showroom visit bookings, EV & luxury test-drive leads, and automated post-visit sales nurturing.",
-      icon: Car,
+      icon: faCar,
+      color: "text-indigo-500",
       image: "/industry-automotive.jpg"
     },
     {
       title: "Professional Services",
       desc: "High-ticket consulting consultations, legal & corporate advisory enquiries, and meeting scheduling.",
-      icon: Briefcase,
+      icon: faBriefcase,
+      color: "text-[#2cd1a1]",
       image: "/industry-services.jpg"
     }
   ];
@@ -92,8 +101,8 @@ const IndustriesSection = () => {
                 
                 {/* Floating Icon Badge on top of image */}
                 <div className="absolute bottom-3 left-3 flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-lg bg-background/90 dark:bg-card/90 backdrop-blur-md text-[#073D7B] dark:text-[#2cd1a1] flex items-center justify-center shadow-md">
-                    <ind.icon className="w-4 h-4" />
+                  <div className="w-9 h-9 rounded-lg bg-background/90 dark:bg-card/90 backdrop-blur-md flex items-center justify-center shadow-md">
+                    <FontAwesomeIcon icon={ind.icon} className={`w-4 h-4 ${ind.color}`} />
                   </div>
                   <span className="text-xs font-semibold text-white tracking-wide drop-shadow-sm">
                     {ind.title}
