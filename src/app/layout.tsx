@@ -94,7 +94,7 @@ export default function RootLayout({
         {/* Google Analytics 4 - Async loading */}
         <Script
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          src="https://www.googletagmanager.com/gtag/js?id=G-GSXHP5X39B"
         />
         <Script
           id="google-analytics"
@@ -104,7 +104,7 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-XXXXXXXXXX', {
+              gtag('config', 'G-GSXHP5X39B', {
                 page_path: window.location.pathname,
                 send_page_view: true,
               });
