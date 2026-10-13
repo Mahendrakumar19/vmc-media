@@ -1,14 +1,15 @@
 'use client';
 
 import Image from "next/image";
-import { Target, MessageCircle, Filter, CheckCircle } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCrosshairs, faComments, faFilter, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 const TrustStrip = () => {
   const cards = [
     {
       title: "Attract",
       desc: "Reach the right audience.",
-      icon: Target,
+      icon: faCrosshairs,
       image: "/journey-attract.jpg",
       color: "text-blue-500",
       bg: "bg-blue-500/10"
@@ -16,7 +17,7 @@ const TrustStrip = () => {
     {
       title: "Engage",
       desc: "Connect with customers across digital channels.",
-      icon: MessageCircle,
+      icon: faComments,
       image: "/journey-engage.jpg",
       color: "text-[#2cd1a1]",
       bg: "bg-[#2cd1a1]/10"
@@ -24,7 +25,7 @@ const TrustStrip = () => {
     {
       title: "Qualify",
       desc: "Use AI to identify genuine opportunities.",
-      icon: Filter,
+      icon: faFilter,
       image: "/journey-qualify.jpg",
       color: "text-purple-500",
       bg: "bg-purple-500/10"
@@ -32,7 +33,7 @@ const TrustStrip = () => {
     {
       title: "Convert",
       desc: "Help your sales team turn opportunities into business.",
-      icon: CheckCircle,
+      icon: faCircleCheck,
       image: "/journey-convert.jpg",
       color: "text-emerald-500",
       bg: "bg-emerald-500/10"
@@ -81,7 +82,7 @@ const TrustStrip = () => {
                 
                 {/* Floating Icon */}
                 <div className="absolute bottom-2.5 left-3 w-8 h-8 rounded-lg bg-card/90 backdrop-blur-md border border-border shadow flex items-center justify-center">
-                  <card.icon className={`w-4 h-4 ${card.color}`} />
+                  <FontAwesomeIcon icon={card.icon} className={`w-4 h-4 ${card.color}`} />
                 </div>
               </div>
 

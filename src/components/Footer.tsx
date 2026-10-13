@@ -1,7 +1,13 @@
 'use client';
 
 import Link from "next/link";
-import { Mail, Phone, Globe, MapPin } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faLocationDot, 
+  faEnvelope, 
+  faPhone, 
+  faGlobe 
+} from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
   return (
@@ -23,7 +29,7 @@ const Footer = () => {
             </p>
             <div className="pt-1 text-xs text-white/70 space-y-2">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#2cd1a1] shrink-0 mt-0.5" />
+                <FontAwesomeIcon icon={faLocationDot} className="w-3.5 h-3.5 text-[#2cd1a1] shrink-0 mt-0.5" />
                 <span>501, 5th Floor, Tower C, Block C, Green Boulevard, B-9/A, Sector 62, Noida, Uttar Pradesh – 201301</span>
               </div>
             </div>
@@ -70,16 +76,16 @@ const Footer = () => {
           <div>
             <h4 className="text-xs font-bold text-white mb-3.5 uppercase tracking-wider">Contact Us</h4>
             <div className="space-y-3 text-xs text-white/80">
-              <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#2cd1a1] shrink-0" />
+              <div className="flex items-center gap-2.5">
+                <FontAwesomeIcon icon={faEnvelope} className="w-3.5 h-3.5 text-[#2cd1a1] shrink-0" />
                 <a href="mailto:Info@vmcmedia.in" className="hover:text-[#2cd1a1] transition-colors break-all font-semibold">Info@vmcmedia.in</a>
               </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-[#2cd1a1] shrink-0" />
+              <div className="flex items-center gap-2.5">
+                <FontAwesomeIcon icon={faPhone} className="w-3.5 h-3.5 text-[#2cd1a1] shrink-0" />
                 <a href="tel:+919250592505" className="hover:text-[#2cd1a1] transition-colors font-semibold">+91 92505 92505</a>
               </div>
-              <div className="flex items-center gap-2">
-                <Globe className="w-3.5 h-3.5 text-[#2cd1a1] shrink-0" />
+              <div className="flex items-center gap-2.5">
+                <FontAwesomeIcon icon={faGlobe} className="w-3.5 h-3.5 text-[#2cd1a1] shrink-0" />
                 <a href="https://www.vmcmedia.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#2cd1a1] transition-colors font-semibold">vmcmedia.in</a>
               </div>
             </div>

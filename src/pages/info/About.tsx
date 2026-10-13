@@ -1,27 +1,42 @@
 import SEO from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import { Users, TrendingUp, Target, Lightbulb, Award } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faBullseye, 
+  faLightbulb, 
+  faAward, 
+  faChartLine,
+  faCircleCheck
+} from "@fortawesome/free-solid-svg-icons";
 
 const About = () => {
   const approach = [
     {
-      icon: Target,
+      icon: faBullseye,
+      accent: "text-blue-500",
+      bg: "bg-blue-500/10",
       title: "Understand Your Goals",
       description: "We start by deeply understanding your business objectives and market position.",
     },
     {
-      icon: Lightbulb,
+      icon: faLightbulb,
+      accent: "text-amber-500",
+      bg: "bg-amber-500/10",
       title: "Develop a Customized Strategy",
       description: "Every business is unique. We create tailored strategies aligned with your goals.",
     },
     {
-      icon: Award,
+      icon: faAward,
+      accent: "text-purple-500",
+      bg: "bg-purple-500/10",
       title: "Execute with Precision",
       description: "Our experienced team executes campaigns with meticulous attention to detail.",
     },
     {
-      icon: TrendingUp,
+      icon: faChartLine,
+      accent: "text-[#2cd1a1]",
+      bg: "bg-[#2cd1a1]/10",
       title: "Measure, Optimize & Scale",
       description: "We continuously monitor performance and optimize for maximum ROI and growth.",
     },
@@ -108,12 +123,12 @@ const About = () => {
             {approach.map((item, index) => (
               <Card
                 key={index}
-                className="border-border hover:shadow-xl transition-all duration-300 animate-fade-in"
+                className="border-border hover:shadow-xl transition-all duration-300 animate-fade-in group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardContent className="p-8">
-                  <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mb-4">
-                    <item.icon className="w-6 h-6 text-white" />
+                  <div className={`w-12 h-12 ${item.bg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <FontAwesomeIcon icon={item.icon} className={`w-6 h-6 ${item.accent}`} />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
                   <p className="text-muted-foreground">{item.description}</p>
@@ -144,11 +159,7 @@ const About = () => {
                   "Dedicated account management and priority support",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    </div>
+                    <FontAwesomeIcon icon={faCircleCheck} className="w-5 h-5 text-[#2cd1a1] shrink-0 mt-0.5" />
                     <span className="text-foreground">{item}</span>
                   </li>
                 ))}

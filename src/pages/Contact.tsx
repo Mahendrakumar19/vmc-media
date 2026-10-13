@@ -9,7 +9,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faPhone, 
+  faEnvelope, 
+  faLocationDot, 
+  faClock, 
+  faCalendarCheck, 
+  faPaperPlane 
+} from "@fortawesome/free-solid-svg-icons";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import "@/styles/floating-labels.css";
@@ -107,35 +115,41 @@ const Contact = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8">
             {[
               {
-                icon: Phone,
+                icon: faPhone,
                 title: "Call Us",
                 content: "+91 9250592505",
                 href: "tel:+919250592505",
                 subtext: "Mon-Sat 10am-6pm IST",
+                accent: "text-blue-500",
+                bg: "bg-blue-500/10",
               },
               {
-                icon: Mail,
+                icon: faEnvelope,
                 title: "Email Us",
                 content: "Info@vmcmedia.in",
                 href: "mailto:Info@vmcmedia.in",
                 subtext: "We reply within 24 hours",
+                accent: "text-[#2cd1a1]",
+                bg: "bg-[#2cd1a1]/10",
               },
               {
-                icon: MapPin,
+                icon: faLocationDot,
                 title: "Visit Us",
                 content: "VMC Media",
                 href: "https://maps.google.com/?q=Green+Boulevard+Sector+62+Noida",
                 subtext: "501, 5th Floor, Tower C, Block C, Green Boulevard, B-9/A, Sector 62, Noida, Uttar Pradesh – 201301",
+                accent: "text-purple-500",
+                bg: "bg-purple-500/10",
               },
             ].map((item, index) => (
               <Card
                 key={index}
-                className="text-center border-border hover:shadow-xl transition-all duration-300 animate-fade-in"
+                className="text-center border-border hover:shadow-xl transition-all duration-300 animate-fade-in group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardContent className="p-5 sm:p-6 lg:p-8">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                    <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  <div className={`w-12 h-12 sm:w-16 sm:h-16 ${item.bg} rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <FontAwesomeIcon icon={item.icon} className={`w-6 h-6 sm:w-8 sm:h-8 ${item.accent}`} />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1 sm:mb-2">{item.title}</h3>
                   <a
@@ -258,8 +272,8 @@ const Contact = () => {
               <Card className="border-border">
                 <CardContent className="p-5 sm:p-6 lg:p-8">
                   <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-secondary rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <FontAwesomeIcon icon={faClock} className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" />
                     </div>
                     <div>
                       <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1">Office Hours</h3>
