@@ -114,12 +114,12 @@ const ContactSection = () => {
             </div>
 
             {/* Partnership Badge */}
-            <div className="p-4 rounded-2xl bg-card/60 border border-border/80 flex items-center gap-3">
+            {/* <div className="p-4 rounded-2xl bg-card/60 border border-border/80 flex items-center gap-3">
               <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
               <p className="text-xs text-muted-foreground">
                 <span className="font-bold text-foreground">Authorised Partner:</span> Tata Teleservices Smart Digital Solutions &amp; Official WhatsApp Cloud API.
               </p>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Column: Sleek Enterprise Form */}
