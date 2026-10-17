@@ -4,7 +4,7 @@ import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 
 export function InfluencerMarketingPageClient() {
-  const InfluencerComponent = require('@/pages/services/InfluencerMarketing').default
+  const InfluencerComponent = require('@/views/services/InfluencerMarketing').default
   return (
     <div className="min-h-screen">
       <Header />

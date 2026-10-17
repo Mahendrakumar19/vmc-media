@@ -4,7 +4,7 @@ import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 
 export function LocalSEOPageClient() {
-  const LocalSEOComponent = require('@/pages/services/LocalSEO').default
+  const LocalSEOComponent = require('@/views/services/LocalSEO').default
   return (
     <div className="min-h-screen">
       <Header />

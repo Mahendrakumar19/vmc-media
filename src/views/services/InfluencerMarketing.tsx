@@ -93,7 +93,7 @@ const InfluencerMarketingService = () => {
             Ready to Partner with Influencers?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Let's connect your brand with the right influencers
+            Let&apos;s connect your brand with the right influencers
           </p>
           <button
             onClick={() => router.push('/contact')}

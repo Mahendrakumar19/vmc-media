@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import Footer from "@/components/Footer";
 
 const Header = dynamic(() => import("@/components/Header"), { ssr: false, loading: () => <div className="h-20" /> });
-const AboutComponent = dynamic(() => import("@/pages/About"), { ssr: false });
+const AboutComponent = dynamic(() => import("@/views/About"), { ssr: false });
 
 export function AboutPageClient() {
   return (

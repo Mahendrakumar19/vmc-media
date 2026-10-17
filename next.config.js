@@ -36,14 +36,8 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.vmcmedia.in',
-          },
-        ],
-        destination: 'https://vmcmedia.in/:path*',
+        source: '/privacy',
+        destination: '/pages/privacy',
         permanent: true,
       },
       {
