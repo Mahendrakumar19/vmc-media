@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import Image from "next/image";
 import { Globe, CheckCircle2, Code, Smartphone, Palette, Zap, ArrowRight, Star, Layout, ShoppingCart, Layers, Database, Cloud, Lock } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const WebDevelopmentService = () => {
   const router = useRouter();
@@ -15,6 +16,16 @@ const WebDevelopmentService = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto px-6 lg:px-8 max-w-7xl">
+          {/* Breadcrumb Navigation */}
+          <div className="mb-6">
+            <Breadcrumbs 
+              items={[
+                { name: "Technology Solutions", href: "/technology-solutions" },
+                { name: "Web Application Development" }
+              ]} 
+            />
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full">

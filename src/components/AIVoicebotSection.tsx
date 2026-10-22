@@ -2,6 +2,7 @@
 
 import { PhoneCall, ArrowRight, Mic, CheckCircle2, Database, UserCheck, Calendar } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useModal } from "@/context/ModalContext";
 
 const AIVoicebotSection = () => {
@@ -64,10 +65,12 @@ const AIVoicebotSection = () => {
           </div>
 
           <div className="lg:col-span-5 relative w-full aspect-[16/10] rounded-3xl overflow-hidden border border-border shadow-2xl bg-slate-950">
-            <img
+            <Image
               src="/ai-voicebot-hero.jpg"
               alt="AI Voicebot & Customer Service Illustration with Neural Headset & Transcripts"
-              className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-500"
+              fill
+              sizes="(max-width: 1024px) 100vw, 42vw"
+              className="object-cover opacity-90 hover:scale-105 transition-transform duration-500"
             />
           </div>
         </div>

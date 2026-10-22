@@ -28,7 +28,7 @@ const ConnectCreateGrow = () => {
       color: "bg-accent",
       textColor: "text-accent",
       services: [
-        { icon: Globe, name: "Websites & Landing Pages", link: "/services/web-development" },
+        { icon: Globe, name: "Websites & Landing Pages", link: "/technology-solutions/web-development" },
         { icon: PenTool, name: "Content Marketing", link: "/services/branding" },
         { icon: Bot, name: "AI Chatbots (Web & WhatsApp)", link: "/ai-solutions/ai-chatbot" },
         { icon: BarChart3, name: "Conversion Rate Optimization", link: "/services/cro" }
@@ -58,7 +58,7 @@ const ConnectCreateGrow = () => {
             The VMC Growth Engine
           </h2>
           <p className="text-lg text-muted-foreground">
-            We don't just sell services; we deploy a unified growth architecture. Connect with traffic, create engaging AI experiences, and grow your revenue through automation.
+            We don&apos;t just sell services; we deploy a unified growth architecture. Connect with traffic, create engaging AI experiences, and grow your revenue through automation.
           </p>
         </div>
 

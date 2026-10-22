@@ -23,7 +23,7 @@ const IndustriesSection = () => {
       icon: faBuilding,
       color: "text-blue-500",
       bg: "bg-blue-500/10",
-      link: "/portfolio/real-estate",
+      link: "/industries#real-estate",
       tags: ["Site Visit Booking", "Broker CRM", "Meta Lead Ads"]
     },
     {
@@ -32,7 +32,7 @@ const IndustriesSection = () => {
       icon: faGraduationCap,
       color: "text-amber-500",
       bg: "bg-amber-500/10",
-      link: "/portfolio/college-consultancy",
+      link: "/industries#education",
       tags: ["Admission Funnels", "Counselor Routing", "WhatsApp Nudge"]
     },
     {
@@ -41,7 +41,7 @@ const IndustriesSection = () => {
       icon: faHospital,
       color: "text-red-500",
       bg: "bg-red-500/10",
-      link: "/portfolio/hospital",
+      link: "/industries#healthcare",
       tags: ["OPD Booking", "Voice Triage", "Patient WhatsApp"]
     },
     {
@@ -50,7 +50,7 @@ const IndustriesSection = () => {
       icon: faLandmark,
       color: "text-emerald-500",
       bg: "bg-emerald-500/10",
-      link: "/contact",
+      link: "/industries#bfsi",
       tags: ["HNW Scoring", "Instant KYC", "Loan Funnel"]
     },
     {
@@ -59,7 +59,7 @@ const IndustriesSection = () => {
       icon: faBagShopping,
       color: "text-pink-500",
       bg: "bg-pink-500/10",
-      link: "/portfolio/ecommerce",
+      link: "/industries#ecommerce",
       tags: ["Cart Recovery", "Meta Catalog", "Payment Links"]
     },
     {

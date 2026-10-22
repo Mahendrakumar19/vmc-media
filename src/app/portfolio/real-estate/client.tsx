@@ -2,6 +2,7 @@
 
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+import Breadcrumbs from "@/components/Breadcrumbs"
 import Image from "next/image"
 import { CheckCircle2, Home, MapPin, TrendingUp, Users } from 'lucide-react'
 
@@ -48,8 +49,16 @@ export function RealEstatePortfolioClient() {
     <div className="min-h-screen flex flex-col">
       <Header />
       <div className="flex-1">
-        <section className="pt-32 pb-2 bg-gradient-to-b from-primary/5 to-background">
+        <section className="pt-32 pb-6 bg-gradient-to-b from-primary/5 to-background border-b border-border/40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-6 flex justify-center">
+              <Breadcrumbs
+                items={[
+                  { name: "Portfolio", href: "/#portfolio" },
+                  { name: "Real Estate Case Studies" }
+                ]}
+              />
+            </div>
             <div className="text-center">
               <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
                 Real Estate Portfolio

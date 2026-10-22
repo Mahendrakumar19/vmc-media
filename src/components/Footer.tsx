@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
   faLocationDot, 
@@ -18,9 +19,11 @@ const Footer = () => {
           {/* Col 1 & 2: VMC Media Brand & Address (Span 2 columns) */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-block hover:opacity-95 transition-opacity">
-              <img 
+              <Image 
                 src="/logo-footer.svg" 
                 alt="VMC Media Logo" 
+                width={160}
+                height={64}
                 className="h-16 sm:h-20 w-auto object-contain" 
               />
             </Link>

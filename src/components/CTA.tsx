@@ -31,7 +31,7 @@ const CTA = () => {
         </h2>
 
         <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed mb-8 font-normal">
-          Let's discuss your business objectives and identify where digital marketing and AI automation can create measurable opportunities for growth.
+          Let&apos;s discuss your business objectives and identify where digital marketing and AI automation can create measurable opportunities for growth.
         </p>
 
         {/* Buttons */}
@@ -55,7 +55,7 @@ const CTA = () => {
 
         {/* Small text underneath */}
         <p className="text-xs text-white/60 font-medium tracking-wide">
-          No obligation. Let's start with a conversation.
+          No obligation. Let&apos;s start with a conversation.
         </p>
 
       </div>

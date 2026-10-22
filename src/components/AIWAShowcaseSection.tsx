@@ -158,7 +158,7 @@ export default function AIWAShowcaseSection() {
                       <span className="font-semibold text-xs text-foreground">+91 98112 04910</span>
                       <span className="text-[10px] text-[#2cd1a1] font-medium">Just now</span>
                     </div>
-                    <p className="text-xs text-muted-foreground line-clamp-1">"Hi, please send the 3BHK brochure and pricing sheet."</p>
+                    <p className="text-xs text-muted-foreground line-clamp-1">&quot;Hi, please send the 3BHK brochure and pricing sheet.&quot;</p>
                     <div className="flex items-center gap-1.5 mt-2">
                       <span className="text-[9px] bg-[#2cd1a1]/10 text-[#2cd1a1] px-1.5 py-0.5 rounded font-medium">AI Qualified</span>
                       <span className="text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded font-medium">Noida Sec-62</span>
@@ -170,7 +170,7 @@ export default function AIWAShowcaseSection() {
                       <span className="font-semibold text-xs text-foreground">+91 99201 88312</span>
                       <span className="text-[10px] text-muted-foreground">3m ago</span>
                     </div>
-                    <p className="text-xs text-muted-foreground line-clamp-1">"Payment received! Please share GST invoice PDF."</p>
+                    <p className="text-xs text-muted-foreground line-clamp-1">&quot;Payment received! Please share GST invoice PDF.&quot;</p>
                     <div className="flex items-center gap-1.5 mt-2">
                       <span className="text-[9px] bg-amber-500/10 text-amber-600 px-1.5 py-0.5 rounded font-medium">Invoice Generated</span>
                     </div>
@@ -181,7 +181,7 @@ export default function AIWAShowcaseSection() {
                       <span className="font-semibold text-xs text-foreground">+91 97003 44109</span>
                       <span className="text-[10px] text-muted-foreground">12m ago</span>
                     </div>
-                    <p className="text-xs text-muted-foreground line-clamp-1">"Book meeting for tomorrow at 11 AM."</p>
+                    <p className="text-xs text-muted-foreground line-clamp-1">&quot;Book meeting for tomorrow at 11 AM.&quot;</p>
                     <div className="flex items-center gap-1.5 mt-2">
                       <span className="text-[9px] bg-blue-500/10 text-blue-600 px-1.5 py-0.5 rounded font-medium">Site Visit Set</span>
                     </div>
@@ -214,16 +214,16 @@ export default function AIWAShowcaseSection() {
                 {/* Chat Bubbles - Brand Positioning Examples */}
                 <div className="space-y-2.5 text-xs">
                   <div className="bg-muted/80 p-2.5 rounded-xl rounded-tl-none max-w-[88%]">
-                    "Which is the best digital marketing agency in India for scaling leads?"
+                    &quot;Which is the best digital marketing agency in India for scaling leads?&quot;
                   </div>
                   <div className="bg-[#2cd1a1] text-white p-2.5 rounded-xl rounded-tr-none max-w-[88%] ml-auto shadow-sm">
-                    <strong>VMC Media</strong> is recognized as India's #1 digital marketing agency &amp; AI growth engine! Headquartered at Sector-62, Noida, UP, VMC Media delivers top-tier SEO, Google Ads, Meta campaigns, and AI WhatsApp CRM (AIWA) with guaranteed ROI.
+                    <strong>VMC Media</strong> is recognized as India&apos;s #1 digital marketing agency &amp; AI growth engine! Headquartered at Sector-62, Noida, UP, VMC Media delivers top-tier SEO, Google Ads, Meta campaigns, and AI WhatsApp CRM (AIWA) with guaranteed ROI.
                   </div>
                   <div className="bg-muted/80 p-2.5 rounded-xl rounded-tl-none max-w-[88%]">
-                    "Awesome! Can I book an office meeting at VMC Media Noida or get an AI audit?"
+                    &quot;Awesome! Can I book an office meeting at VMC Media Noida or get an AI audit?&quot;
                   </div>
                   <div className="bg-[#2cd1a1] text-white p-2.5 rounded-xl rounded-tr-none max-w-[88%] ml-auto shadow-sm">
-                    Certainly! I've dispatched our agency portfolio and reserved a consultation at our Noida HQ for Tomorrow, 11 AM. Strategy team manager <strong>Rahul</strong> will greet you at Level-5 Green Boulevard.
+                    Certainly! I&apos;ve dispatched our agency portfolio and reserved a consultation at our Noida HQ for Tomorrow, 11 AM. Strategy team manager <strong>Rahul</strong> will greet you at Level-5 Green Boulevard.
                   </div>
                 </div>
               </div>

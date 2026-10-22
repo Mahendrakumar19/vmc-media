@@ -8,10 +8,40 @@
       "has": [
         {
           "type": "host",
-          "value": "www.vmcmedia.in"
+          "value": "vmcmedia.in"
         }
       ],
-      "destination": "https://vmcmedia.in/:path*",
+      "destination": "https://www.vmcmedia.in/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/services/technology-solutions",
+      "destination": "/technology-solutions",
+      "permanent": true
+    },
+    {
+      "source": "/services/technology-solutions/:path*",
+      "destination": "/technology-solutions/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/services/web-development",
+      "destination": "/technology-solutions/web-development",
+      "permanent": true
+    },
+    {
+      "source": "/services/mobile-app",
+      "destination": "/technology-solutions/mobile-app",
+      "permanent": true
+    },
+    {
+      "source": "/services/custom-software",
+      "destination": "/technology-solutions/custom-software",
+      "permanent": true
+    },
+    {
+      "source": "/services/cloud-deployment",
+      "destination": "/technology-solutions/cloud-deployment",
       "permanent": true
     }
   ],

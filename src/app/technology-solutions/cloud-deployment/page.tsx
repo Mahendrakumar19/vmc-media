@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import LocalSEOStrip from "@/components/LocalSEOStrip";
 import CTA from "@/components/CTA";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Link from "next/link";
 import { Cloud, CheckCircle2, ArrowRight } from "lucide-react";
 
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   title: "Cloud Deployment & DevOps Solutions | AWS & Vercel | VMC Media",
   description: "VMC Media delivers cloud architecture, AWS & Vercel deployments, CI/CD pipeline setup, and 24/7 server infrastructure monitoring.",
   alternates: {
-    canonical: "https://www.vmcmedia.in/services/cloud-deployment",
+    canonical: "https://www.vmcmedia.in/technology-solutions/cloud-deployment",
   },
 };
 
@@ -22,6 +23,14 @@ export default function CloudDeploymentPage() {
 
       <section className="pt-32 pb-20 bg-gradient-to-b from-[#073D7B]/10 via-background to-background border-b border-border text-center">
         <div className="container mx-auto px-6 max-w-4xl">
+          <div className="mb-6 flex justify-center">
+            <Breadcrumbs
+              items={[
+                { name: "Technology Solutions", href: "/technology-solutions" },
+                { name: "Cloud Deployment" }
+              ]}
+            />
+          </div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#2cd1a1]/10 text-[#2cd1a1] text-xs font-bold uppercase mb-6">
             <Cloud className="w-4 h-4" />
             <span>DevOps &amp; Infrastructure</span>

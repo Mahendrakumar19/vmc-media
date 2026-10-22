@@ -64,7 +64,7 @@ export default function ServicesMainPage() {
       title: "Web & SaaS Development",
       category: "Technology & Web",
       desc: "Custom high-speed Next.js websites, web applications, and headless CMS platforms built for speed, SEO, and conversions.",
-      href: "/services/web-development",
+      href: "/technology-solutions/web-development",
       icon: Globe,
     },
     {

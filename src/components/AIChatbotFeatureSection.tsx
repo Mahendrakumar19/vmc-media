@@ -61,7 +61,7 @@ const AIChatbotFeatureSection = () => {
             </h2>
 
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl font-normal">
-              Your customers don't always visit during business hours. An AI
+              Your customers don&apos;t always visit during business hours. An AI
               chatbot can answer questions, understand customer requirements,
               qualify leads and guide visitors toward the next step — even when
               your team is offline.
@@ -160,7 +160,7 @@ const AIChatbotFeatureSection = () => {
                     <User className="w-3.5 h-3.5" />
                   </div>
                   <div className="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl rounded-tl-none max-w-[85%] border border-white/15 text-white/95 leading-relaxed shadow-xs">
-                    "I need a demo for your service."
+                    &quot;I need a demo for your service.&quot;
                   </div>
                 </motion.div>
 
@@ -173,7 +173,7 @@ const AIChatbotFeatureSection = () => {
                   className="flex gap-2.5 items-start justify-end"
                 >
                   <div className="bg-gradient-to-r from-[#2cd1a1] to-teal-400 text-slate-950 p-3.5 rounded-2xl rounded-tr-none max-w-[85%] font-semibold shadow-md leading-relaxed">
-                    "Certainly. May I know which solution you are interested in?"
+                    &quot;Certainly. May I know which solution you are interested in?&quot;
                   </div>
                 </motion.div>
 
@@ -189,7 +189,7 @@ const AIChatbotFeatureSection = () => {
                     <User className="w-3.5 h-3.5" />
                   </div>
                   <div className="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl rounded-tl-none max-w-[85%] border border-white/15 text-white/95 leading-relaxed shadow-xs">
-                    "Digital Marketing and AI Chatbot."
+                    &quot;Digital Marketing and AI Chatbot.&quot;
                   </div>
                 </motion.div>
 
@@ -202,7 +202,7 @@ const AIChatbotFeatureSection = () => {
                   className="flex gap-2.5 items-start justify-end"
                 >
                   <div className="bg-gradient-to-r from-[#2cd1a1] to-teal-400 text-slate-950 p-3.5 rounded-2xl rounded-tr-none max-w-[85%] font-semibold shadow-md leading-relaxed">
-                    "Great. I can help you schedule a consultation. What is the best time to contact you?"
+                    &quot;Great. I can help you schedule a consultation. What is the best time to contact you?&quot;
                   </div>
                 </motion.div>
               </div>

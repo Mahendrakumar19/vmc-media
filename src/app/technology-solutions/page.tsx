@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import LocalSEOStrip from "@/components/LocalSEOStrip";
 import CTA from "@/components/CTA";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Link from "next/link";
 import Image from "next/image";
 import { 
@@ -17,12 +18,12 @@ export const metadata: Metadata = {
   title: "Technology Solutions & Custom Software Engineering | VMC Media",
   description: "Enterprise web development, native iOS & Android mobile apps, bespoke software platforms, and cloud architecture built by VMC Media to scale modern businesses.",
   alternates: {
-    canonical: "https://www.vmcmedia.in/services/technology-solutions",
+    canonical: "https://www.vmcmedia.in/technology-solutions",
   },
   openGraph: {
     title: "Technology Solutions & Custom Software Engineering | VMC Media",
     description: "Enterprise web applications, mobile apps, custom software, and cloud architecture engineered for scale and high performance.",
-    url: "https://www.vmcmedia.in/services/technology-solutions",
+    url: "https://www.vmcmedia.in/technology-solutions",
     siteName: "VMC Media",
     type: "website",
   },
@@ -42,7 +43,7 @@ export default function TechnologySolutionsPage() {
         "Interactive Dashboards & SaaS User Portals",
         "Role-Based Access Control (RBAC) & Secure Auth"
       ],
-      href: "/services/web-development",
+      href: "/technology-solutions/web-development",
       cta: "Explore Web Solutions"
     },
     {
@@ -57,7 +58,7 @@ export default function TechnologySolutionsPage() {
         "Razorpay, Stripe & WhatsApp Automation Inside",
         "Offline Sync & Microsecond Database Performance"
       ],
-      href: "/services/mobile-app",
+      href: "/technology-solutions/mobile-app",
       cta: "Explore Mobile Apps"
     },
     {
@@ -72,7 +73,7 @@ export default function TechnologySolutionsPage() {
         "Real-Time Business Intelligence & Reporting Dashboards",
         "Legacy Codebase Refactoring & Migration"
       ],
-      href: "/services/custom-software",
+      href: "/technology-solutions/custom-software",
       cta: "Explore Custom Software"
     },
     {
@@ -87,7 +88,7 @@ export default function TechnologySolutionsPage() {
         "PostgreSQL, Redis & Vector Database Optimization",
         "Bank-Grade SSL, WAF Firewalls & Automated Backups"
       ],
-      href: "/services/cloud-deployment",
+      href: "/technology-solutions/cloud-deployment",
       cta: "Explore Cloud Solutions"
     }
   ];
@@ -137,6 +138,15 @@ export default function TechnologySolutionsPage() {
         <div className="absolute top-1/3 right-10 w-[300px] h-[300px] bg-[#2cd1a1]/10 blur-[100px] rounded-full pointer-events-none -z-10" />
 
         <div className="container mx-auto px-6 max-w-6xl relative z-10 text-center">
+          {/* Breadcrumb Navigation */}
+          <div className="mb-6 flex justify-center">
+            <Breadcrumbs 
+              items={[
+                { name: "Technology Solutions" }
+              ]} 
+            />
+          </div>
+
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#073D7B]/10 dark:bg-[#073D7B]/30 border border-[#073D7B]/20 text-[#073D7B] dark:text-blue-400 text-xs sm:text-sm font-bold uppercase tracking-wider mb-6">
             <Code2 className="w-4 h-4 text-[#2cd1a1]" />
             <span>End-to-End Technology &amp; Engineering</span>

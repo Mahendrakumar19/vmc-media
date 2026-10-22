@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import LocalSEOStrip from "@/components/LocalSEOStrip";
 import CTA from "@/components/CTA";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Link from "next/link";
 import { Cpu, CheckCircle2, ArrowRight } from "lucide-react";
 
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   title: "Custom Software Development & Enterprise Solutions | VMC Media",
   description: "VMC Media builds bespoke software applications, ERP systems, CRM integrations, and custom business automation tools engineered for scale.",
   alternates: {
-    canonical: "https://www.vmcmedia.in/services/custom-software",
+    canonical: "https://www.vmcmedia.in/technology-solutions/custom-software",
   },
 };
 
@@ -22,6 +23,14 @@ export default function CustomSoftwarePage() {
 
       <section className="pt-32 pb-20 bg-gradient-to-b from-[#073D7B]/10 via-background to-background border-b border-border text-center">
         <div className="container mx-auto px-6 max-w-4xl">
+          <div className="mb-6 flex justify-center">
+            <Breadcrumbs
+              items={[
+                { name: "Technology Solutions", href: "/technology-solutions" },
+                { name: "Custom Software" }
+              ]}
+            />
+          </div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#2cd1a1]/10 text-[#2cd1a1] text-xs font-bold uppercase mb-6">
             <Cpu className="w-4 h-4" />
             <span>Enterprise Software</span>

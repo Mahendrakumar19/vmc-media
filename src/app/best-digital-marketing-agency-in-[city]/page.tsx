@@ -210,7 +210,7 @@ export default async function LocalCityPage({ params }: Props) {
               {
                 title: 'Web & Landing Page CRO',
                 desc: 'High-speed Next.js web development and landing page optimization designed to maximize conversions.',
-                link: '/services/web-development',
+                link: '/technology-solutions/web-development',
               },
             ].map((s, i) => (
               <div key={i} className="bg-card border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-all">

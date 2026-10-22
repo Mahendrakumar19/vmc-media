@@ -1,287 +1,232 @@
 'use client'
 
 import Image from "next/image";
-import { Share2, CheckCircle2, Users, Heart, MessageCircle, TrendingUp, ArrowRight, Instagram, Facebook, Linkedin, Twitter, Youtube, Star } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { 
+  faShareNodes, 
+  faComments, 
+  faUsers, 
+  faChartLine, 
+  faArrowRight, 
+  faCircleCheck,
+  faStar,
+  faBullhorn,
+  faShieldHalved
+} from "@fortawesome/free-solid-svg-icons";
+import { 
+  faFacebook, 
+  faInstagram, 
+  faLinkedin, 
+  faXTwitter, 
+  faYoutube, 
+  faTiktok 
+} from "@fortawesome/free-brands-svg-icons";
 
 const SMMService = () => {
   const router = useRouter();
 
+  const services = [
+    {
+      icon: faShareNodes,
+      color: "text-blue-500",
+      bg: "bg-blue-500/10",
+      tag: "Omnichannel",
+      title: "Content Creation & Visual Storytelling",
+      description: "High-performing reels, carousels, infographics, and punchy copywriting designed to stop the scroll and build brand recall."
+    },
+    {
+      icon: faBullhorn,
+      color: "text-purple-500",
+      bg: "bg-purple-500/10",
+      tag: "Meta Ads",
+      title: "Paid Social Media Advertising",
+      description: "Laser-targeted campaigns on Meta (Facebook & Instagram) and LinkedIn designed to acquire leads, purchases, and positive ROAS."
+    },
+    {
+      icon: faComments,
+      color: "text-emerald-500",
+      bg: "bg-emerald-500/10",
+      tag: "24/7 DMs",
+      title: "Community Management & Moderation",
+      description: "Engage with your audience in real-time. Respond to DMs, moderate comments, nurture followers, and resolve customer support queries."
+    },
+    {
+      icon: faUsers,
+      color: "text-amber-500",
+      bg: "bg-amber-500/10",
+      tag: "Audience Growth",
+      title: "Organic Follower & Viral Growth",
+      description: "Strategic posting schedules, trending audio utilization, niche hashtag clusters, and collaborative content to grow genuine followers."
+    },
+    {
+      icon: faStar,
+      color: "text-teal-500",
+      bg: "bg-teal-500/10",
+      tag: "B2B Authority",
+      title: "LinkedIn Executive Branding",
+      description: "Position founders and leadership as industry thought leaders with ghostwritten articles, industry commentary, and founder storytelling."
+    },
+    {
+      icon: faChartLine,
+      color: "text-rose-500",
+      bg: "bg-rose-500/10",
+      tag: "Full Tracking",
+      title: "Analytics, ROI & Sentiment Audits",
+      description: "Granular monthly dashboards tracking engagement rate, audience demographics, link click-throughs, and customer sentiment scores."
+    }
+  ];
+
+  const platforms = [
+    { icon: faInstagram, name: "Instagram Growth", color: "text-pink-500 bg-pink-500/10", desc: "Reels, stories, visual aesthetics, and influencer whitelisting." },
+    { icon: faLinkedin, name: "LinkedIn B2B", color: "text-blue-600 bg-blue-600/10", desc: "Executive thought leadership, employer branding, and B2B lead generation." },
+    { icon: faFacebook, name: "Meta Community", color: "text-blue-500 bg-blue-500/10", desc: "Targeted localized community groups, retargeting ads, and Meta Shops." },
+    { icon: faYoutube, name: "YouTube Shorts & Video", color: "text-red-500 bg-red-500/10", desc: "Long-form authority video podcasts and viral high-reach Shorts." },
+    { icon: faXTwitter, name: "X / Twitter Threads", color: "text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10", desc: "Real-time engagement, industry announcements, and viral threads." },
+    { icon: faTiktok, name: "Short-Form Video", color: "text-purple-500 bg-purple-500/10", desc: "Trend-driven short-form video strategies engineered for viral discovery." }
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-secondary/10 to-background">
+      <section className="pt-32 pb-20 bg-gradient-to-b from-secondary/10 via-background to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb Navigation */}
+          <div className="mb-6">
+            <Breadcrumbs 
+              items={[
+                { name: "Services", href: "/services" },
+                { name: "Social Media Marketing (SMM)" }
+              ]} 
+            />
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 border border-secondary/20 rounded-full">
-                <Share2 className="w-4 h-4 text-secondary" />
-                <span className="text-sm font-semibold text-secondary">Social Media Marketing</span>
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-secondary/10 border border-secondary/20 rounded-full">
+                <FontAwesomeIcon icon={faShareNodes} className="w-3.5 h-3.5 text-secondary" />
+                <span className="text-xs font-bold uppercase tracking-wider text-secondary">Organic &amp; Paid Social</span>
               </div>
               
-              <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                Social Media{" "}
-                <span className="bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
-                  Marketing
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.15] tracking-tight">
+                Turn Social Media Followers Into{" "}
+                <span className="bg-gradient-to-r from-secondary via-teal-500 to-accent bg-clip-text text-transparent">
+                  Paying Customers
                 </span>
               </h1>
               
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Build a powerful social media presence that drives engagement, grows your following, and converts fans into customers across all major platforms.
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                Tired of posting randomly with zero revenue impact? We engineer high-engagement creative campaigns, viral reels, and high-ROI Meta ad funnels that build lasting brand authority.
               </p>
               
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 pt-2">
                 <button
                   onClick={() => router.push('/contact')}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-secondary to-primary text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-secondary to-accent text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 >
-                  Boost Your Social Presence
-                  <ArrowRight className="w-5 h-5" />
+                  <span>Build Your Social Engine</span>
+                  <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
                 </button>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="pt-4 flex flex-wrap items-center gap-6 text-xs text-muted-foreground font-medium">
+                <span className="flex items-center gap-2">
+                  <FontAwesomeIcon icon={faCircleCheck} className="w-4 h-4 text-emerald-500" />
+                  Tailored Monthly Content Calendars
+                </span>
+                <span className="flex items-center gap-2">
+                  <FontAwesomeIcon icon={faShieldHalved} className="w-4 h-4 text-emerald-500" />
+                  Meta Certified Ad Strategists
+                </span>
               </div>
             </div>
             
             <div className="relative w-full h-auto">
-              <Image
-                src="/smm-campaign.jpg"
-                alt="Creative Social Media Marketing Campaign and Engagement Dashboard"
-                width={600}
-                height={338}
-                priority
-                loading="eager"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="rounded-2xl shadow-2xl w-full h-auto border border-border"
-              />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border bg-card">
+                <Image
+                  src="/smm-campaign.jpg"
+                  alt="Creative Social Media Marketing Campaign and Engagement Dashboard"
+                  width={600}
+                  height={338}
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="w-full h-auto object-cover hover:scale-102 transition-transform duration-500"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-20 bg-muted/30">
+      {/* Services Grid (Meritto-inspired cards) */}
+      <section className="py-20 bg-muted/20 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Complete Social Media Solutions
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-wider text-secondary">Complete Social Ecosystem</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mt-2 mb-4">
+              Comprehensive Social Media Management
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Everything you need to dominate social media and engage your audience
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Users,
-                title: "Social Strategy & Planning",
-                description: "Comprehensive social media strategy aligned with your business goals and target audience insights."
-              },
-              {
-                icon: MessageCircle,
-                title: "Content Creation",
-                description: "Engaging posts, graphics, videos, and stories that capture attention and drive interaction."
-              },
-              {
-                icon: Heart,
-                title: "Community Management",
-                description: "Active engagement with your audience through comments, messages, and community building."
-              },
-              {
-                icon: TrendingUp,
-                title: "Paid Social Advertising",
-                description: "Targeted ad campaigns on Facebook, Instagram, LinkedIn, and more for maximum ROI."
-              },
-              {
-                icon: Star,
-                title: "Influencer Marketing",
-                description: "Partner with relevant influencers to expand your reach and build brand credibility."
-              },
-              {
-                icon: CheckCircle2,
-                title: "Analytics & Reporting",
-                description: "Detailed performance tracking and insights to optimize your social media presence."
-              }
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="bg-card p-8 rounded-2xl border border-border hover:border-secondary hover:shadow-lg transition-all duration-300"
-              >
-                <div className="w-14 h-14 bg-secondary rounded-xl flex items-center justify-center mb-6">
-                  <item.icon className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Platforms */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Platforms We Master
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Expert management across all major social networks
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              We manage everything from creative concept, scriptwriting, design, and posting to community conversations and ad spend optimization.
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: Facebook, name: "Facebook Marketing", color: "bg-blue-600", desc: "Build communities and drive conversions" },
-              { icon: Instagram, name: "Instagram Growth", color: "bg-pink-600", desc: "Visual storytelling and engagement" },
-              { icon: Linkedin, name: "LinkedIn Strategy", color: "bg-blue-700", desc: "B2B networking and thought leadership" },
-              { icon: Twitter, name: "Twitter/X Engagement", color: "bg-black", desc: "Real-time conversations and trends" },
-              { icon: Youtube, name: "YouTube Marketing", color: "bg-red-600", desc: "Video content and channel growth" },
-              { icon: TrendingUp, name: "TikTok & Emerging", color: "bg-purple-600", desc: "Viral content and new platforms" }
-            ].map((platform, index) => (
+            {services.map((item, index) => (
               <div
                 key={index}
-                className="bg-card p-8 rounded-2xl border border-border hover:border-secondary hover:shadow-lg transition-all duration-300 text-center"
+                className="bg-card p-7 rounded-2xl border border-border hover:border-secondary/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
               >
-                <div className={`w-16 h-16 ${platform.color} rounded-xl flex items-center justify-center mx-auto mb-4`}>
-                  <platform.icon className="w-8 h-8 text-white" />
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className={`w-12 h-12 rounded-xl ${item.bg} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                      <FontAwesomeIcon icon={item.icon} className={`w-5 h-5 ${item.color}`} />
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-muted text-muted-foreground border border-border">
+                      {item.tag}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-secondary transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">{platform.name}</h3>
-                <p className="text-sm text-muted-foreground">{platform.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="py-20 bg-muted/30">
+      {/* Platforms Grid */}
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-foreground mb-6">
-                Why Choose Our SMM Services?
-              </h2>
-              <div className="space-y-4">
-                {[
-                  "Proven social media growth strategies",
-                  "Engaging, on-brand content creation",
-                  "Active community management",
-                  "Data-driven campaign optimization",
-                  "Multi-platform expertise",
-                  "Transparent reporting and insights",
-                  "Consistent posting schedules",
-                  "ROI-focused paid advertising"
-                ].map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
-                    <p className="text-lg text-muted-foreground">{benefit}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            <div className="bg-gradient-to-br from-secondary/10 to-primary/10 rounded-2xl p-10">
-              <h3 className="text-2xl font-bold text-foreground mb-6">Our Process</h3>
-              <div className="space-y-6">
-                {[
-                  { step: "01", title: "Audit & Strategy", desc: "Analyze current presence and develop custom strategy" },
-                  { step: "02", title: "Content Planning", desc: "Create content calendar and creative assets" },
-                  { step: "03", title: "Execution & Engagement", desc: "Post consistently and engage with your community" },
-                  { step: "04", title: "Optimize & Scale", desc: "Analyze performance and scale what works" }
-                ].map((item, index) => (
-                  <div key={index} className="flex gap-4">
-                    <div className="text-3xl font-bold text-secondary/30">{item.step}</div>
-                    <div>
-                      <h4 className="text-lg font-bold text-foreground mb-1">{item.title}</h4>
-                      <p className="text-muted-foreground">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Packages */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Social Media Service Packages
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-wider text-secondary">Multi-Platform Mastery</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mt-2 mb-4">
+              Where We Build Your Dominance
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Choose the perfect plan for your business needs
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Every platform has its unique algorithm, audience behavior, and content consumption style. We tailor creative formats to fit each channel perfectly.
             </p>
           </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Essential",
-                features: [
-                  "2 Social Platforms",
-                  "12 Posts per Month",
-                  "Basic Graphics",
-                  "Monthly Reporting",
-                  "Community Management",
-                  "Hashtag Strategy"
-                ]
-              },
-              {
-                name: "Growth",
-                popular: true,
-                features: [
-                  "4 Social Platforms",
-                  "20 Posts per Month",
-                  "Custom Graphics & Videos",
-                  "Weekly Reporting",
-                  "Advanced Engagement",
-                  "Paid Ad Management ($500 budget)",
-                  "Influencer Outreach",
-                  "Stories & Reels"
-                ]
-              },
-              {
-                name: "Enterprise",
-                features: [
-                  "All Major Platforms",
-                  "Daily Posting",
-                  "Premium Content",
-                  "Real-time Monitoring",
-                  "Dedicated Manager",
-                  "Paid Ad Campaigns",
-                  "Influencer Partnerships",
-                  "Priority Support"
-                ]
-              }
-            ].map((pkg, index) => (
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {platforms.map((p, index) => (
               <div
                 key={index}
-                className={`relative bg-card rounded-2xl p-8 border-2 ${
-                  pkg.popular ? 'border-secondary shadow-2xl scale-105' : 'border-border'
-                } hover:shadow-xl transition-all duration-300`}
+                className="p-6 rounded-2xl border border-border bg-card/60 hover:border-secondary/40 hover:shadow-lg transition-all group"
               >
-                {pkg.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex items-center gap-1 px-4 py-1 bg-secondary text-white text-sm font-semibold rounded-full">
-                      Most Popular
-                    </span>
+                <div className="flex items-center gap-3.5 mb-3">
+                  <div className={`w-11 h-11 rounded-xl ${p.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                    <FontAwesomeIcon icon={p.icon} className="w-5 h-5" />
                   </div>
-                )}
-                
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-foreground mb-2">{pkg.name}</h3>
+                  <h3 className="text-base font-bold text-foreground">{p.name}</h3>
                 </div>
-                
-                <ul className="space-y-3">
-                  {pkg.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-xs text-muted-foreground leading-relaxed pl-1">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -289,20 +234,20 @@ const SMMService = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-secondary to-primary">
+      <section className="py-20 bg-gradient-to-r from-secondary to-accent">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to Grow Your Social Presence?
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+            Ready to Build a High-ROI Social Media Presence?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Let's create a custom social media strategy that drives real results for your business
+          <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto font-normal">
+            Book a consultation. We&apos;ll evaluate your current engagement, identify audience growth leaks, and present a 30-day viral roadmap.
           </p>
           <button
             onClick={() => router.push('/contact')}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-secondary font-semibold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-secondary font-bold rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
           >
-            Get Free Social Media Audit
-            <ArrowRight className="w-5 h-5" />
+            <span>Request Social Strategy Call</span>
+            <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
           </button>
         </div>
       </section>

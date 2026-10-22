@@ -25,7 +25,7 @@ const DigitalMarketingAISection = () => {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight mb-6">
-            Marketing Gets the Customer's Attention. <br />
+            Marketing Gets the Customer&apos;s Attention. <br />
             <span className="text-[#2cd1a1]">AI Helps You Continue the Conversation.</span>
           </h2>
           <p className="text-base sm:text-lg text-white/80 leading-relaxed">

@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { 
   Menu, X, ChevronDown, Search, Share2, Target, Globe, PenTool, 
@@ -59,17 +61,17 @@ const PRODUCTS = [
 ];
 
 const TECH_SOLUTIONS = [
-  { name: "Web Application Development", href: "/services/web-development", desc: "Next.js & modern SaaS web apps" },
-  { name: "Mobile App Development", href: "/services/mobile-app", desc: "Native iOS & Android mobile apps" },
-  { name: "Custom Software", href: "/services/custom-software", desc: "Tailored enterprise software & API integrations" },
-  { name: "Cloud Solutions", href: "/services/cloud-deployment", desc: "AWS, Vercel & cloud hosting" },
+  { name: "Web Application Development", href: "/technology-solutions/web-development", desc: "Next.js & modern SaaS web apps" },
+  { name: "Mobile App Development", href: "/technology-solutions/mobile-app", desc: "Native iOS & Android mobile apps" },
+  { name: "Custom Software", href: "/technology-solutions/custom-software", desc: "Tailored enterprise software & API integrations" },
+  { name: "Cloud Solutions", href: "/technology-solutions/cloud-deployment", desc: "AWS, Vercel & cloud hosting" },
 ];
 
 const INDUSTRIES = [
-  { name: "Real Estate & Builders", href: "/portfolio/real-estate", icon: Building2, desc: "Instant site visit bookings & broker CRM" },
-  { name: "Higher Education & Consultancies", href: "/portfolio/college-consultancy", icon: GraduationCap, desc: "Admission funnels & multi-counselor routing" },
-  { name: "Healthcare & Hospitals", href: "/portfolio/hospital", icon: Stethoscope, desc: "Patient appointment scheduling & OPD triage" },
-  { name: "E-commerce & Retail Brands", href: "/portfolio/ecommerce", icon: ShoppingCart, desc: "Abandoned cart WhatsApp recovery & payment links" },
+  { name: "Real Estate & Builders", href: "/industries#real-estate", icon: Building2, desc: "Instant site visit bookings & broker CRM" },
+  { name: "Higher Education & Consultancies", href: "/industries#education", icon: GraduationCap, desc: "Admission funnels & multi-counselor routing" },
+  { name: "Healthcare & Hospitals", href: "/industries#healthcare", icon: Stethoscope, desc: "Patient appointment scheduling & OPD triage" },
+  { name: "E-commerce & Retail Brands", href: "/industries#ecommerce", icon: ShoppingCart, desc: "Abandoned cart WhatsApp recovery & payment links" },
 ];
 
 const DIGITAL_MARKETING = [
@@ -83,6 +85,7 @@ const DIGITAL_MARKETING = [
 ];
 
 const Header = () => {
+  const pathname = usePathname();
   const { isModalOpen, openModal, closeModal } = useModal();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -98,42 +101,68 @@ const Header = () => {
     setMobileExpanded(null);
   };
 
+  const isHomeActive = pathname === "/";
+  const isServicesActive = pathname.startsWith("/services");
+  const isAiActive = pathname.startsWith("/ai-solutions") || pathname.startsWith("/products/aiwa");
+  const isTechActive = pathname.startsWith("/technology-solutions");
+  const isIndustriesActive = pathname.startsWith("/industries");
+  const isAboutActive = pathname.startsWith("/about");
+  const isContactActive = pathname.startsWith("/contact");
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border shadow-xs">
       <div className="w-full px-4 lg:px-8 relative">
         <div className="max-w-7xl mx-auto flex items-center justify-between h-20">
           {/* Logo */}
           <NavLink to="/" className="flex items-center gap-2 hover:opacity-95 transition-all py-1 group shrink-0" onClick={closeAll}>
-            <img
+            <Image
               src="/logo-vm.svg"
               alt="VMC Media - Connect · Create · Catalyse"
+              width={180}
+              height={50}
+              priority
               className="h-11 sm:h-12 md:h-14 w-auto max-w-[170px] sm:max-w-[190px] md:max-w-[210px] object-contain dark:hidden"
             />
-            <img
+            <Image
               src="/logo-vm-dark.svg"
               alt="VMC Media - Connect · Create · Catalyse"
+              width={180}
+              height={50}
+              priority
               className="h-11 sm:h-12 md:h-14 w-auto max-w-[170px] sm:max-w-[190px] md:max-w-[210px] object-contain hidden dark:block"
             />
           </NavLink>
 
           {/* Desktop Navigation (Shared Data Model) */}
-          <nav className="hidden xl:flex items-center gap-6">
+          <nav className="hidden xl:flex items-center gap-7">
+            {/* Home Link */}
             <NavLink
               to="/"
-              className="text-foreground hover:text-primary transition-colors font-bold px-1 py-2 text-sm tracking-wide relative group"
-              activeClassName="text-primary font-semibold"
+              className={`font-bold px-1 py-2 text-sm tracking-wide relative group transition-colors ${
+                isHomeActive ? "text-primary" : "text-foreground hover:text-primary"
+              }`}
             >
-              Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+              <span>Home</span>
+              <span 
+                className={`absolute bottom-0 left-0 h-[2.5px] rounded-full bg-gradient-to-r from-primary to-[#2cd1a1] transition-all duration-300 ${
+                  isHomeActive ? "w-full" : "w-0 group-hover:w-full"
+                }`} 
+              />
             </NavLink>
 
+            {/* Digital Marketing Link */}
             <NavLink
               to="/services"
-              className="text-foreground hover:text-primary transition-colors font-bold px-1 py-2 text-sm tracking-wide relative group"
-              activeClassName="text-primary font-semibold"
+              className={`font-bold px-1 py-2 text-sm tracking-wide relative group transition-colors ${
+                isServicesActive ? "text-primary" : "text-foreground hover:text-primary"
+              }`}
             >
-              Digital Marketing
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+              <span>Digital Marketing</span>
+              <span 
+                className={`absolute bottom-0 left-0 h-[2.5px] rounded-full bg-gradient-to-r from-primary to-[#2cd1a1] transition-all duration-300 ${
+                  isServicesActive ? "w-full" : "w-0 group-hover:w-full"
+                }`} 
+              />
             </NavLink>
 
             {/* AI Solutions Dropdown */}
@@ -142,12 +171,21 @@ const Header = () => {
               onMouseEnter={() => setActiveDropdown("ai")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center gap-1.5 text-foreground hover:text-primary transition-colors font-bold py-2 text-sm cursor-pointer">
-                <span><NavLink to="/ai-solutions">AI Solutions</NavLink></span>
+              <button 
+                className={`flex items-center gap-1.5 font-bold py-2 px-1 text-sm cursor-pointer relative group transition-colors ${
+                  isAiActive ? "text-primary" : "text-foreground hover:text-primary"
+                }`}
+              >
+                <span>AI Solutions</span>
                 <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#2cd1a1]/10 text-[#2cd1a1] border border-[#2cd1a1]/20">
                   AIWA
                 </span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "ai" ? "rotate-180" : ""}`} />
+                <span 
+                  className={`absolute bottom-0 left-0 h-[2.5px] rounded-full bg-gradient-to-r from-primary to-[#2cd1a1] transition-all duration-300 ${
+                    isAiActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`} 
+                />
               </button>
 
               {activeDropdown === "ai" && (
@@ -220,12 +258,18 @@ const Header = () => {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <NavLink 
-                to="/services/technology-solutions" 
-                className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-bold py-2 text-sm cursor-pointer"
-                activeClassName="text-primary font-semibold"
+                to="/technology-solutions" 
+                className={`flex items-center gap-1 font-bold py-2 px-1 text-sm cursor-pointer relative group transition-colors ${
+                  isTechActive ? "text-primary" : "text-foreground hover:text-primary"
+                }`}
               >
                 <span>Technology Solutions</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "tech" ? "rotate-180" : ""}`} />
+                <span 
+                  className={`absolute bottom-0 left-0 h-[2.5px] rounded-full bg-gradient-to-r from-primary to-[#2cd1a1] transition-all duration-300 ${
+                    isTechActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`} 
+                />
               </NavLink>
 
               {activeDropdown === "tech" && (
@@ -247,7 +291,7 @@ const Header = () => {
                     </div>
                     <div className="mt-2 pt-2 border-t border-border/50">
                       <NavLink
-                        to="/services/technology-solutions"
+                        to="/technology-solutions"
                         className="flex items-center justify-between p-2 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary text-xs font-semibold transition-colors"
                       >
                         <span>All Technology Solutions</span>
@@ -262,21 +306,46 @@ const Header = () => {
             {/* Industries Link */}
             <NavLink
               to="/industries"
-              className="text-foreground hover:text-primary transition-colors font-bold px-1 py-2 text-sm tracking-wide relative group"
-              activeClassName="text-primary font-semibold"
+              className={`font-bold px-1 py-2 text-sm tracking-wide relative group transition-colors ${
+                isIndustriesActive ? "text-primary" : "text-foreground hover:text-primary"
+              }`}
             >
-              Industries
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+              <span>Industries</span>
+              <span 
+                className={`absolute bottom-0 left-0 h-[2.5px] rounded-full bg-gradient-to-r from-primary to-[#2cd1a1] transition-all duration-300 ${
+                  isIndustriesActive ? "w-full" : "w-0 group-hover:w-full"
+                }`} 
+              />
             </NavLink>
 
             {/* About Us Link */}
-            <NavLink to="/about" className="text-foreground hover:text-primary transition-colors font-bold px-1 py-2 text-sm">
-              About Us
+            <NavLink 
+              to="/about" 
+              className={`font-bold px-1 py-2 text-sm tracking-wide relative group transition-colors ${
+                isAboutActive ? "text-primary" : "text-foreground hover:text-primary"
+              }`}
+            >
+              <span>About Us</span>
+              <span 
+                className={`absolute bottom-0 left-0 h-[2.5px] rounded-full bg-gradient-to-r from-primary to-[#2cd1a1] transition-all duration-300 ${
+                  isAboutActive ? "w-full" : "w-0 group-hover:w-full"
+                }`} 
+              />
             </NavLink>
 
             {/* Contact Link */}
-            <NavLink to="/contact" className="text-foreground hover:text-primary transition-colors font-bold px-1 py-2 text-sm">
-              Contact
+            <NavLink 
+              to="/contact" 
+              className={`font-bold px-1 py-2 text-sm tracking-wide relative group transition-colors ${
+                isContactActive ? "text-primary" : "text-foreground hover:text-primary"
+              }`}
+            >
+              <span>Contact</span>
+              <span 
+                className={`absolute bottom-0 left-0 h-[2.5px] rounded-full bg-gradient-to-r from-primary to-[#2cd1a1] transition-all duration-300 ${
+                  isContactActive ? "w-full" : "w-0 group-hover:w-full"
+                }`} 
+              />
             </NavLink>
           </nav>
 
@@ -349,25 +418,37 @@ const Header = () => {
               {/* Standard Links */}
               <NavLink
                 to="/"
-                className="text-foreground hover:text-primary hover:bg-muted font-bold py-2.5 px-3 rounded-lg text-sm transition-all"
+                className={`font-bold py-2.5 px-3 rounded-lg text-sm transition-all flex items-center justify-between ${
+                  isHomeActive 
+                    ? "bg-primary/10 text-primary border-l-4 border-primary font-extrabold" 
+                    : "text-foreground hover:text-primary hover:bg-muted"
+                }`}
                 onClick={closeAll}
               >
-                Home
+                <span>Home</span>
               </NavLink>
 
               <NavLink
                 to="/services"
-                className="text-foreground hover:text-primary hover:bg-muted font-bold py-2.5 px-3 rounded-lg text-sm transition-all"
+                className={`font-bold py-2.5 px-3 rounded-lg text-sm transition-all flex items-center justify-between ${
+                  isServicesActive 
+                    ? "bg-primary/10 text-primary border-l-4 border-primary font-extrabold" 
+                    : "text-foreground hover:text-primary hover:bg-muted"
+                }`}
                 onClick={closeAll}
               >
-                Digital Marketing
+                <span>Digital Marketing</span>
               </NavLink>
 
               {/* Responsive Collapsible AI Solutions */}
-              <div className="rounded-lg border border-border/50 overflow-hidden">
+              <div className={`rounded-lg border overflow-hidden transition-all ${
+                isAiActive ? "border-[#2cd1a1]/40 bg-[#2cd1a1]/5" : "border-border/50"
+              }`}>
                 <button
                   onClick={() => toggleMobileExpanded("ai")}
-                  className="flex items-center justify-between w-full text-foreground hover:bg-muted font-bold py-2.5 px-3 text-sm cursor-pointer"
+                  className={`flex items-center justify-between w-full font-bold py-2.5 px-3 text-sm cursor-pointer ${
+                    isAiActive ? "text-[#2cd1a1]" : "text-foreground hover:bg-muted"
+                  }`}
                 >
                   <span className="flex items-center gap-2">
                     <span>AI Solutions</span>
@@ -398,10 +479,14 @@ const Header = () => {
               </div>
 
               {/* Responsive Collapsible Technology Solutions */}
-              <div className="rounded-lg border border-border/50 overflow-hidden">
+              <div className={`rounded-lg border overflow-hidden transition-all ${
+                isTechActive ? "border-primary/40 bg-primary/5" : "border-border/50"
+              }`}>
                 <button
                   onClick={() => toggleMobileExpanded("tech")}
-                  className="flex items-center justify-between w-full text-foreground hover:bg-muted font-bold py-2.5 px-3 text-sm cursor-pointer"
+                  className={`flex items-center justify-between w-full font-bold py-2.5 px-3 text-sm cursor-pointer ${
+                    isTechActive ? "text-primary" : "text-foreground hover:bg-muted"
+                  }`}
                 >
                   <span>Technology Solutions</span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileExpanded === "tech" ? "rotate-180" : ""}`} />
@@ -409,7 +494,7 @@ const Header = () => {
                 {mobileExpanded === "tech" && (
                   <div className="px-2 pb-2 space-y-1 bg-muted/20">
                     <NavLink
-                      to="/services/technology-solutions"
+                      to="/technology-solutions"
                       className="block text-xs py-2 px-2.5 font-semibold text-primary hover:bg-muted rounded-md transition-all border-b border-border/40 mb-1"
                       onClick={closeAll}
                     >
@@ -431,10 +516,14 @@ const Header = () => {
               </div>
 
               {/* Responsive Collapsible Industries */}
-              <div className="rounded-lg border border-border/50 overflow-hidden">
+              <div className={`rounded-lg border overflow-hidden transition-all ${
+                isIndustriesActive ? "border-primary/40 bg-primary/5" : "border-border/50"
+              }`}>
                 <button
                   onClick={() => toggleMobileExpanded("ind")}
-                  className="flex items-center justify-between w-full text-foreground hover:bg-muted font-bold py-2.5 px-3 text-sm cursor-pointer"
+                  className={`flex items-center justify-between w-full font-bold py-2.5 px-3 text-sm cursor-pointer ${
+                    isIndustriesActive ? "text-primary" : "text-foreground hover:bg-muted"
+                  }`}
                 >
                   <span>Industries</span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileExpanded === "ind" ? "rotate-180" : ""}`} />
@@ -466,18 +555,26 @@ const Header = () => {
 
               <NavLink
                 to="/about"
-                className="text-foreground hover:text-primary hover:bg-muted font-bold py-2.5 px-3 rounded-lg text-sm transition-all"
+                className={`font-bold py-2.5 px-3 rounded-lg text-sm transition-all flex items-center justify-between ${
+                  isAboutActive 
+                    ? "bg-primary/10 text-primary border-l-4 border-primary font-extrabold" 
+                    : "text-foreground hover:text-primary hover:bg-muted"
+                }`}
                 onClick={closeAll}
               >
-                About Us
+                <span>About Us</span>
               </NavLink>
 
               <NavLink
                 to="/contact"
-                className="text-foreground hover:text-primary hover:bg-muted font-bold py-2.5 px-3 rounded-lg text-sm transition-all"
+                className={`font-bold py-2.5 px-3 rounded-lg text-sm transition-all flex items-center justify-between ${
+                  isContactActive 
+                    ? "bg-primary/10 text-primary border-l-4 border-primary font-extrabold" 
+                    : "text-foreground hover:text-primary hover:bg-muted"
+                }`}
                 onClick={closeAll}
               >
-                Contact
+                <span>Contact</span>
               </NavLink>
 
               {/* Mobile Actions Container */}

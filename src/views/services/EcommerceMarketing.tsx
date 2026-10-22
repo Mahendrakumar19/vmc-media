@@ -1,163 +1,232 @@
 'use client'
 
-import SEO from "@/components/SEO";
 import Image from "next/image";
-import { ShoppingCart, CheckCircle2, TrendingUp, Target, Package, ArrowRight, Star, BarChart3, Users, Zap } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faBagShopping, 
+  faCartShopping, 
+  faArrowRight, 
+  faCircleCheck,
+  faBullseye,
+  faArrowTrendUp,
+  faComments,
+  faRotateRight,
+  faShieldHalved
+} from "@fortawesome/free-solid-svg-icons";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const EcommerceMarketingService = () => {
   const router = useRouter();
 
+  const services = [
+    {
+      icon: faBullseye,
+      color: "text-blue-500",
+      bg: "bg-blue-500/10",
+      tag: "Shopping Ads",
+      title: "Google Shopping & Performance Max",
+      description: "Optimized product merchant feeds with real-time inventory and pricing sync, engineered to capture ready-to-buy product searchers."
+    },
+    {
+      icon: faArrowTrendUp,
+      color: "text-purple-500",
+      bg: "bg-purple-500/10",
+      tag: "Catalog Ads",
+      title: "Meta & D2C Dynamic Catalog Ads",
+      description: "Scale targeted Instagram and Facebook Advantage+ shopping campaigns to acquire new customers with profitable Return on Ad Spend (ROAS)."
+    },
+    {
+      icon: faRotateRight,
+      color: "text-emerald-500",
+      bg: "bg-emerald-500/10",
+      tag: "Cart Recovery",
+      title: "Abandoned Cart Recovery Workflows",
+      description: "Recover up to 28% of abandoned checkouts via automated WhatsApp triggers and targeted retargeting sequences with one-click payment links."
+    },
+    {
+      icon: faCartShopping,
+      color: "text-amber-500",
+      bg: "bg-amber-500/10",
+      tag: "Store SEO",
+      title: "E-Commerce SEO & Category Architecture",
+      description: "Rank your product collection and category pages #1 on Google with clean faceted navigation, Schema product data, and speed optimization."
+    },
+    {
+      icon: faComments,
+      color: "text-teal-500",
+      bg: "bg-teal-500/10",
+      tag: "Retention",
+      title: "WhatsApp & Email Retention Marketing",
+      description: "Drive repeat orders and compound Customer Lifetime Value (LTV) through segmented WhatsApp product recommendations and VIP loyalty drips."
+    },
+    {
+      icon: faShieldHalved,
+      color: "text-rose-500",
+      bg: "bg-rose-500/10",
+      tag: "LTV Engine",
+      title: "Cohort Analysis & Profit Metrics",
+      description: "Full visibility into your Contribution Margin, blended CAC, repeat purchase latency, and real net profit across all digital channels."
+    }
+  ];
+
   return (
     <div className="min-h-screen">
-      <SEO title="E-commerce Marketing Services - VMC Media" description="Drive sales and grow your online store with comprehensive e-commerce marketing strategies." />      
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-accent/5 to-background">
+      <section className="pt-32 pb-20 bg-gradient-to-b from-accent/10 via-background to-background">
         <div className="container mx-auto px-6 lg:px-8 max-w-7xl">
+          {/* Breadcrumb Navigation */}
+          <div className="mb-6">
+            <Breadcrumbs 
+              items={[
+                { name: "Services", href: "/services" },
+                { name: "E-commerce Marketing" }
+              ]} 
+            />
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full">
-                <ShoppingCart className="w-4 h-4 text-accent" />
-                <span className="text-sm font-semibold text-accent">E-commerce Marketing</span>
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full">
+                <FontAwesomeIcon icon={faBagShopping} className="w-3.5 h-3.5 text-accent" />
+                <span className="text-xs font-bold uppercase tracking-wider text-accent">D2C &amp; E-Commerce Growth</span>
               </div>
               
-              <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                E-commerce{" "}
-                <span className="bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
-                  Marketing
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.15] tracking-tight">
+                Scale Your Online Store With{" "}
+                <span className="bg-gradient-to-r from-accent via-secondary to-[#2cd1a1] bg-clip-text text-transparent">
+                  High-ROAS Marketing
                 </span>
               </h1>
               
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Grow your online store with data-driven e-commerce marketing strategies. From product listing optimization to cart abandonment recovery, we drive sales and maximize revenue.
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                From product feed optimization to automated WhatsApp cart recovery, we help direct-to-consumer (D2C) brands acquire new shoppers and maximize repeat purchase value.
               </p>
               
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 pt-2">
                 <button
                   onClick={() => router.push('/contact')}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-accent to-secondary text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-accent to-secondary text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 >
-                  Grow Your Store
-                  <ArrowRight className="w-5 h-5" />
+                  <span>Scale Your Store Now</span>
+                  <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
                 </button>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="pt-4 flex flex-wrap items-center gap-6 text-xs text-muted-foreground font-medium">
+                <span className="flex items-center gap-2">
+                  <FontAwesomeIcon icon={faCircleCheck} className="w-4 h-4 text-emerald-500" />
+                  Meta Advantage+ &amp; Google PMax Certified
+                </span>
+                <span className="flex items-center gap-2">
+                  <FontAwesomeIcon icon={faShieldHalved} className="w-4 h-4 text-emerald-500" />
+                  Full Server-Side CAPI Tracking
+                </span>
               </div>
             </div>
             
             <div className="relative w-full h-auto">
-              <Image
-                src="/Ecommerce.webp"
-                alt="E-commerce Marketing"
-                width={480}
-                height={320}
-                priority
-                loading="eager"                sizes="(max-width: 768px) 100vw, 50vw"                className="rounded-2xl shadow-2xl w-full h-auto"
-              />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border bg-card">
+                <Image
+                  src="/Ecommerce.webp"
+                  alt="E-commerce Marketing Campaigns and D2C Store Sales Scale"
+                  width={600}
+                  height={400}
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="w-full h-auto object-cover hover:scale-102 transition-transform duration-500"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-20 bg-muted/30">
+      {/* Services Grid (Meritto-inspired cards) */}
+      <section className="py-20 bg-muted/20 border-y border-border">
         <div className="container mx-auto px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Complete E-commerce Growth Solutions
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-wider text-accent">Revenue Engine</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mt-2 mb-4">
+              Comprehensive D2C &amp; E-Commerce Solutions
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Everything you need to scale your online store
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              We deploy full-funnel acquisition, automated retention workflows, and conversion rate optimization to scale your monthly GMV profitably.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Package,
-                title: "Product Listing Optimization",
-                description: "Optimize product titles, descriptions, and images for better visibility and conversions."
-              },
-              {
-                icon: Target,
-                title: "Shopping Ads Management",
-                description: "Google Shopping, Facebook Catalog, and dynamic product ads that drive sales."
-              },
-              {
-                icon: BarChart3,
-                title: "Revenue Optimization",
-                description: "Increase average order value, customer lifetime value, and overall revenue."
-              },
-              {
-                icon: Users,
-                title: "Customer Retention",
-                description: "Email marketing, loyalty programs, and retention campaigns to keep customers coming back."
-              },
-              {
-                icon: Zap,
-                title: "Cart Abandonment Recovery",
-                description: "Win back lost sales with automated cart recovery emails and retargeting."
-              },
-              {
-                icon: TrendingUp,
-                title: "Marketplace Management",
-                description: "Sell on Amazon, eBay, Etsy, and other marketplaces with optimized listings."
-              }
-            ].map((item, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((item, index) => (
               <div
                 key={index}
-                className="bg-card p-8 rounded-2xl border border-border hover:border-accent/50 hover:shadow-lg transition-all duration-300"
+                className="bg-card p-7 rounded-2xl border border-border hover:border-accent/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
               >
-                <div className="w-14 h-14 bg-accent rounded-xl flex items-center justify-center mb-6">
-                  <item.icon className="w-7 h-7 text-white" />
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className={`w-12 h-12 rounded-xl ${item.bg} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                      <FontAwesomeIcon icon={item.icon} className={`w-5 h-5 ${item.color}`} />
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-muted text-muted-foreground border border-border">
+                      {item.tag}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="py-20">
+      {/* 4-Step E-Commerce Growth Framework */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-6 lg:px-8 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-foreground mb-6">
-                Why Choose Our E-commerce Marketing?
+              <span className="text-xs font-bold uppercase tracking-wider text-accent">The VMC Growth Architecture</span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mt-2 mb-6">
+                Engineered for High Net Contribution Margin
               </h2>
-              <div className="space-y-4">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                Most agencies celebrate top-line GMV while store owners lose money on rising ad costs and product returns (RTO). We optimize for blended ROAS, first-order profitability, and repeat buyer retention.
+              </p>
+              
+              <div className="space-y-3.5">
                 {[
-                  "E-commerce specialists with proven track record",
-                  "Platform expertise (Shopify, WooCommerce, Magento)",
-                  "Data-driven product and marketing strategies",
-                  "Increase traffic, conversions, and AOV",
-                  "Full-funnel marketing approach",
-                  "Seamless integration with your store",
-                  "ROI-focused campaigns",
-                  "Transparent reporting and insights"
+                  "Server-side Meta Conversions API (CAPI) & Google Enhanced Conversions",
+                  "Automated WhatsApp abandoned checkout recovery with zero token waste",
+                  "Product feed optimization and Google Shopping Merchant Center approval",
+                  "Cash On Delivery (COD) confirmation workflows to reduce Return to Origin (RTO)",
+                  "Custom retention email & WhatsApp VIP customer loyalty journeys"
                 ].map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                    <p className="text-lg text-muted-foreground">{benefit}</p>
+                    <FontAwesomeIcon icon={faCircleCheck} className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                    <p className="text-sm text-foreground font-medium">{benefit}</p>
                   </div>
                 ))}
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-accent/10 to-secondary/10 rounded-2xl p-10">
-              <h3 className="text-2xl font-bold text-foreground mb-6">Our Process</h3>
+            <div className="bg-gradient-to-br from-accent/5 via-card to-secondary/5 border border-border rounded-2xl p-8 sm:p-10 shadow-lg">
+              <h3 className="text-xl font-bold text-foreground mb-6">Our 4-Stage Store Scale Blueprint</h3>
               <div className="space-y-6">
                 {[
-                  { step: "01", title: "Store Audit", desc: "Analyze your store, products, and current marketing" },
-                  { step: "02", title: "Strategy Development", desc: "Create custom growth plan for your store" },
-                  { step: "03", title: "Campaign Execution", desc: "Launch ads, optimize listings, and drive traffic" },
-                  { step: "04", title: "Optimize & Scale", desc: "Test, refine, and scale successful campaigns" }
+                  { step: "01", title: "Feed & Tracking Infrastructure", desc: "Audit product feeds, repair tracking attribution leaks, and sync server-side CAPI." },
+                  { step: "02", title: "Testing Creative & Hook Angles", desc: "Deploy UGC reels, carousel angles, and product comparison graphics across Meta & Google." },
+                  { step: "03", title: "Budget Scaling & Bidding Calibration", desc: "Gradually scale ad spend into verified winning ad sets while hedging CPA limits." },
+                  { step: "04", title: "LTV Optimization & WhatsApp Workflows", desc: "Re-engage existing customer cohorts via WhatsApp campaigns to compound net profits." }
                 ].map((item, index) => (
-                  <div key={index} className="flex gap-4">
-                    <div className="text-3xl font-bold text-accent/30">{item.step}</div>
+                  <div key={index} className="flex gap-4 items-start">
+                    <div className="text-2xl font-black text-accent/40 w-10 shrink-0">{item.step}</div>
                     <div>
-                      <h4 className="text-lg font-bold text-foreground mb-1">{item.title}</h4>
-                      <p className="text-muted-foreground">{item.desc}</p>
+                      <h4 className="text-sm font-bold text-foreground mb-1">{item.title}</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -167,108 +236,26 @@ const EcommerceMarketingService = () => {
         </div>
       </section>
 
-      {/* Packages */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              E-commerce Marketing Packages
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Choose the right package for your store
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Starter Store",
-                features: [
-                  "Product Listing Optimization",
-                  "Shopping Ads Setup",
-                  "Basic Email Marketing",
-                  "Monthly Reporting",
-                  "Email Support"
-                ]
-              },
-              {
-                name: "Growth Store",
-                popular: true,
-                features: [
-                  "Full Store Optimization",
-                  "Multi-Channel Ads",
-                  "Cart Abandonment Recovery",
-                  "Customer Retention Campaigns",
-                  "A/B Testing",
-                  "Weekly Reporting",
-                  "Priority Support"
-                ]
-              },
-              {
-                name: "Enterprise Store",
-                features: [
-                  "Custom E-commerce Strategy",
-                  "Dedicated Account Manager",
-                  "Advanced Analytics",
-                  "Marketplace Management",
-                  "Influencer Partnerships",
-                  "Real-time Reporting",
-                  "24/7 Support"
-                ]
-              }
-            ].map((pkg, index) => (
-              <div
-                key={index}
-                className={`relative bg-card rounded-2xl p-8 border-2 ${
-                  pkg.popular ? 'border-accent shadow-2xl scale-105' : 'border-border'
-                } hover:shadow-xl transition-all duration-300`}
-              >
-                {pkg.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex items-center gap-1 px-4 py-1 bg-accent text-white text-sm font-semibold rounded-full">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-                
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-foreground mb-2">{pkg.name}</h3>
-                </div>
-                
-                <ul className="space-y-3">
-                  {pkg.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
+      {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-accent to-secondary">
         <div className="container mx-auto px-6 lg:px-8 max-w-4xl text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to Scale Your Online Store?
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+            Ready to Scale Your E-Commerce Store Profitably?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Let's grow your e-commerce business with proven marketing strategies
+          <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto font-normal">
+            Request an audit of your ad accounts, store conversion funnel, and retention workflows. We&apos;ll identify your biggest revenue leaks.
           </p>
           <button
             onClick={() => router.push('/contact')}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-accent font-semibold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-accent font-bold rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
           >
-            Start Growing Today
-            <ArrowRight className="w-5 h-5" />
+            <span>Claim Free Store Growth Audit</span>
+            <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
           </button>
         </div>
-      </section>    </div>
+      </section>
+    </div>
   );
 };
 
 export default EcommerceMarketingService;
-

@@ -76,7 +76,7 @@ const ServicesSection = () => {
         "Cloud Solutions"
       ],
       btnText: "Explore Technology Solutions →",
-      btnLink: "/services/technology-solutions"
+      btnLink: "/technology-solutions"
     }
   ];
 

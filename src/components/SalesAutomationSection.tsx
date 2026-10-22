@@ -153,7 +153,7 @@ const SalesAutomationSection = () => {
             onClick={openModal} 
             className="inline-flex items-center justify-center gap-2 bg-[#2cd1a1] hover:bg-[#27b98f] text-slate-950 font-black px-10 py-4 rounded-xl text-sm shadow-xl shadow-[#2cd1a1]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
-            <span>Let's automate your growth</span>
+            <span>Let&apos;s automate your growth</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

@@ -13,6 +13,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import CTA from "@/components/CTA";
 import LocalSEOStrip from "@/components/LocalSEOStrip";
+import { generateBreadcrumbJsonLd } from "@/lib/seoSchema";
 
 export const metadata: Metadata = {
   title: "AIWA Features — Autonomous WhatsApp AI CRM & Revenue OS | VMC Media",
@@ -383,9 +384,45 @@ export default function AIWAProductPage() {
     }
   ];
 
+  const softwareAppJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'AIWA WhatsApp CRM & Revenue OS',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Cloud, Web, WhatsApp Cloud API',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'INR',
+      description: 'Free onboarding with BYOK token pricing (0% markup)',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '128',
+    },
+    description: 'Autonomous WhatsApp AI CRM platform with BYOK multi-LLM routing, Retell Voice AI callbacks, visual Kanban sales pipeline, Meta Ads CAPI synchronization, and automated 18% GST invoicing.',
+    url: 'https://www.vmcmedia.in/products/aiwa',
+  }
+
+  const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+    { name: 'Home', url: 'https://www.vmcmedia.in' },
+    { name: 'Products', url: 'https://www.vmcmedia.in/products/aiwa' },
+    { name: 'AIWA WhatsApp CRM', url: 'https://www.vmcmedia.in/products/aiwa' },
+  ])
+
   return (
-    <main className="min-h-screen bg-background text-foreground selection:bg-emerald-500/20">
-      <Header />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <main className="min-h-screen bg-background text-foreground selection:bg-emerald-500/20">
+        <Header />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-emerald-500/10 via-background to-background">
@@ -531,7 +568,7 @@ export default function AIWAProductPage() {
                         <span className="font-semibold text-xs text-foreground">+91 98112 04910</span>
                         <span className="text-[10px] text-emerald-600 font-medium">Just now</span>
                       </div>
-                      <p className="text-xs text-muted-foreground line-clamp-1">"Please share the brochure and commercial quotation for Noida Sec-62."</p>
+                      <p className="text-xs text-muted-foreground line-clamp-1">&quot;Please share the brochure and commercial quotation for Noida Sec-62.&quot;</p>
                       <div className="flex items-center gap-1.5 mt-2">
                         <span className="text-[9px] bg-emerald-500/10 text-emerald-600 px-1.5 py-0.5 rounded font-medium">HOT 🔥 Lead</span>
                         <span className="text-[9px] bg-blue-500/10 text-blue-600 px-1.5 py-0.5 rounded font-medium">Meta Ads Inbound</span>
@@ -543,7 +580,7 @@ export default function AIWAProductPage() {
                         <span className="font-semibold text-xs text-foreground">+91 99201 88312</span>
                         <span className="text-[10px] text-muted-foreground">3m ago</span>
                       </div>
-                      <p className="text-xs text-muted-foreground line-clamp-1">"Payment received! Automated 18% GST receipt sent."</p>
+                      <p className="text-xs text-muted-foreground line-clamp-1">&quot;Payment received! Automated 18% GST receipt sent.&quot;</p>
                       <div className="flex items-center gap-1.5 mt-2">
                         <span className="text-[9px] bg-amber-500/10 text-amber-600 px-1.5 py-0.5 rounded font-medium">GST Invoiced</span>
                         <span className="text-[9px] bg-muted text-muted-foreground px-1.5 py-0.5 rounded">Razorpay UPI</span>
@@ -555,7 +592,7 @@ export default function AIWAProductPage() {
                         <span className="font-semibold text-xs text-foreground">+91 97003 44109</span>
                         <span className="text-[10px] text-muted-foreground">11m ago</span>
                       </div>
-                      <p className="text-xs text-muted-foreground line-clamp-1">"Voice AI Call Completed: Retell Hindi Voice summary attached."</p>
+                      <p className="text-xs text-muted-foreground line-clamp-1">&quot;Voice AI Call Completed: Retell Hindi Voice summary attached.&quot;</p>
                       <div className="flex items-center gap-1.5 mt-2">
                         <span className="text-[9px] bg-purple-500/10 text-purple-600 px-1.5 py-0.5 rounded font-medium">Retell Voice Call</span>
                         <span className="text-[9px] bg-teal-500/10 text-teal-600 px-1.5 py-0.5 rounded font-medium">Sentiment: Positive</span>
@@ -588,16 +625,16 @@ export default function AIWAProductPage() {
 
                   <div className="space-y-2.5 text-xs">
                     <div className="bg-muted/80 p-2.5 rounded-xl rounded-tl-none max-w-[88%]">
-                      "Hi! We run a manufacturing facility and want performance marketing + WhatsApp automation for our commercial distributor network."
+                      &quot;Hi! We run a manufacturing facility and want performance marketing + WhatsApp automation for our commercial distributor network.&quot;
                     </div>
                     <div className="bg-emerald-600 text-white p-2.5 rounded-xl rounded-tr-none max-w-[88%] ml-auto shadow-sm">
                       Hello Vipin! <strong>VMC Media</strong> powers manufacturing and high-ticket B2B operations with AIWA. You get 24/7 automated inquiry capture, 0-token greeting cache, Retell Voice AI callbacks, and automated 18% GST invoice generation directly inside WhatsApp.
                     </div>
                     <div className="bg-muted/80 p-2.5 rounded-xl rounded-tl-none max-w-[88%]">
-                      "Can you initiate an AI voice demo and share your consultation pricing?"
+                      &quot;Can you initiate an AI voice demo and share your consultation pricing?&quot;
                     </div>
                     <div className="bg-emerald-600 text-white p-2.5 rounded-xl rounded-tr-none max-w-[88%] ml-auto shadow-sm">
-                      Done! I've scheduled a live consultation for Tomorrow at 11:30 AM at our office: <strong>Regus, Level-5, Tower C, Green Boulevard, Sector-62, Noida</strong>. Our Retell AI voice agent will call you in 2 minutes for confirmation!
+                      Done! I&apos;ve scheduled a live consultation for Tomorrow at 11:30 AM at our office: <strong>Regus, Level-5, Tower C, Green Boulevard, Sector-62, Noida</strong>. Our Retell AI voice agent will call you in 2 minutes for confirmation!
                     </div>
                   </div>
                 </div>
@@ -886,5 +923,6 @@ export default function AIWAProductPage() {
       <CTA />
       <Footer />
     </main>
+    </>
   );
 }

@@ -1,163 +1,277 @@
 'use client'
 
 import Image from "next/image";
-import { Search, CheckCircle2, TrendingUp, Target, BarChart3, ArrowRight, MapPin, FileSearch, Link, Zap } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { 
+  faMagnifyingGlass, 
+  faLink, 
+  faBolt, 
+  faLocationDot, 
+  faFileLines, 
+  faChartSimple, 
+  faArrowRight, 
+  faCircleCheck,
+  faCrown,
+  faShieldHalved
+} from "@fortawesome/free-solid-svg-icons";
 
 const SEOService = () => {
   const router = useRouter();
 
+  const solutions = [
+    {
+      icon: faMagnifyingGlass,
+      color: "text-blue-500",
+      bg: "bg-blue-500/10",
+      tag: "On-Page",
+      title: "Semantic On-Page SEO",
+      description: "Optimize title tags, meta descriptions, semantic HTML5 headings, entity mapping, and schema markup to align with Google Search & AI Overviews."
+    },
+    {
+      icon: faLink,
+      color: "text-purple-500",
+      bg: "bg-purple-500/10",
+      tag: "Authority",
+      title: "High-Authority Link Building",
+      description: "Acquire editorial backlinks from high-DR industry publications and authoritative news portals to build lasting domain trust without spam penalties."
+    },
+    {
+      icon: faBolt,
+      color: "text-amber-500",
+      bg: "bg-amber-500/10",
+      tag: "Core Web Vitals",
+      title: "Technical SEO & Speed Optimization",
+      description: "Resolve indexation bottlenecks, crawl budget waste, canonical conflicts, JavaScript hydration overhead, and pass Google's Core Web Vitals."
+    },
+    {
+      icon: faLocationDot,
+      color: "text-emerald-500",
+      bg: "bg-emerald-500/10",
+      tag: "Google Maps",
+      title: "Local SEO & Google Business Profile",
+      description: "Dominate Google Maps 3-Pack and hyper-local searches with geo-tagged citations, NAP consistency, and localized landing pages."
+    },
+    {
+      icon: faFileLines,
+      color: "text-teal-500",
+      bg: "bg-teal-500/10",
+      tag: "Intent Mapping",
+      title: "Commercial Keyword Research",
+      description: "Identify high-converting transactional search queries that your prospective buyers actually type before making purchasing decisions."
+    },
+    {
+      icon: faChartSimple,
+      color: "text-rose-500",
+      bg: "bg-rose-500/10",
+      tag: "Analytics",
+      title: "Algorithmic Audits & Attribution",
+      description: "Transparent bi-weekly Google Search Console dashboards, keyword rank tracking, organic conversions, and revenue attribution reporting."
+    }
+  ];
+
+  const packages = [
+    {
+      name: "Essential SEO",
+      tagline: "For early-stage startups and localized service providers.",
+      popular: false,
+      features: [
+        "Full Technical Site Health Audit",
+        "Targeted Keyword Research (Up to 25 High-Intent Keywords)",
+        "On-Page Optimization & Meta Entity Tags",
+        "Google Business Profile Setup & Optimization",
+        "XML Sitemap & Robots.txt Indexation Fixes",
+        "Monthly Search Console & Traffic Report"
+      ]
+    },
+    {
+      name: "Growth Engine",
+      tagline: "For scaling businesses aiming to dominate national search.",
+      popular: true,
+      features: [
+        "Advanced On-Page & Semantic Content Strategy",
+        "High-Authority Contextual Backlink Outreach",
+        "Full Technical SEO & Core Web Vitals Engineering",
+        "Hyper-Local SEO & Geo-Targeted Multi-City Hubs",
+        "Targeted Keyword Research (Up to 75 Target Keywords)",
+        "Competitor Gap Analysis & Cannibalization Fixes",
+        "Bi-Weekly Strategy Calls & Custom Dashboard"
+      ]
+    },
+    {
+      name: "Enterprise Dominance",
+      tagline: "For high-traffic e-commerce and multi-location corporations.",
+      popular: false,
+      features: [
+        "Comprehensive Programmatic & Enterprise SEO",
+        "Dedicated SEO Architect & Technical Lead",
+        "White-Hat Digital PR & Premium Editorial Backlinks",
+        "Multilingual & International Search Architecture",
+        "AI Search (Google Overviews & SGE) Optimization",
+        "Continuous 24/7 Rank Monitoring & Instant Anomaly Alerts",
+        "Direct Slack Integration & Weekly Reporting"
+      ]
+    }
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-primary/10 to-background">
+      <section className="pt-32 pb-20 bg-gradient-to-b from-primary/10 via-background to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb Navigation */}
+          <div className="mb-6">
+            <Breadcrumbs 
+              items={[
+                { name: "Services", href: "/services" },
+                { name: "Search Engine Optimization (SEO)" }
+              ]} 
+            />
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
-                <Search className="w-4 h-4 text-primary" />
-                <span className="text-sm font-semibold text-primary">SEO Services</span>
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
+                <FontAwesomeIcon icon={faMagnifyingGlass} className="w-3.5 h-3.5 text-primary" />
+                <span className="text-xs font-bold uppercase tracking-wider text-primary">Data-Driven SEO Agency</span>
               </div>
               
-              <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                Search Engine{" "}
-                <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-                  Optimization
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.15] tracking-tight">
+                Rank #1 on Google for{" "}
+                <span className="bg-gradient-to-r from-primary via-secondary to-[#2cd1a1] bg-clip-text text-transparent">
+                  High-Intent Buyers
                 </span>
               </h1>
               
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Dominate search results and drive organic traffic with our data-driven SEO strategies. We help your business rank higher, attract more qualified leads, and achieve sustainable growth.
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                Tired of vanity rankings that don&apos;t convert? VMC Media delivers technical precision, semantic content architectures, and authoritative backlinks engineered to drive measurable revenue.
               </p>
               
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 pt-2">
                 <button
                   onClick={() => router.push('/contact')}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 >
-                  Get Free SEO Audit
-                  <ArrowRight className="w-5 h-5" />
+                  <span>Request Free SEO Audit</span>
+                  <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
                 </button>
+              </div>
+
+              {/* Trust badges */}
+              <div className="pt-4 flex flex-wrap items-center gap-6 text-xs text-muted-foreground font-medium">
+                <span className="flex items-center gap-2">
+                  <FontAwesomeIcon icon={faShieldHalved} className="w-4 h-4 text-emerald-500" />
+                  100% White-Hat Google Compliance
+                </span>
+                <span className="flex items-center gap-2">
+                  <FontAwesomeIcon icon={faCircleCheck} className="w-4 h-4 text-emerald-500" />
+                  Guaranteed Crawl &amp; Indexation Fixes
+                </span>
               </div>
             </div>
             
             <div className="relative w-full h-auto">
-              <Image
-                src="/seo-dashboard.jpg"
-                alt="Google Search Ranking #1 and Technical SEO Analytics Dashboard"
-                width={600}
-                height={338}
-                priority
-                loading="eager"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="rounded-2xl shadow-2xl w-full h-auto border border-border"
-              />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border bg-card">
+                <Image
+                  src="/seo-dashboard.jpg"
+                  alt="Google Search Ranking #1 and Technical SEO Analytics Dashboard"
+                  width={600}
+                  height={338}
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="w-full h-auto object-cover hover:scale-102 transition-transform duration-500"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What We Offer */}
-      <section className="py-20 bg-muted/30">
+      {/* Solutions Grid */}
+      <section className="py-20 bg-muted/20 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Comprehensive SEO Solutions
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-wider text-primary">Engineered For ROI</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mt-2 mb-4">
+              Comprehensive Search Optimization Solutions
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From technical optimization to content strategy, we cover every aspect of SEO
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              We resolve technical architecture flaws, target commercial search intent, and position your brand as the undisputed authority in your niche.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Search,
-                title: "On-Page SEO",
-                description: "Optimize your website content, meta tags, headers, and internal linking structure for maximum visibility and relevance."
-              },
-              {
-                icon: Link,
-                title: "Off-Page SEO & Link Building",
-                description: "Build high-quality backlinks and improve domain authority through strategic link building campaigns and digital PR."
-              },
-              {
-                icon: Zap,
-                title: "Technical SEO",
-                description: "Ensure your website is fast, mobile-friendly, and technically optimized for search engine crawlers and indexing."
-              },
-              {
-                icon: MapPin,
-                title: "Local SEO",
-                description: "Dominate local search results with Google My Business optimization and location-based strategies for maximum visibility."
-              },
-              {
-                icon: FileSearch,
-                title: "Keyword Research & Strategy",
-                description: "Identify high-value keywords and search terms that drive qualified traffic to your business with comprehensive analysis."
-              },
-              {
-                icon: BarChart3,
-                title: "SEO Audits & Analytics",
-                description: "Comprehensive website audits to identify issues and opportunities for improvement with detailed performance tracking."
-              }
-            ].map((item, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {solutions.map((item, index) => (
               <div
                 key={index}
-                className="bg-card p-8 rounded-2xl border border-border hover:border-primary hover:shadow-lg transition-all duration-300"
+                className="bg-card p-7 rounded-2xl border border-border hover:border-primary/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
               >
-                <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center mb-6">
-                  <item.icon className="w-7 h-7 text-white" />
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className={`w-12 h-12 rounded-xl ${item.bg} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                      <FontAwesomeIcon icon={item.icon} className={`w-5 h-5 ${item.color}`} />
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-muted text-muted-foreground border border-border">
+                      {item.tag}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-20">
+      {/* 4-Stage Stepper Process */}
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-foreground mb-6">
-                Why Choose Our SEO Services?
+              <span className="text-xs font-bold uppercase tracking-wider text-primary">Why Partner With VMC Media</span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mt-2 mb-6">
+                SEO Built on Data &amp; Transparency, Not Guesswork
               </h2>
-              <div className="space-y-4">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                Unlike agencies that hide behind ambiguous monthly vanity metrics, we focus exclusively on organic visibility that yields qualified consultations, sales pipeline velocity, and bottom-line profit.
+              </p>
+              
+              <div className="space-y-3.5">
                 {[
-                  "Proven track record of ranking improvements",
-                  "Transparent reporting and analytics",
-                  "White-hat SEO techniques only",
-                  "Dedicated SEO specialists",
-                  "Continuous optimization and monitoring",
-                  "Custom strategies tailored to your business",
-                  "Competitive analysis and insights",
-                  "ROI-focused approach"
+                  "Zero spam or PBN link networks — strictly white-hat editorial outreach",
+                  "Deep technical audits covering JavaScript rendering, redirects & sitemaps",
+                  "Entity-first schema mapping tailored for Google AI Overviews & Gemini",
+                  "Dedicated senior SEO account strategist with bi-weekly updates",
+                  "Custom Google Looker Studio live ranking & organic revenue dashboard"
                 ].map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <p className="text-lg text-muted-foreground">{benefit}</p>
+                    <FontAwesomeIcon icon={faCircleCheck} className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <p className="text-sm text-foreground font-medium">{benefit}</p>
                   </div>
                 ))}
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-10">
-              <h3 className="text-2xl font-bold text-foreground mb-6">SEO Process</h3>
+            <div className="bg-gradient-to-br from-primary/5 via-card to-secondary/5 border border-border rounded-2xl p-8 sm:p-10 shadow-lg">
+              <h3 className="text-xl font-bold text-foreground mb-6">Our 4-Stage Execution Roadmap</h3>
               <div className="space-y-6">
                 {[
-                  { step: "01", title: "Audit & Analysis", desc: "Comprehensive website and competitor analysis to identify opportunities" },
-                  { step: "02", title: "Strategy Development", desc: "Custom SEO roadmap based on your goals and target audience" },
-                  { step: "03", title: "Implementation", desc: "Execute on-page, off-page, and technical SEO improvements" },
-                  { step: "04", title: "Monitor & Optimize", desc: "Continuous tracking and strategy refinement for maximum results" }
+                  { step: "01", title: "Comprehensive Audit", desc: "Exhaustive crawl analysis, indexation errors, backlink hygiene, and competitive keyword gap mapping." },
+                  { step: "02", title: "Architecture & On-Page Fixes", desc: "Restructure internal site links, optimize metadata, repair schema markups, and accelerate Core Web Vitals." },
+                  { step: "03", title: "Content Engine & Authority Outreach", desc: "Publish high-converting commercial pillar pages and acquire top-tier editorial backlinks." },
+                  { step: "04", title: "Attribution & Continuous Scaling", desc: "Monitor SERP fluctuations, refine ranking tactics, and expand keyword targets to protect position #1." }
                 ].map((item, index) => (
-                  <div key={index} className="flex gap-4">
-                    <div className="text-3xl font-bold text-primary/30">{item.step}</div>
+                  <div key={index} className="flex gap-4 items-start">
+                    <div className="text-2xl font-black text-primary/40 w-10 shrink-0">{item.step}</div>
                     <div>
-                      <h4 className="text-lg font-bold text-foreground mb-1">{item.title}</h4>
-                      <p className="text-muted-foreground">{item.desc}</p>
+                      <h4 className="text-sm font-bold text-foreground mb-1">{item.title}</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -168,84 +282,59 @@ const SEOService = () => {
       </section>
 
       {/* SEO Packages */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-muted/20 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              SEO Service Packages
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-wider text-primary">Transparent Engagements</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mt-2 mb-4">
+              SEO Service Plans Engineered for Growth
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Choose the perfect plan for your business needs
+            <p className="text-muted-foreground text-sm">
+              Select the strategy plan that matches your current scale and growth trajectory.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Essential",
-                features: [
-                  "Basic On-Page SEO",
-                  "Keyword Research (Up to 20 keywords)",
-                  "Meta Tags Optimization",
-                  "Technical SEO Audit",
-                  "Monthly Reporting",
-                  "Google My Business Setup"
-                ]
-              },
-              {
-                name: "Growth",
-                popular: true,
-                features: [
-                  "Advanced On-Page SEO",
-                  "Off-Page SEO & Link Building",
-                  "Technical SEO Implementation",
-                  "Local SEO Optimization",
-                  "Keyword Research (Up to 50 keywords)",
-                  "Content Strategy & Optimization",
-                  "Competitor Analysis",
-                  "Weekly Reporting"
-                ]
-              },
-              {
-                name: "Enterprise",
-                features: [
-                  "Complete On-Page SEO Management",
-                  "Strategic Off-Page SEO & Link Building",
-                  "Advanced Technical SEO",
-                  "Comprehensive Local SEO",
-                  "International SEO",
-                  "Custom Content Creation",
-                  "Dedicated Account Manager",
-                  "Daily Monitoring & Priority Support"
-                ]
-              }
-            ].map((pkg, index) => (
+          <div className="grid md:grid-cols-3 gap-6">
+            {packages.map((pkg, index) => (
               <div
                 key={index}
-                className={`relative bg-card rounded-2xl p-8 border-2 ${
-                  pkg.popular ? 'border-primary shadow-2xl scale-105' : 'border-border'
+                className={`relative bg-card rounded-2xl p-8 border flex flex-col justify-between ${
+                  pkg.popular ? 'border-primary shadow-2xl scale-102 ring-1 ring-primary/20' : 'border-border'
                 } hover:shadow-xl transition-all duration-300`}
               >
-                {pkg.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex items-center gap-1 px-4 py-1 bg-primary text-white text-sm font-semibold rounded-full">
-                      Most Popular
-                    </span>
+                <div>
+                  {pkg.popular && (
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary text-white text-[11px] font-bold rounded-full mb-4 shadow-sm">
+                      <FontAwesomeIcon icon={faCrown} className="w-3 h-3 text-amber-300" />
+                      <span>Most Popular</span>
+                    </div>
+                  )}
+                  
+                  <h3 className="text-xl font-bold text-foreground mb-1">{pkg.name}</h3>
+                  <p className="text-xs text-muted-foreground mb-6 leading-relaxed">{pkg.tagline}</p>
+                  
+                  <div className="border-t border-border pt-5 space-y-3">
+                    {pkg.features.map((feature, i) => (
+                      <div key={i} className="flex items-start gap-2.5">
+                        <FontAwesomeIcon icon={faCircleCheck} className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                        <span className="text-xs text-muted-foreground leading-relaxed">{feature}</span>
+                      </div>
+                    ))}
                   </div>
-                )}
-                
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-foreground mb-2">{pkg.name}</h3>
                 </div>
-                
-                <ul className="space-y-3">
-                  {pkg.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+
+                <div className="pt-8">
+                  <button
+                    onClick={() => router.push('/contact')}
+                    className={`w-full py-3.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
+                      pkg.popular 
+                        ? 'bg-primary hover:bg-primary/90 text-white shadow-md shadow-primary/20 hover:scale-102' 
+                        : 'bg-muted hover:bg-muted/80 text-foreground border border-border'
+                    }`}
+                  >
+                    Select {pkg.name}
+                  </button>
+                </div>
               </div>
             ))}
           </div>
@@ -255,18 +344,18 @@ const SEOService = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary to-secondary">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to Rank Higher?
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+            Ready to Outrank Competitors on Google?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Let's create a custom SEO strategy that drives real results for your business
+          <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto font-normal">
+            Get an in-depth audit uncovering your biggest keyword opportunities, technical bottlenecks, and a 90-day action plan.
           </p>
           <button
             onClick={() => router.push('/contact')}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-semibold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
           >
-            Get Free SEO Consultation
-            <ArrowRight className="w-5 h-5" />
+            <span>Claim Free Strategic SEO Audit</span>
+            <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
           </button>
         </div>
       </section>

@@ -17,38 +17,30 @@ interface GetStartedModalProps {
   onClose: () => void;
 }
 
+const initialFormData = {
+  fullName: "",
+  company: "",
+  email: "",
+  phone: "",
+  interest: "",
+  industry: "",
+  message: "",
+};
+
 const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
   const { isCanClose } = useModal();
-  const [formData, setFormData] = useState({
-    fullName: "",
-    company: "",
-    email: "",
-    phone: "",
-    interest: "",
-    industry: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(initialFormData);
   const [showToast, setShowToast] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [mounted] = useState(() => typeof window !== "undefined");
+  const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Reset form data when modal is closed
-  useEffect(() => {
+  // Clean form reset when transitioning from open to closed
+  if (prevIsOpen !== isOpen) {
+    setPrevIsOpen(isOpen);
     if (!isOpen) {
-      setFormData({
-        fullName: "",
-        company: "",
-        email: "",
-        phone: "",
-        interest: "",
-        industry: "",
-        message: "",
-      });
+      setFormData(initialFormData);
     }
-  }, [isOpen]);
+  }
 
   // Close on Esc and lock scroll
   useEffect(() => {
@@ -393,7 +385,7 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
       {showToast && (
         <div className="fixed top-4 right-4 z-[10000] bg-white rounded-lg shadow-xl border border-gray-200 p-4 min-w-[300px]">
           <div className="font-semibold text-gray-900 mb-1">Thank you for reaching out!</div>
-          <div className="text-sm text-gray-600">We'll get back to you within 24 hours via WhatsApp or email.</div>
+          <div className="text-sm text-gray-600">We&apos;ll get back to you within 24 hours via WhatsApp or email.</div>
         </div>
       )}
     </>

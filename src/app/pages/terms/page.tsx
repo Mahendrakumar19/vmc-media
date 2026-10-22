@@ -37,7 +37,7 @@ export default function TermsAndConditionsPage() {
           <div>
             <h2 className="text-2xl font-bold text-foreground mb-3">1. Acceptance of Terms</h2>
             <p className="text-muted-foreground text-sm">
-              By accessing VMC Media's website, engaging our digital marketing services, or subscribing to our AIWA WhatsApp CRM and AI Voicebot platforms, you agree to comply with and be bound by these Terms and Conditions.
+              By accessing VMC Media&apos;s website, engaging our digital marketing services, or subscribing to our AIWA WhatsApp CRM and AI Voicebot platforms, you agree to comply with and be bound by these Terms and Conditions.
             </p>
           </div>
 

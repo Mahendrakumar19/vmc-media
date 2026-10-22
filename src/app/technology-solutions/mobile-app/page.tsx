@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import LocalSEOStrip from "@/components/LocalSEOStrip";
 import CTA from "@/components/CTA";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Link from "next/link";
 import Image from "next/image";
 import { 
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   title: "Mobile App Development Services | iOS & Android Apps | VMC Media",
   description: "VMC Media builds high-performance, native and cross-platform iOS & Android mobile applications integrated with smart AI features, cloud backends, and secure payments.",
   alternates: {
-    canonical: "https://www.vmcmedia.in/services/mobile-app",
+    canonical: "https://www.vmcmedia.in/technology-solutions/mobile-app",
   },
 };
 
@@ -78,6 +79,16 @@ export default function MobileAppPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-b from-[#073D7B]/15 via-background to-background border-b border-border">
         <div className="container mx-auto px-6 max-w-7xl">
+          {/* Breadcrumb Navigation */}
+          <div className="mb-6 flex justify-center lg:justify-start">
+            <Breadcrumbs 
+              items={[
+                { name: "Technology Solutions", href: "/technology-solutions" },
+                { name: "Mobile App Development" }
+              ]} 
+            />
+          </div>
+
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Copy */}
@@ -125,7 +136,7 @@ export default function MobileAppPage() {
                   href="#contact"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#2cd1a1] hover:bg-[#27b98f] text-slate-950 font-black px-8 py-4 rounded-xl text-sm shadow-xl shadow-[#2cd1a1]/20 transition-all hover:scale-105 active:scale-95"
                 >
-                  <span>Let's build your app</span>
+                  <span>Let&apos;s build your app</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link

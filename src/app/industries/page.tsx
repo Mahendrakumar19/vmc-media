@@ -5,6 +5,7 @@ import IndustriesSection from "@/components/IndustriesSection";
 import CTA from "@/components/CTA";
 import ContactSection from "@/components/ContactSection";
 import LocalSEOStrip from "@/components/LocalSEOStrip";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Link from "next/link";
 import Image from "next/image";
 import { 
@@ -194,6 +195,13 @@ export default function IndustriesPage() {
       {/* Hero Header */}
       <section className="pt-32 pb-20 bg-gradient-to-b from-[#073D7B]/10 via-background to-background border-b border-border text-center">
         <div className="container mx-auto px-6 max-w-4xl">
+          <div className="mb-6 flex justify-center">
+            <Breadcrumbs
+              items={[
+                { name: "Industries" }
+              ]}
+            />
+          </div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2cd1a1]/10 text-[#2cd1a1] text-xs font-bold uppercase tracking-wider mb-6 border border-[#2cd1a1]/20">
             <Building2 className="w-4 h-4" />
             <span>Tailored Industry Growth</span>

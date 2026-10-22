@@ -36,8 +36,14 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/privacy',
-        destination: '/pages/privacy',
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'vmcmedia.in',
+          },
+        ],
+        destination: 'https://www.vmcmedia.in/:path*',
         permanent: true,
       },
       {
@@ -53,6 +59,36 @@ const nextConfig = {
       {
         source: '/services/social-media',
         destination: '/services/smm',
+        permanent: true,
+      },
+      {
+        source: '/services/technology-solutions',
+        destination: '/technology-solutions',
+        permanent: true,
+      },
+      {
+        source: '/services/technology-solutions/:path*',
+        destination: '/technology-solutions/:path*',
+        permanent: true,
+      },
+      {
+        source: '/services/web-development',
+        destination: '/technology-solutions/web-development',
+        permanent: true,
+      },
+      {
+        source: '/services/mobile-app',
+        destination: '/technology-solutions/mobile-app',
+        permanent: true,
+      },
+      {
+        source: '/services/custom-software',
+        destination: '/technology-solutions/custom-software',
+        permanent: true,
+      },
+      {
+        source: '/services/cloud-deployment',
+        destination: '/technology-solutions/cloud-deployment',
         permanent: true,
       },
     ];
