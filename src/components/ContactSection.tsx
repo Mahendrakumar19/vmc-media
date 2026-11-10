@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from "react";
+import Link from "next/link";
 import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { submitLead } from "@/lib/submitLead";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -10,10 +12,11 @@ const ContactSection = () => {
     mobile: "",
     email: "",
     industry: "",
-    service: "Digital Marketing",
-    message: ""
+    hasGst: "no",
+    gstNumber: ""
   });
 
+  const [hasConsent, setHasConsent] = useState(true);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -22,33 +25,48 @@ const ContactSection = () => {
     setStatus('submitting');
     setErrorMessage("");
 
-    if (!formData.name.trim() || !formData.email.trim() || !formData.mobile.trim()) {
-      setErrorMessage("Please complete your name, mobile number and email.");
+    if (!formData.name.trim() || !formData.email.trim() || !formData.mobile.trim() || !formData.company.trim() || !formData.industry.trim()) {
+      setErrorMessage("Please complete all mandatory fields (Name, Company, Mobile, Email, and Industry).");
+      setStatus('error');
+      return;
+    }
+
+    if (!/^\d{10}$/.test(formData.mobile.trim())) {
+      setErrorMessage("Please enter a valid 10-digit mobile number (numbers only).");
+      setStatus('error');
+      return;
+    }
+
+    if (formData.hasGst === 'yes' && !formData.gstNumber.trim()) {
+      setErrorMessage("Please provide your GST number or select 'No'.");
+      setStatus('error');
+      return;
+    }
+
+    if (!hasConsent) {
+      setErrorMessage("Please accept the communication consent to proceed.");
       setStatus('error');
       return;
     }
 
     try {
-      const response = await fetch("/api/audit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          fullName: formData.name,
-          company: formData.company,
-          phone: formData.mobile,
-          email: formData.email,
-          industry: formData.industry,
-          service: formData.service,
-          message: formData.message || "Enquiry from Homepage contact form."
-        })
+      const result = await submitLead({
+        name: formData.name,
+        phone: formData.mobile,
+        email: formData.email,
+        company: formData.company,
+        industry: formData.industry,
+        hasGst: formData.hasGst === 'yes' ? 'Yes' : 'No',
+        gstNumber: formData.hasGst === 'yes' ? formData.gstNumber : '',
+        leadSource: "Next.js Website - Contact Section",
+        message: formData.hasGst === 'yes' ? `GST Number: ${formData.gstNumber}` : 'GST: Not registered / No GST'
       });
 
-      const data = await response.json();
-      if (response.ok && data.success) {
+      if (result.success) {
         setStatus('success');
-        setFormData({ name: "", company: "", mobile: "", email: "", industry: "", service: "Digital Marketing", message: "" });
+        setFormData({ name: "", company: "", mobile: "", email: "", industry: "", hasGst: "no", gstNumber: "" });
       } else {
-        setErrorMessage(data.error || "Failed to submit enquiry. Please try again.");
+        setErrorMessage(result.error || "Failed to submit enquiry. Please try again.");
         setStatus('error');
       }
     } catch (err) {
@@ -70,9 +88,6 @@ const ContactSection = () => {
           {/* Left Column: What to Expect & Social Proof */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2cd1a1]/10 border border-[#2cd1a1]/25 text-[#2cd1a1] text-xs font-bold uppercase tracking-wider mb-4">
-                <span>Start a Conversation</span>
-              </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground tracking-tight leading-tight mb-4">
                 Let&apos;s Engineer Your Growth Engine
               </h2>
@@ -164,9 +179,10 @@ const ContactSection = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-foreground mb-1.5">Company Name</label>
+                      <label className="block text-xs font-bold text-foreground mb-1.5">Company Name *</label>
                       <input
                         type="text"
+                        required
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder="e.g. Acme Enterprise"
@@ -177,15 +193,26 @@ const ContactSection = () => {
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-foreground mb-1.5">Phone Number *</label>
-                      <input
-                        type="tel"
-                        required
-                        value={formData.mobile}
-                        onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
-                        placeholder="+91 92505 92505"
-                        className="w-full px-4 py-3 rounded-xl bg-muted/30 border border-border/80 focus:border-[#2cd1a1] focus:ring-2 focus:ring-[#2cd1a1]/20 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60"
-                      />
+                      <label htmlFor="contact-section-mobile" className="block text-xs font-bold text-foreground mb-1.5">
+                        Mobile Number *
+                      </label>
+                      <div className="flex rounded-xl bg-muted/30 border border-border/80 focus-within:border-[#2cd1a1] focus-within:ring-2 focus-within:ring-[#2cd1a1]/20 overflow-hidden transition-all">
+                        <span className="inline-flex items-center px-3.5 bg-muted/70 text-foreground font-semibold text-xs sm:text-sm border-r border-border/80 select-none text-muted-foreground">
+                          🇮🇳 +91
+                        </span>
+                        <input
+                          id="contact-section-mobile"
+                          type="tel"
+                          inputMode="numeric"
+                          pattern="[0-9]{10}"
+                          maxLength={10}
+                          required
+                          value={formData.mobile}
+                          onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, '').slice(0, 10) })}
+                          placeholder="9876543210"
+                          className="w-full px-4 py-3 text-sm text-foreground bg-transparent outline-none transition-all placeholder:text-muted-foreground/60"
+                        />
+                      </div>
                     </div>
 
                     <div>
@@ -201,44 +228,77 @@ const ContactSection = () => {
                     </div>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold text-foreground mb-1.5">Industry Vertical</label>
-                      <input
-                        type="text"
-                        value={formData.industry}
-                        onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                        placeholder="Real Estate, Healthcare, etc."
-                        className="w-full px-4 py-3 rounded-xl bg-muted/30 border border-border/80 focus:border-[#2cd1a1] focus:ring-2 focus:ring-[#2cd1a1]/20 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-foreground mb-1.5">Primary Interest</label>
-                      <select
-                        value={formData.service}
-                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-muted/30 border border-border/80 focus:border-[#2cd1a1] focus:ring-2 focus:ring-[#2cd1a1]/20 text-sm text-foreground outline-none transition-all"
-                      >
-                        <option value="AI Chatbot &amp; Voicebot">AI Chatbot &amp; Voicebot</option>
-                        <option value="Digital Marketing &amp; Google Ads">Digital Marketing &amp; Google Ads</option>
-                        <option value="AIWA WhatsApp CRM">AIWA WhatsApp CRM</option>
-                        <option value="Tata Smart Flo Telephony">Tata Smart Flo Telephony</option>
-                        <option value="Website &amp; Custom Software">Website &amp; Custom Software</option>
-                        <option value="End-to-End Pipeline Automation">End-to-End Pipeline Automation</option>
-                      </select>
-                    </div>
+                  <div>
+                    <label className="block text-xs font-bold text-foreground mb-1.5">Industry Vertical *</label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.industry}
+                      onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
+                      placeholder="e.g. Real Estate, Healthcare, Education, BFSI, etc."
+                      className="w-full px-4 py-3 rounded-xl bg-muted/30 border border-border/80 focus:border-[#2cd1a1] focus:ring-2 focus:ring-[#2cd1a1]/20 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60"
+                    />
                   </div>
 
-                  <div>
-                    <label className="block text-xs font-bold text-foreground mb-1.5">Brief Overview of Your Objectives</label>
-                    <textarea
-                      rows={3}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Share your current challenges, acquisition goals, or expected monthly enquiry volumes..."
-                      className="w-full px-4 py-3 rounded-xl bg-muted/30 border border-border/80 focus:border-[#2cd1a1] focus:ring-2 focus:ring-[#2cd1a1]/20 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60 resize-none"
-                    />
+                  {/* GST Number Field with Yes / No option */}
+                  <div className="p-4 rounded-xl bg-muted/20 border border-border/80 space-y-3">
+                    <label className="block text-xs font-bold text-foreground">Do you have a GST Number? *</label>
+                    <div className="flex items-center gap-6">
+                      <label className="flex items-center gap-2 cursor-pointer text-sm text-foreground font-medium">
+                        <input
+                          type="radio"
+                          name="hasGst-contact"
+                          value="yes"
+                          checked={formData.hasGst === 'yes'}
+                          onChange={() => setFormData({ ...formData, hasGst: 'yes' })}
+                          className="w-4 h-4 text-[#2cd1a1] focus:ring-[#2cd1a1] accent-[#2cd1a1] cursor-pointer"
+                        />
+                        <span>Yes</span>
+                      </label>
+                      <label className="flex items-center gap-2 cursor-pointer text-sm text-foreground font-medium">
+                        <input
+                          type="radio"
+                          name="hasGst-contact"
+                          value="no"
+                          checked={formData.hasGst === 'no'}
+                          onChange={() => setFormData({ ...formData, hasGst: 'no', gstNumber: '' })}
+                          className="w-4 h-4 text-[#2cd1a1] focus:ring-[#2cd1a1] accent-[#2cd1a1] cursor-pointer"
+                        />
+                        <span>No</span>
+                      </label>
+                    </div>
+
+                    {formData.hasGst === 'yes' && (
+                      <div className="pt-1 animate-fade-in">
+                        <input
+                          type="text"
+                          required
+                          value={formData.gstNumber}
+                          onChange={(e) => setFormData({ ...formData, gstNumber: e.target.value.toUpperCase() })}
+                          placeholder="Enter 15-digit GSTIN (e.g. 07AAAAA0000A1Z5)"
+                          className="w-full px-4 py-2.5 rounded-xl bg-background border border-border/80 focus:border-[#2cd1a1] focus:ring-2 focus:ring-[#2cd1a1]/20 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60"
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Consent Checkbox */}
+                  <div className="pt-1">
+                    <label className="flex items-start gap-2.5 cursor-pointer select-none">
+                      <input
+                        type="checkbox"
+                        checked={hasConsent}
+                        onChange={(e) => setHasConsent(e.target.checked)}
+                        className="mt-0.5 w-4 h-4 rounded border-border/80 text-[#2cd1a1] focus:ring-[#2cd1a1] cursor-pointer accent-[#2cd1a1] shrink-0"
+                      />
+                      <span className="text-[11px] sm:text-xs text-muted-foreground leading-relaxed">
+                        I consent to receive communications from <strong className="text-foreground font-semibold">VMC Media Pvt Ltd.</strong>, in accordance with the{" "}
+                        <Link href="/pages/privacy" target="_blank" className="text-[#2cd1a1] underline hover:text-[#27b98f]">
+                          Privacy Policy
+                        </Link>
+                        . I understand that I can opt-out at any time.
+                      </span>
+                    </label>
                   </div>
 
                   <div className="pt-2">
@@ -248,7 +308,7 @@ const ContactSection = () => {
                       className="w-full inline-flex items-center justify-center gap-2 bg-[#2cd1a1] hover:bg-[#27b98f] disabled:opacity-50 text-slate-950 font-black px-8 py-4 rounded-xl text-sm shadow-xl shadow-[#2cd1a1]/20 hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer"
                     >
                       <Send className="w-4 h-4" />
-                      <span>{status === 'submitting' ? 'Submitting Details...' : 'Request Free Growth Consultation'}</span>
+                      <span>{status === 'submitting' ? 'Submitting Details...' : 'Connect with Our Experts'}</span>
                     </button>
                     <p className="text-[11px] text-center text-muted-foreground mt-2">
                       Strict confidentiality assured. No spam or unsolicited marketing.

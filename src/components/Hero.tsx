@@ -2,10 +2,14 @@
 
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
 import Link from 'next/link';
+import { 
+  Megaphone, 
+  Bot, 
+  Activity, 
+  TrendingUp 
+} from "lucide-react";
 
 const GetStartedModal = dynamic(() => import("@/components/GetStartedModal"), {
   ssr: false,
@@ -14,37 +18,80 @@ const GetStartedModal = dynamic(() => import("@/components/GetStartedModal"), {
 
 interface SlideData {
   badge: string;
-  headlineMain: string;
-  headlineHighlight: string;
+  headlineLine1: string;
+  headlineLine2: string;
   description: string;
-  image: string;
+  primaryButtonText: string;
+  primaryButtonAction?: "modal" | "link";
+  primaryButtonHref?: string;
+  secondaryButtonText: string;
+  secondaryButtonHref: string;
+  mockupImage: string;
   alt: string;
 }
 
 const slides: SlideData[] = [
+  // Slide 1 (Image 2 from user upload)
   {
-    badge: "24/7 AI Chatbots & Voicebots • Automated CRM Handover",
-    headlineMain: "Customer Engagement.",
-    headlineHighlight: "On Autopilot.",
-    description: "Empower your business with sub-10-second lead qualification, intelligent conversational chatbots, and human-like AI voicebots that convert prospects while you sleep.",
-    image: "/hero-slide-3.jpg",
-    alt: "Human-AI Collaboration and Conversational Automation"
-  },
-  {
-    badge: "Digital Marketing • AI Automation • Business Growth",
-    headlineMain: "Digital Growth.",
-    headlineHighlight: "Powered by AI.",
+    badge: "DIGITAL MARKETING • DATA-DRIVEN GROWTH",
+    headlineLine1: "Digital Growth.",
+    headlineLine2: "Powered by AI.",
     description: "At VMC Media, we help businesses attract more customers, generate qualified leads, and automate customer engagement through performance-driven marketing and proprietary AI solutions.",
-    image: "/hero-slide-1.jpg",
-    alt: "VMC Media Enterprise AI and Digital Strategy"
+    primaryButtonText: "Get Growth Assessment",
+    primaryButtonAction: "modal",
+    secondaryButtonText: "Explore AI Solutions",
+    secondaryButtonHref: "/ai-solutions",
+    mockupImage: "/hero-slide-1-mockup.png",
+    alt: "VMC Media Digital Growth Powered by AI marketing dashboard mockup"
   },
+  // Slide 2 (Image 1 from user upload)
+  {
+    badge: "AI-powered customer engagement",
+    headlineLine1: "Customer Engagement.",
+    headlineLine2: "On Autopilot.",
+    description: "Empower your business with intelligent AI chatbots, human-like voicebots and automated conversations that qualify leads, engage customers and drive growth around the clock.",
+    primaryButtonText: "Get Growth Assessment",
+    primaryButtonAction: "modal",
+    secondaryButtonText: "Explore AI Solutions",
+    secondaryButtonHref: "/ai-solutions",
+    mockupImage: "/hero-slide-2-mockup.png",
+    alt: "VMC Media Customer Engagement on Autopilot AI smartphone mockup"
+  },
+  // Slide 3 (Image 3 from user upload)
   {
     badge: "Full-Funnel Lead Engines • ROI-Focused PPC",
-    headlineMain: "Predictable Leads.",
-    headlineHighlight: "Engineered to Scale.",
+    headlineLine1: "Predictable Leads.",
+    headlineLine2: "Engineered to Scale.",
     description: "From laser-targeted Google Ads to organic multi-channel ranking, we build high-converting acquisition funnels backed by real-time analytics and transparent ROI attribution.",
-    image: "/hero-slide-2.jpg",
-    alt: "Performance Marketing and Real-Time Growth Analytics"
+    primaryButtonText: "Get Growth Assessment",
+    primaryButtonAction: "modal",
+    secondaryButtonText: "Explore AI Solutions",
+    secondaryButtonHref: "/ai-solutions",
+    mockupImage: "/hero-slide-3-mockup.png",
+    alt: "VMC Media Predictable Leads Engineered to Scale performance analytics mockup"
+  }
+];
+
+const featurePills = [
+  {
+    title: "Digital Marketing",
+    icon: Megaphone,
+    href: "/digital-marketing"
+  },
+  {
+    title: "AI Chatbots",
+    icon: Bot,
+    href: "/ai-solutions/ai-chatbot"
+  },
+  {
+    title: "AI Voicebots",
+    icon: Activity,
+    href: "/ai-solutions/ai-voicebot"
+  },
+  {
+    title: "Revenue Automation",
+    icon: TrendingUp,
+    href: "/products/aiwa"
   }
 ];
 
@@ -61,143 +108,147 @@ const Hero = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   }, []);
 
-  // Autoplay timer
+  // 7-second slide autoplay
   useEffect(() => {
     if (isPaused) return;
-    const interval = setInterval(nextSlide, 6000);
+    const interval = setInterval(nextSlide, 7000);
     return () => clearInterval(interval);
   }, [nextSlide, isPaused]);
+
+  const slide = slides[currentSlide];
 
   return (
     <>
       <section 
-        className="relative w-full min-h-[640px] lg:min-h-[760px] flex items-center justify-center overflow-hidden pt-20 pb-16"
+        className="relative w-full bg-white dark:bg-slate-950 overflow-hidden pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 lg:pb-16 border-b border-slate-100 dark:border-slate-800/60"
         id="hero"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {/* Background Image Carousel */}
-        {slides.map((slide, index) => {
-          const isActive = index === currentSlide;
-          return (
-            <div
-              key={slide.image}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                isActive ? "opacity-100 z-0 pointer-events-auto" : "opacity-0 -z-10 pointer-events-none"
-              }`}
-            >
-              <Image
-                src={slide.image}
-                alt={slide.alt}
-                fill
-                priority={index === 0}
-                sizes="100vw"
-                className={`object-cover object-center transition-transform duration-[7000ms] ease-out ${
-                  isActive ? "scale-105" : "scale-100"
-                }`}
-              />
-              {/* Multi-layered cinematic gradient overlays for pristine readability */}
-              <div className="absolute inset-0 bg-black/60 dark:bg-black/75" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-              <div className="absolute inset-0 bg-radial from-transparent via-black/40 to-black/80" />
+        {/* Subtle background ambient glow matching the modern design */}
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-emerald-100/50 via-teal-50/25 to-transparent dark:from-emerald-950/20 dark:via-transparent rounded-full blur-3xl pointer-events-none -z-0" />
+
+        {/* Main Hero Grid */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
+            
+            {/* Left Column: Copy & Actions */}
+            <div className="lg:col-span-7 xl:col-span-7 flex flex-col items-start text-left pt-2 sm:pt-4">
+              
+              {/* Badge Pill */}
+              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#e8f7f2] dark:bg-emerald-950/60 border border-[#bfe9db] dark:border-emerald-800/60 text-[#149a75] dark:text-[#2cd1a1] text-[11px] sm:text-xs font-semibold tracking-wide uppercase mb-6 sm:mb-7 transition-all duration-500">
+                {slide.badge}
+              </div>
+
+              {/* Bold Headline */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[58px] font-extrabold text-[#111827] dark:text-white tracking-tight leading-[1.12] mb-5 sm:mb-6 transition-all duration-500 max-w-2xl">
+                <span className="block whitespace-nowrap">{slide.headlineLine1}</span>
+                <span className="block whitespace-nowrap">{slide.headlineLine2}</span>
+              </h1>
+
+              {/* Paragraph Description */}
+              <p className="text-[15px] sm:text-base md:text-[17px] text-[#4b5563] dark:text-slate-300 leading-relaxed max-w-[560px] lg:max-w-[580px] mb-8 sm:mb-9 transition-all duration-500">
+                {slide.description}
+              </p>
+
+              {/* CTAs matching exact UI buttons */}
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto">
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(true)}
+                  className="inline-flex items-center justify-center px-7 sm:px-8 py-3.5 rounded-xl bg-[#00a67e] hover:bg-[#008f6c] text-white font-semibold text-sm shadow-sm transition-all duration-200 cursor-pointer hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  {slide.primaryButtonText}
+                </button>
+
+                <Link
+                  href={slide.secondaryButtonHref}
+                  className="inline-flex items-center justify-center px-6 sm:px-7 py-3.5 rounded-xl bg-white dark:bg-slate-900 border border-[#d1d5db] dark:border-slate-700 hover:border-[#9ca3af] dark:hover:border-slate-500 text-[#374151] dark:text-slate-200 font-semibold text-sm shadow-xs hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-all duration-200 text-center hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  {slide.secondaryButtonText}
+                </Link>
+              </div>
+
+              {/* Slide Dots Indicator */}
+              <div className="flex items-center gap-2 mt-7 sm:mt-7">
+                {slides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentSlide(idx)}
+                    aria-label={`Go to slide ${idx + 1}`}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      idx === currentSlide 
+                        ? "w-7 bg-[#00a67e]" 
+                        : "w-2.5 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400"
+                    }`}
+                  />
+                ))}
+              </div>
+
             </div>
-          );
-        })}
 
-        {/* Centered Content Container */}
-        <div className="container mx-auto px-6 lg:px-8 max-w-4xl relative z-10 text-center flex flex-col items-center">
-          
-          {/* Tagline Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 dark:bg-black/30 backdrop-blur-md border border-white/20 text-[#2cd1a1] text-xs sm:text-xs font-bold uppercase tracking-wider mb-4 shadow-lg animate-fade-in">
-            <Sparkles className="w-3.5 h-3.5 text-[#2cd1a1]" />
-            <span>{slides[currentSlide].badge}</span>
+            {/* Right Column: High Quality 3D Visual Mockup */}
+            <div className="lg:col-span-5 xl:col-span-5 relative flex items-center justify-center lg:justify-end">
+              <div className="relative w-full max-w-[500px] lg:max-w-[540px] xl:max-w-[580px] aspect-[1024/764]">
+                {slides.map((s, idx) => (
+                  <div
+                    key={s.mockupImage}
+                    className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ease-out ${
+                      idx === currentSlide 
+                        ? "opacity-100 scale-100 translate-y-0 z-10" 
+                        : "opacity-0 scale-95 translate-y-2 -z-10 pointer-events-none"
+                    }`}
+                  >
+                    <Image
+                      src={s.mockupImage}
+                      alt={s.alt}
+                      width={1200}
+                      height={896}
+                      priority={idx === 0}
+                      className="w-full h-auto object-contain drop-shadow-sm select-none"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
 
-          {/* Centered Hero Headline - Compact & Balanced */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black text-white leading-tight tracking-tight max-w-3xl mb-4 drop-shadow-md">
-            <span>{slides[currentSlide].headlineMain} </span>
-            <span className="bg-gradient-to-r from-[#2cd1a1] via-teal-300 to-cyan-400 bg-clip-text text-transparent block sm:inline">
-              {slides[currentSlide].headlineHighlight}
-            </span>
-          </h1>
-
-          {/* Centered Subtext - Reduced Gap & Tightened Leading */}
-          <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-2xl leading-relaxed mb-6 drop-shadow-sm font-normal">
-            {slides[currentSlide].description}
-          </p>
-
-          {/* Centered Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
-            <Button
-              size="lg"
-              onClick={() => setIsModalOpen(true)}
-              className="bg-[#2cd1a1] hover:bg-[#27b98f] text-black hover:text-black font-extrabold shadow-xl hover:shadow-[#2cd1a1]/40 hover:scale-105 active:scale-95 transition-all duration-300 h-11 px-7 text-sm rounded-xl w-full sm:w-auto cursor-pointer"
-            >
-              Get Free Growth Assessment
-              <ArrowRight className="w-4 h-4 ml-1.5" />
-            </Button>
-
-            <Link
-              href="/ai-solutions"
-              className="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 text-white backdrop-blur-md border border-white/30 shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 h-11 px-7 text-sm font-bold rounded-xl w-full sm:w-auto"
-            >
-              Explore AI Solutions
-            </Link>
-          </div>
-
-          {/* Feature Highlights Pills under buttons */}
-          <div className="pt-5 mt-5 border-t border-white/15 flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs font-semibold text-white/80">
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#2cd1a1]" /> Digital Marketing
-            </span>
-            <span>•</span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-cyan-400" /> AI Chatbots
-            </span>
-            <span>•</span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#2cd1a1]" /> AI Voicebots
-            </span>
-            <span>•</span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" /> Revenue Automation
-            </span>
+          {/* Bottom 4 Feature Pills Strip */}
+          <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-slate-100 dark:border-slate-800/60">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-0 items-center">
+              {featurePills.map((pill, idx) => {
+                const IconComponent = pill.icon;
+                return (
+                  <div 
+                    key={pill.title} 
+                    className={`flex items-center justify-start lg:justify-center gap-3 px-2 sm:px-4 ${
+                      idx !== featurePills.length - 1 
+                        ? "lg:border-r lg:border-teal-400/50 dark:lg:border-teal-500/30" 
+                        : ""
+                    }`}
+                  >
+                    <Link
+                      href={pill.href}
+                      className="group flex items-center gap-3 transition-colors"
+                    >
+                      {/* Outline Icon Box */}
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg border border-[#2cd1a1] dark:border-[#2cd1a1]/80 flex items-center justify-center text-[#00a67e] dark:text-[#2cd1a1] group-hover:bg-[#e8f7f2] dark:group-hover:bg-[#2cd1a1]/10 transition-colors shrink-0">
+                        <IconComponent className="w-5 h-5 stroke-[1.8]" />
+                      </div>
+                      
+                      {/* Label */}
+                      <span className="text-xs sm:text-sm font-semibold text-[#111827] dark:text-slate-100 group-hover:text-[#00a67e] dark:group-hover:text-[#2cd1a1] transition-colors">
+                        {pill.title}
+                      </span>
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
         </div>
-
-        {/* Previous Slide Navigation Arrow */}
-        <button
-          onClick={prevSlide}
-          aria-label="Previous slide"
-          className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-black/70 border border-white/20 text-white flex items-center justify-center backdrop-blur-md hover:scale-110 active:scale-95 transition-all"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-
-        {/* Next Slide Navigation Arrow */}
-        <button
-          onClick={nextSlide}
-          aria-label="Next slide"
-          className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-black/70 border border-white/20 text-white flex items-center justify-center backdrop-blur-md hover:scale-110 active:scale-95 transition-all"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
-
-        {/* Slider Dot Indicators */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5 bg-black/40 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/15">
-          {slides.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
-              className={`h-2.5 rounded-full transition-all duration-300 ${
-                idx === currentSlide ? "w-8 bg-[#2cd1a1]" : "w-2.5 bg-white/40 hover:bg-white/70"
-              }`}
-            />
-          ))}
-        </div>
-
       </section>
 
       <GetStartedModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

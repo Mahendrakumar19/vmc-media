@@ -40,10 +40,10 @@ export async function POST(request) {
   try {
     // Parse request body
     const body = await request.json();
-    const { fullName, email, phone, service, company, industry, message } = body;
+    const { fullName, email, phone, service, company, industry, hasGst, gstNumber, message } = body;
 
     // Validate required fields
-    if (!fullName || !email || !message) {
+    if (!fullName || !email) {
       return NextResponse.json(
         { success: false, error: 'Missing required fields' },
         { status: 400 }
@@ -115,6 +115,17 @@ export async function POST(request) {
           }
 
           ${
+            hasGst
+              ? `
+          <div style="margin-bottom: 15px;">
+            <strong style="color: #0066cc;">GST Registered:</strong>
+            <p style="margin: 5px 0 15px 0; color: #555;">${escapeHtml(hasGst)} ${gstNumber ? `(${escapeHtml(gstNumber)})` : ''}</p>
+          </div>
+          `
+              : ''
+          }
+
+          ${
             service
               ? `
           <div style="margin-bottom: 15px;">
@@ -125,10 +136,16 @@ export async function POST(request) {
               : ''
           }
 
+          ${
+            message
+              ? `
           <div style="margin-bottom: 15px;">
             <strong style="color: #0066cc;">Project Details:</strong>
             <p style="margin: 5px 0 15px 0; color: #555; white-space: pre-wrap; line-height: 1.6;">${escapeHtml(message)}</p>
           </div>
+          `
+              : ''
+          }
 
           <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
 
@@ -164,10 +181,11 @@ New Free Audit Request Received
 Full Name: ${fullName}
 Email Address: ${email}
 ${phone ? `Phone Number: ${phone}` : ''}
+${company ? `Company: ${company}` : ''}
+${industry ? `Industry: ${industry}` : ''}
+${hasGst ? `GST Registered: ${hasGst} ${gstNumber ? `(${gstNumber})` : ''}` : ''}
 ${service ? `Interested In: ${service}` : ''}
-
-Project Details:
-${message}
+${message ? `Project Details:\n${message}` : ''}
 
 ---
 Submitted on: ${new Date().toLocaleString('en-IN', {
@@ -182,6 +200,38 @@ Submitted on: ${new Date().toLocaleString('en-IN', {
 
 Reply-To: ${email}
     `;
+
+    // Extract 10 digits cleanly and format to +91XXXXXXXXXX
+    const rawDigits = (phone || '').replace(/\D/g, '');
+    const tenDigits = rawDigits.length >= 10 ? rawDigits.slice(-10) : rawDigits;
+    const formattedPhone = tenDigits ? `+91${tenDigits}` : '';
+
+    // Sync lead details to AIWA CRM (https://aiwa.vmcmedia.in/api/leads)
+    let aiwaLeadStatus = null;
+    try {
+      const aiwaPayload = {
+        name: fullName || body.name || '',
+        phone: formattedPhone,
+        email: email || '',
+        company: company || '',
+        leadSource: body.leadSource || 'Next.js Website',
+        landingPageUrl: body.landingPageUrl || '',
+      };
+
+      const aiwaRes = await fetch('https://aiwa.vmcmedia.in/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(aiwaPayload),
+      });
+
+      aiwaLeadStatus = aiwaRes.status;
+      const aiwaData = await aiwaRes.json().catch(() => null);
+      console.log('AIWA lead sync response:', aiwaLeadStatus, aiwaData);
+    } catch (aiwaErr) {
+      console.warn('AIWA lead sync error:', aiwaErr.message);
+    }
 
     // Send email
     const mailOptions = {
@@ -238,16 +288,31 @@ function escapeHtml(text) {
   return text.replace(/[&<>"']/g, (m) => map[m]);
 }
 
-// OPTIONS handler for CORS preflight (if needed)
+// Helper to match vmcmedia.in subdomains & localhost
+function getCorsOrigin(request) {
+  const origin = request?.headers?.get('origin');
+  if (!origin) return '*';
+  const vmcPattern = /^https?:\/\/([a-zA-Z0-9-]+\.)?vmcmedia\.in$/;
+  const localPattern = /^http:\/\/localhost(:\d+)?$/;
+  if (vmcPattern.test(origin) || localPattern.test(origin)) {
+    return origin;
+  }
+  return '*';
+}
+
+// OPTIONS handler for CORS preflight
 export async function OPTIONS(request) {
+  const allowOrigin = getCorsOrigin(request);
   return NextResponse.json(
     {},
     {
       status: 200,
       headers: {
-        'Access-Control-Allow-Origin': process.env.NEXT_PUBLIC_APP_URL || '*',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Origin': allowOrigin,
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE, PATCH',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With, Accept, Origin, X-Api-Key',
+        'Access-Control-Allow-Credentials': 'true',
+        'Access-Control-Max-Age': '86400',
       },
     }
   );

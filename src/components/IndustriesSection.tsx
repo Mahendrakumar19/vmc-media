@@ -107,9 +107,6 @@ const IndustriesSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#073D7B]/10 dark:bg-[#2cd1a1]/10 text-[#073D7B] dark:text-[#2cd1a1] text-xs font-bold tracking-wider uppercase mb-3">
-            <span>Specialised Vertical Solutions</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight mb-4">
             Engineered for High-Growth Sectors
           </h2>
@@ -137,19 +134,19 @@ const IndustriesSection = () => {
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                   {ind.title}
                 </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4">
                   {ind.desc}
                 </p>
 
-                {/* Micro Feature Tags */}
-                <div className="flex flex-wrap gap-1.5 pt-1 mb-6">
+                {/* Micro Feature Tags with high contrast and readable typography */}
+                <div className="flex flex-wrap gap-2 pt-1 mb-6">
                   {ind.tags.map((tag, tIdx) => (
                     <span 
                       key={tIdx}
-                      className="px-2 py-0.5 rounded-md bg-muted text-[10px] font-medium text-muted-foreground border border-border/50"
+                      className="px-3 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-sm font-semibold text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 shadow-xs"
                     >
                       {tag}
                     </span>
@@ -160,10 +157,10 @@ const IndustriesSection = () => {
               {/* Action Link */}
               <Link
                 href={ind.link}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-foreground group-hover:text-[#2cd1a1] transition-colors pt-2 border-t border-border/50"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#073D7B] dark:text-[#2cd1a1] group-hover:underline transition-colors pt-3 border-t border-border/50"
               >
                 <span>Explore Workflow</span>
-                <FontAwesomeIcon icon={faArrowRight} className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                <FontAwesomeIcon icon={faArrowRight} className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform" />
               </Link>
             </motion.div>
           ))}

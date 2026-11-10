@@ -153,7 +153,7 @@ const SEOService = () => {
                   onClick={() => router.push('/contact')}
                   className="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 >
-                  <span>Request Free SEO Audit</span>
+                  <span>Connect with Our Experts</span>
                   <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
                 </button>
               </div>
@@ -354,7 +354,7 @@ const SEOService = () => {
             onClick={() => router.push('/contact')}
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
           >
-            <span>Claim Free Strategic SEO Audit</span>
+            <span>Connect with Our Experts</span>
             <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
           </button>
         </div>

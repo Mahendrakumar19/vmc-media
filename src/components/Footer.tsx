@@ -75,21 +75,27 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Col 6: Dedicated Contact Us at Last */}
-          <div>
+          {/* Col 6: Dedicated Contact Us at Last - Roomy and no clipping */}
+          <div className="min-w-[170px]">
             <h4 className="text-xs font-bold text-white mb-3.5 uppercase tracking-wider">Contact Us</h4>
             <div className="space-y-3 text-xs text-white/80">
               <div className="flex items-center gap-2.5">
                 <FontAwesomeIcon icon={faEnvelope} className="w-3.5 h-3.5 text-[#2cd1a1] shrink-0" />
-                <a href="mailto:Info@vmcmedia.in" className="hover:text-[#2cd1a1] transition-colors break-all font-semibold">Info@vmcmedia.in</a>
+                <a href="mailto:info@vmcmedia.in" className="hover:text-[#2cd1a1] transition-colors whitespace-nowrap font-semibold">
+                  info@vmcmedia.in
+                </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <FontAwesomeIcon icon={faPhone} className="w-3.5 h-3.5 text-[#2cd1a1] shrink-0" />
-                <a href="tel:+919250592505" className="hover:text-[#2cd1a1] transition-colors font-semibold">+91 92505 92505</a>
+                <a href="tel:+919250592505" className="hover:text-[#2cd1a1] transition-colors whitespace-nowrap font-semibold">
+                  +91 92505 92505
+                </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <FontAwesomeIcon icon={faGlobe} className="w-3.5 h-3.5 text-[#2cd1a1] shrink-0" />
-                <a href="https://www.vmcmedia.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#2cd1a1] transition-colors font-semibold">vmcmedia.in</a>
+                <a href="https://www.vmcmedia.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#2cd1a1] transition-colors whitespace-nowrap font-semibold">
+                  vmcmedia.in
+                </a>
               </div>
             </div>
           </div>

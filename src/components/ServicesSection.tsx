@@ -13,14 +13,10 @@ const ServicesSection = () => {
       bgAccent: "bg-blue-500/10",
       desc: "Build your digital presence and reach the right audience with targeted, measurable marketing campaigns.",
       items: [
-        "Social Media Marketing",
-        "Facebook & Instagram",
-        "LinkedIn Marketing",
-        "YouTube Marketing",
-        "SEO & Local SEO",
-        "Google Ads",
-        "Performance Marketing",
-        "Creative Content"
+        "Google Ads & PPC Campaigns",
+        "Social Media Ads (Meta & LinkedIn)",
+        "Search Engine Optimization (SEO)",
+        "Conversion Rate Optimization (CRO)"
       ],
       btnText: "Explore Digital Marketing →",
       btnLink: "/services"
@@ -32,14 +28,10 @@ const ServicesSection = () => {
       bgAccent: "bg-[#2cd1a1]/10",
       desc: "Give your customers instant answers and turn website conversations into qualified opportunities — 24×7.",
       items: [
-        "Website Chatbot",
-        "WhatsApp Automation",
-        "FAQs & Customer Support",
-        "Lead Qualification",
-        "Product & Service Enquiries",
-        "Appointment Booking",
-        "Human Handover",
-        "CRM Integration"
+        "Official WhatsApp Meta Automation",
+        "Sub-10s Intent Lead Qualification",
+        "24/7 Intelligent Appointment Booking",
+        "Seamless CRM & Human Live Handover"
       ],
       btnText: "Explore AI Chatbot →",
       btnLink: "/ai-solutions/ai-chatbot"
@@ -51,14 +43,10 @@ const ServicesSection = () => {
       bgAccent: "bg-purple-500/10",
       desc: "Automate customer conversations with AI-powered voice interactions for enquiries, qualification, follow-ups and appointments.",
       items: [
-        "Inbound Enquiries",
-        "Lead Qualification",
-        "Outbound Follow-ups",
-        "Appointment Booking",
-        "Reminder Calls",
-        "Customer Surveys",
-        "Campaign Calls",
-        "CRM Integration"
+        "Inbound Receptionist & Triage",
+        "Sub-60s Outbound Speed-to-Lead",
+        "Automated Follow-ups & Reminders",
+        "Tata Telephony & CRM Auto-Sync"
       ],
       btnText: "Explore AI Voicebot →",
       btnLink: "/ai-solutions/ai-voicebot"
@@ -70,10 +58,10 @@ const ServicesSection = () => {
       bgAccent: "bg-amber-500/10",
       desc: "Leverage technology to automate processes, improve efficiency, and deliver better customer experiences.",
       items: [
-        "Web Application Development",
-        "Mobile Application Development",
-        "Custom Software Development",
-        "Cloud Solutions"
+        "Next.js High-Performance Web Apps",
+        "iOS & Android Mobile Applications",
+        "Bespoke Enterprise Software & CRMs",
+        "Secure AWS Cloud Architecture & DevOps"
       ],
       btnText: "Explore Technology Solutions →",
       btnLink: "/technology-solutions"
@@ -94,44 +82,33 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        {/* 4 Cards Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* 4 Cards Grid - Streamlined: Title, One-line Description & Direct Link */}
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
           {cards.map((card, idx) => (
             <div 
               key={idx}
-              className="bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:border-[#2cd1a1]/50 group"
+              className="bg-card border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:border-[#2cd1a1]/50 group"
             >
-              <div>
-                <div className="flex items-center gap-3 mb-3">
-                  <div className={`w-11 h-11 rounded-2xl ${card.bgAccent} flex items-center justify-center flex-shrink-0`}>
+              <div className="mb-6">
+                <div className="flex items-center gap-3.5 mb-3.5">
+                  <div className={`w-12 h-12 rounded-2xl ${card.bgAccent} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
                     <FontAwesomeIcon icon={card.icon} className={`w-5 h-5 ${card.accent}`} />
                   </div>
                   <h3 className="text-xl font-bold text-foreground leading-tight">{card.title}</h3>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6">{card.desc}</p>
-
-                {/* Items List */}
-                <div className="grid grid-cols-2 gap-2.5 mb-8">
-                  {card.items.map((item, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <FontAwesomeIcon icon={faCircleCheck} className="w-4 h-4 text-[#2cd1a1] flex-shrink-0" />
-                      <span className="text-xs font-medium text-foreground">{item}</span>
-                    </div>
-                  ))}
-                </div>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{card.desc}</p>
               </div>
 
-              {/* Card Button */}
-              <div className="pt-4 border-t border-border/60">
+              {/* Card Direct Link */}
+              <div className="pt-4 border-t border-border/50">
                 <Link
                   href={card.btnLink}
-                  className="inline-flex items-center gap-2 font-bold text-sm text-[#073D7B] dark:text-[#2cd1a1] hover:underline group-hover:translate-x-1 transition-transform"
+                  className="inline-flex items-center gap-2 font-bold text-sm text-[#073D7B] dark:text-[#2cd1a1] hover:underline group-hover:translate-x-1.5 transition-transform"
                 >
                   <span>{card.btnText}</span>
                 </Link>
               </div>
             </div>
-
           ))}
         </div>
 

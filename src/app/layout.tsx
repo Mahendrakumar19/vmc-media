@@ -70,7 +70,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         {/* Font preconnection */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -92,8 +92,9 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         
-        {/* Google Analytics 4 - Async loading */}
+        {/* Google Analytics 4 - Optimized early initialization to eliminate (not set) drop-offs */}
         <Script
+          id="gtag-base"
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-GSXHP5X39B"
         />
@@ -108,6 +109,7 @@ export default function RootLayout({
               gtag('config', 'G-GSXHP5X39B', {
                 page_path: window.location.pathname,
                 send_page_view: true,
+                transport_type: 'beacon'
               });
             `,
           }}
@@ -144,7 +146,7 @@ export default function RootLayout({
                 '@type': 'ContactPoint',
                 contactType: 'Customer Service',
                 telephone: '+91-9250592505',
-                email: 'Info@vmcmedia.in',
+                email: 'info@vmcmedia.in',
               },
             }),
           }}

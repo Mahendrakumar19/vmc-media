@@ -40,7 +40,7 @@ const CTA = () => {
             onClick={openModal}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#2cd1a1] hover:bg-[#27b98f] text-slate-950 font-black px-8 py-4 rounded-2xl text-base shadow-xl shadow-[#2cd1a1]/20 hover:scale-105 active:scale-95 transition-all cursor-pointer"
           >
-            <span>Get Free Growth Assessment</span>
+            <span>Connect with Our Experts</span>
             <ArrowRight className="w-5 h-5" />
           </button>
 

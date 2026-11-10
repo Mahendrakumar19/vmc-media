@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import IndustriesSection from "@/components/IndustriesSection";
 import CTA from "@/components/CTA";
 import ContactSection from "@/components/ContactSection";
 import LocalSEOStrip from "@/components/LocalSEOStrip";
@@ -202,10 +201,6 @@ export default function IndustriesPage() {
               ]}
             />
           </div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2cd1a1]/10 text-[#2cd1a1] text-xs font-bold uppercase tracking-wider mb-6 border border-[#2cd1a1]/20">
-            <Building2 className="w-4 h-4" />
-            <span>Tailored Industry Growth</span>
-          </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground mb-6 leading-tight">
             Digital Marketing &amp; AI Automation for{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2cd1a1] to-teal-500">
@@ -233,19 +228,40 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      {/* Overview Grid Section */}
-      <div id="industries-grid">
-        <IndustriesSection />
+      {/* Sticky Interactive Horizontal Industry Filter Bar */}
+      <div id="industries-grid" className="sticky top-20 z-30 bg-background/95 backdrop-blur-md border-y border-border py-3 shadow-xs">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+            <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider shrink-0 mr-2 hidden sm:inline">
+              Filter Sector:
+            </span>
+            {[
+              { id: "real-estate", label: "Real Estate" },
+              { id: "education", label: "EdTech & Education" },
+              { id: "healthcare", label: "Healthcare" },
+              { id: "bfsi", label: "BFSI & Wealth" },
+              { id: "ecommerce", label: "DTC & Retail" },
+              { id: "manufacturing", label: "Manufacturing" },
+              { id: "automotive", label: "Automotive" },
+              { id: "professional-services", label: "Professional Services" },
+            ].map((pill) => (
+              <a
+                key={pill.id}
+                href={`#${pill.id}`}
+                className="px-4 py-2 rounded-xl text-xs font-bold bg-card hover:bg-muted text-foreground border border-border/80 hover:border-[#2cd1a1]/50 whitespace-nowrap transition-all shrink-0 hover:scale-[1.02]"
+              >
+                {pill.label}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Deep-Dive Industry Modules */}
       <section className="py-20 bg-muted/20 border-t border-border">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold text-[#2cd1a1] uppercase tracking-wider bg-[#2cd1a1]/10 px-3 py-1 rounded-full border border-[#2cd1a1]/20">
-              Sector Playbooks
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mt-4 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-4">
               How We Drive Measurable ROI by Sector
             </h2>
             <p className="text-muted-foreground text-base">
@@ -290,27 +306,27 @@ export default function IndustriesPage() {
                       </div>
 
                       {/* Key Performance Metrics Bar */}
-                      <div className="grid grid-cols-3 gap-2 p-3 bg-muted/40 rounded-xl border border-border/60 text-center">
-                        {industry.metrics.map((m, mi) => (
-                          <div key={mi} className="px-1">
-                            <div className="text-base sm:text-lg font-black text-[#2cd1a1]">
-                              {m.value}
+                      <div className="p-3 bg-muted/40 rounded-xl border border-border/60 text-center">
+                        <div className="grid grid-cols-3 gap-2">
+                          {industry.metrics.map((m, mi) => (
+                            <div key={mi} className="px-1">
+                              <div className="text-base sm:text-lg font-black text-[#2cd1a1]">
+                                {m.value}
+                              </div>
+                              <div className="text-[10px] text-muted-foreground leading-tight mt-0.5">
+                                {m.label}
+                              </div>
                             </div>
-                            <div className="text-[10px] text-muted-foreground leading-tight mt-0.5">
-                              {m.label}
-                            </div>
-                          </div>
-                        ))}
+                          ))}
+                        </div>
+                        <div className="mt-2.5 pt-2 border-t border-border/50 text-[10px] text-muted-foreground/80 italic text-center">
+                          *Average observed uplift across 20+ active enterprise deployments in Q2/Q3 2026.
+                        </div>
                       </div>
                     </div>
 
                     {/* Detailed Content */}
                     <div className={`lg:col-span-7 space-y-5 ${isEven ? "" : "lg:order-1"}`}>
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#073D7B]/10 dark:bg-[#2cd1a1]/10 text-[#073D7B] dark:text-[#2cd1a1] text-xs font-bold">
-                        <IconComp className="w-3.5 h-3.5" />
-                        <span>{industry.title}</span>
-                      </div>
-
                       <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground leading-snug">
                         {industry.headline}
                       </h3>

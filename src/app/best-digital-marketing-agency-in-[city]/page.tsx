@@ -83,7 +83,7 @@ export default async function LocalCityPage({ params }: Props) {
     areaServed: cityInfo.cityName,
     priceRange: '₹₹₹',
     telephone: '+91-9250592505',
-    email: 'Info@vmcmedia.in',
+    email: 'info@vmcmedia.in',
   };
 
   return (
@@ -118,7 +118,7 @@ export default async function LocalCityPage({ params }: Props) {
               href="#contact"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#2cd1a1] hover:bg-[#27b98f] text-white font-bold px-8 py-4 rounded-xl text-base shadow-lg hover:scale-105 transition-all"
             >
-              <span>Get Free {cityInfo.cityName} Marketing Audit</span>
+              <span>Connect with Our Experts</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
 

@@ -143,7 +143,7 @@ export default function MobileAppPage() {
                   href="/contact"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-card hover:bg-muted border border-border text-foreground font-bold px-7 py-4 rounded-xl text-sm transition-all"
                 >
-                  <span>Book Free Scope Call</span>
+                  <span>Connect with Our Experts</span>
                 </Link>
               </div>
             </div>

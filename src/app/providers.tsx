@@ -7,6 +7,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ThemeProvider } from "next-themes"
 import ErrorBoundary from "@/components/ErrorBoundary"
 import { ModalProvider } from "@/context/ModalContext"
+import WhatsAppButton from "@/components/WhatsAppButton"
+import AIChatWidget from "@/components/AIChatWidget"
 import { useState } from "react"
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -35,6 +37,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
               <Toaster />
               <Sonner />
               {children}
+              <WhatsAppButton />
+              <AIChatWidget />
             </TooltipProvider>
           </ModalProvider>
         </ThemeProvider>

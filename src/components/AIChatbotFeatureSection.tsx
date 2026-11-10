@@ -48,10 +48,6 @@ const AIChatbotFeatureSection = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="lg:col-span-7 space-y-6"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2cd1a1]/10 border border-[#2cd1a1]/30 text-[#2cd1a1] text-xs font-bold uppercase tracking-wider backdrop-blur-md shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#2cd1a1]" />
-              <span>Meet Your AI Chatbot</span>
-            </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-foreground">
               Your Business, Talking to Customers{" "}

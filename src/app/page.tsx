@@ -8,7 +8,6 @@ import WhyVMC from "@/components/WhyVMC";
 import HowWeWork from "@/components/HowWeWork";
 import IndustriesSection from "@/components/IndustriesSection";
 import DigitalMarketingAISection from "@/components/DigitalMarketingAISection";
-import About from "@/components/About";
 import CTA from "@/components/CTA";
 import ContactSection from "@/components/ContactSection";
 import LocalSEOStrip from "@/components/LocalSEOStrip";
@@ -35,22 +34,16 @@ export default function HomePage() {
       {/* 6. AI Voicebot Section (Light Contrast + Voice Flow) */}
       <AIVoicebotSection />
 
-      {/* 7. Why VMC Media (4 Cards) */}
+      {/* 7. Core Value Proposition Section (Human + AI Synergy) */}
       <WhyVMC />
 
-      {/* 8. How We Work (5 Steps) */}
+      {/* 8. 5-Stage Pipeline Deployment Methodology */}
       <HowWeWork />
 
       {/* 9. Industries (8 Cards) */}
       <IndustriesSection />
 
-      {/* 10. Digital Marketing + AI Signature Section */}
-      <DigitalMarketingAISection />
-
-      {/* 11 & 12. About Us & Our Approach to AI */}
-      <About />
-
-      {/* 13. CTA Section (Full-Width Navy) */}
+      {/* 10. CTA Section (Full-Width Navy) */}
       <CTA />
 
       {/* 14. Contact Section (Form with Service Dropdown) */}

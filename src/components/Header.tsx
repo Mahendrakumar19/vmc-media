@@ -189,7 +189,7 @@ const Header = () => {
               </button>
 
               {activeDropdown === "ai" && (
-                <div className="absolute top-full left-0 pt-3 w-[640px] animate-in fade-in zoom-in-95 duration-200 z-50">
+                <div className="absolute top-full left-0 pt-3 w-[640px] max-w-[calc(100vw-2rem)] animate-in fade-in zoom-in-95 duration-200 z-[100]">
                   <div className="bg-popover border border-border rounded-2xl shadow-2xl p-5 ring-1 ring-border/50">
                     <div className="flex items-center justify-between p-3.5 mb-3 rounded-xl bg-gradient-to-r from-[#2cd1a1]/10 via-accent/10 to-primary/10 border border-[#2cd1a1]/20">
                       <div className="flex items-center gap-3">
@@ -353,16 +353,16 @@ const Header = () => {
           <div className="flex items-center gap-3">
             <ThemeToggle />
 
-            {/* Desktop Action Buttons (Get Free Demo removed, Login kept) */}
-            <div className="hidden md:flex items-center gap-2.5">
-              <Button
-                onClick={() => {
-                  window.location.href = "https://aiwa.vmcmedia.in";
-                }}
-                className="bg-[#2cd1a1] hover:bg-[#27b98f] text-slate-950 font-bold px-5 text-sm rounded-xl transition-all cursor-pointer shadow-sm hover:shadow-md"
+            {/* Desktop Action Buttons: Login button */}
+            <div className="hidden md:flex items-center gap-3">
+              <a
+                href="https://aiwa.vmcmedia.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-semibold text-foreground hover:text-primary px-3.5 py-2 rounded-xl border border-border hover:border-foreground/30 hover:bg-muted/60 transition-colors"
               >
                 Login
-              </Button>
+              </a>
             </div>
 
             {/* Mobile Hamburger Toggle Button */}
@@ -579,25 +579,24 @@ const Header = () => {
 
               {/* Mobile Actions Container */}
               <div className="pt-4 mt-2 border-t border-border flex flex-col gap-2.5">
-                <Button
+                {/* <Button
                   onClick={() => {
+                    setIsMenuOpen(false);
                     openModal();
-                    setIsMenuOpen(false);
                   }}
-                  className="w-full bg-[#2cd1a1] hover:bg-[#27b98f] text-slate-950 font-bold shadow-md py-3 text-sm rounded-xl transition-all cursor-pointer"
+                  className="w-full py-2.5 bg-[#2cd1a1] hover:bg-[#27b98f] text-slate-950 font-extrabold text-xs rounded-xl shadow-md transition-all cursor-pointer"
                 >
-                  Get Free Consultation
-                </Button>
-                <Button
-                  onClick={() => {
-                    window.location.href = "https://aiwa.vmcmedia.in";
-                    setIsMenuOpen(false);
-                  }}
-                  variant="outline"
-                  className="w-full border-border hover:bg-muted text-foreground font-semibold py-3 text-sm rounded-xl transition-all cursor-pointer"
+                  Connect with Our Experts
+                </Button> */}
+                <a
+                  href="https://aiwa.vmcmedia.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="w-full text-center py-2.5 px-4 text-xs font-semibold text-foreground border border-border/80 rounded-xl hover:bg-muted transition-colors"
                 >
-                  Login
-                </Button>
+                  Client Login (AIWA CRM) →
+                </a>
               </div>
             </nav>
           </div>

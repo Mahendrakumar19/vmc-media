@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
-import LocalSEOStrip from "@/components/LocalSEOStrip";
 import CTA from "@/components/CTA";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Link from "next/link";
@@ -152,7 +151,7 @@ export default function TechnologySolutionsPage() {
             <span>End-to-End Technology &amp; Engineering</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground mb-6 leading-[1.15]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground mb-6 leading-[1.15] [text-wrap:balance]">
             Enterprise Technology Solutions <br className="hidden sm:inline" />
             <span className="bg-gradient-to-r from-[#073D7B] via-blue-600 to-[#2cd1a1] bg-clip-text text-transparent">
               Engineered for Scalable Growth
@@ -180,24 +179,29 @@ export default function TechnologySolutionsPage() {
             </Link>
           </div>
 
-          {/* Quick Metrics */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto pt-10 border-t border-border/60">
-            <div className="p-4 rounded-xl bg-card/60 border border-border/60 backdrop-blur-sm">
-              <div className="text-2xl sm:text-3xl font-extrabold text-foreground">99.99%</div>
-              <div className="text-xs sm:text-sm text-muted-foreground mt-1">Uptime Reliability</div>
+          {/* Quick Metrics with Methodology Note */}
+          <div className="mt-16 max-w-4xl mx-auto pt-10 border-t border-border/60">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="p-4 rounded-xl bg-card/60 border border-border/60 backdrop-blur-sm">
+                <div className="text-2xl sm:text-3xl font-extrabold text-foreground whitespace-nowrap">99.99%</div>
+                <div className="text-xs sm:text-sm text-muted-foreground mt-1 font-medium">Uptime SLA Guarantee</div>
+              </div>
+              <div className="p-4 rounded-xl bg-card/60 border border-border/60 backdrop-blur-sm">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#2cd1a1] whitespace-nowrap">&lt; 100ms</div>
+                <div className="text-xs sm:text-sm text-muted-foreground mt-1 font-medium">API Response Latency</div>
+              </div>
+              <div className="p-4 rounded-xl bg-card/60 border border-border/60 backdrop-blur-sm">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#073D7B] dark:text-blue-400 whitespace-nowrap">100/100</div>
+                <div className="text-xs sm:text-sm text-muted-foreground mt-1 font-medium">Core Web Vitals Audit</div>
+              </div>
+              <div className="p-4 rounded-xl bg-card/60 border border-border/60 backdrop-blur-sm">
+                <div className="text-2xl sm:text-3xl font-extrabold text-purple-500 whitespace-nowrap">Bank-Grade</div>
+                <div className="text-xs sm:text-sm text-muted-foreground mt-1 font-medium">AES-256 Encryption Standard</div>
+              </div>
             </div>
-            <div className="p-4 rounded-xl bg-card/60 border border-border/60 backdrop-blur-sm">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#2cd1a1]">&lt; 100ms</div>
-              <div className="text-xs sm:text-sm text-muted-foreground mt-1">API Response Latency</div>
-            </div>
-            <div className="p-4 rounded-xl bg-card/60 border border-border/60 backdrop-blur-sm">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#073D7B] dark:text-blue-400">100/100</div>
-              <div className="text-xs sm:text-sm text-muted-foreground mt-1">Lighthouse Speed Score</div>
-            </div>
-            <div className="p-4 rounded-xl bg-card/60 border border-border/60 backdrop-blur-sm">
-              <div className="text-2xl sm:text-3xl font-extrabold text-purple-500">Bank-Grade</div>
-              <div className="text-xs sm:text-sm text-muted-foreground mt-1">Security &amp; Encryption</div>
-            </div>
+            <p className="text-[11px] text-muted-foreground/80 mt-3 text-center italic">
+              *Statistics benchmarked across AWS multi-AZ production deployments, Google Lighthouse v11 audits, and TLS 1.3 / AES-256 data security standards.
+            </p>
           </div>
         </div>
       </section>
@@ -329,7 +333,7 @@ export default function TechnologySolutionsPage() {
         </div>
       </section>
 
-      {/* Tech Stack Grid */}
+      {/* Tech Stack Grid - Grouped by Layer */}
       <section className="py-20 bg-background border-b border-border">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center max-w-2xl mx-auto mb-14">
@@ -337,18 +341,72 @@ export default function TechnologySolutionsPage() {
               Modern, Enterprise-Grade Technology Stack
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base">
-              We leverage production-proven modern frameworks to eliminate legacy tech debt and provide maximum speed, security, and developer ergonomics.
+              Architecturally structured across frontend, backend microservices, data persistence, and cloud infrastructure.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {techStack.map((tech, idx) => (
-              <div 
-                key={idx}
-                className="p-5 rounded-2xl bg-card border border-border hover:border-primary/40 hover:shadow-md transition-all text-center"
-              >
-                <div className="font-bold text-foreground text-base mb-1">{tech.name}</div>
-                <div className="text-xs text-muted-foreground">{tech.category}</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                layer: "Frontend & Mobile",
+                desc: "High-speed rendering & responsive UIs",
+                items: [
+                  { name: "Next.js 15", tag: "App Router / SSR", icon: Globe, color: "text-blue-500 bg-blue-500/10 border-blue-500/20" },
+                  { name: "React & TypeScript", tag: "Concurrent / Type-Safe", icon: Code2, color: "text-cyan-500 bg-cyan-500/10 border-cyan-500/20" },
+                  { name: "Tailwind CSS", tag: "Modern Design System", icon: Sparkles, color: "text-teal-500 bg-teal-500/10 border-teal-500/20" }
+                ]
+              },
+              {
+                layer: "Backend & AI Services",
+                desc: "Low-latency APIs & LLM orchestration",
+                items: [
+                  { name: "Node.js", tag: "Event-Driven Microservices", icon: Server, color: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20" },
+                  { name: "Python", tag: "LLMs, LangChain & AI", icon: Cpu, color: "text-amber-500 bg-amber-500/10 border-amber-500/20" },
+                  { name: "REST & WebSockets", tag: "Real-Time Telemetry", icon: Terminal, color: "text-blue-600 bg-blue-600/10 border-blue-600/20" }
+                ]
+              },
+              {
+                layer: "Data & In-Memory",
+                desc: "ACID compliance & sub-millisecond cache",
+                items: [
+                  { name: "PostgreSQL & Prisma", tag: "ACID Relational Core", icon: Database, color: "text-indigo-500 bg-indigo-500/10 border-indigo-500/20" },
+                  { name: "Redis", tag: "Sub-ms In-Memory Ops", icon: Zap, color: "text-red-500 bg-red-500/10 border-red-500/20" },
+                  { name: "Vector Databases", tag: "Semantic Embeddings", icon: Layers, color: "text-purple-500 bg-purple-500/10 border-purple-500/20" }
+                ]
+              },
+              {
+                layer: "Cloud & Cybersecurity",
+                desc: "Automated scaling & zero-trust security",
+                items: [
+                  { name: "AWS ECS & RDS", tag: "Auto-Scaling Fleet", icon: Cloud, color: "text-orange-500 bg-orange-500/10 border-orange-500/20" },
+                  { name: "GitHub Actions", tag: "Zero-Downtime CI/CD", icon: GitBranch, color: "text-pink-500 bg-pink-500/10 border-pink-500/20" },
+                  { name: "WAF & SSL Firewalls", tag: "Bank-Grade Encryption", icon: Lock, color: "text-emerald-600 bg-emerald-600/10 border-emerald-600/20" }
+                ]
+              }
+            ].map((stackLayer, lIdx) => (
+              <div key={lIdx} className="bg-card border border-border/80 rounded-2xl p-5 shadow-xs flex flex-col justify-between">
+                <div>
+                  <div className="pb-3 mb-4 border-b border-border/60">
+                    <h3 className="font-extrabold text-base text-foreground mb-0.5">{stackLayer.layer}</h3>
+                    <p className="text-[11px] text-muted-foreground">{stackLayer.desc}</p>
+                  </div>
+                  <div className="space-y-3">
+                    {stackLayer.items.map((tech, tIdx) => {
+                      const TechIcon = tech.icon;
+                      return (
+                        <div key={tIdx} className="flex items-center gap-3 p-2 rounded-xl bg-muted/30 border border-border/40">
+                          <div className={`w-8 h-8 rounded-lg flex items-center justify-center border shrink-0 ${tech.color}`}>
+                            <TechIcon className="w-4 h-4" />
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <div className="text-xs font-bold text-foreground truncate">{tech.name}</div>
+                            <div className="text-[10px] text-muted-foreground truncate">{tech.tag}</div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -403,8 +461,6 @@ export default function TechnologySolutionsPage() {
       </section>
 
       <ContactSection />
-      <LocalSEOStrip />
-      <CTA />
       <Footer />
     </main>
   );

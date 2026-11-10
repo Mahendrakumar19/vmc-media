@@ -72,8 +72,8 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-2xl font-bold text-foreground mb-3">5. Contact Us Regarding Privacy</h2>
             <p className="text-muted-foreground text-sm">
               If you have any questions or data deletion requests, please contact our Data Protection Officer at{" "}
-              <a href="mailto:Info@vmcmedia.in" className="text-[#073D7B] dark:text-[#2cd1a1] font-bold underline">
-                Info@vmcmedia.in
+              <a href="mailto:info@vmcmedia.in" className="text-[#073D7B] dark:text-[#2cd1a1] font-bold underline">
+                info@vmcmedia.in
               </a>{" "}
               or write to Level-5, Tower C, Green Boulevard, Block C, Sector-62, Noida, UP 201301.
             </p>

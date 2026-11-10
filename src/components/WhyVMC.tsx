@@ -76,9 +76,6 @@ const WhyVMC = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent flex items-end p-6 sm:p-10">
             <div className="max-w-xl space-y-1.5">
-              <span className="text-[11px] font-mono font-bold text-[#2cd1a1] uppercase tracking-wider bg-[#2cd1a1]/10 px-3 py-1 rounded-full border border-[#2cd1a1]/30 backdrop-blur-md">
-                Synergistic AI Co-Pilot
-              </span>
               <h3 className="text-xl sm:text-2xl font-extrabold text-white">
                 Empowering Teams with Strategic Human + AI Synergy
               </h3>

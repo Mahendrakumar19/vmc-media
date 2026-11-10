@@ -249,7 +249,7 @@ const EcommerceMarketingService = () => {
             onClick={() => router.push('/contact')}
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-accent font-bold rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
           >
-            <span>Claim Free Store Growth Audit</span>
+            <span>Connect with Our Experts</span>
             <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
           </button>
         </div>
